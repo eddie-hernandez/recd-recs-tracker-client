@@ -104,8 +104,6 @@ showRecordContainer.addEventListener('click', (event) => {
 		.catch(onRecordFailure)
 })
 
-
-
 /*
 
 // CAMPAIGN
