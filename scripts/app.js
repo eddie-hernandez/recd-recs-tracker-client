@@ -1,30 +1,28 @@
 import { 
 	indexRecords,
-	indexCampaigns,
 	createRecord,
-	createCampaign,
 	showRecord,
-	showCampaign,
 	updateRecord,
-	updateCampaign,
 	deleteRecord,
-	deleteCampaign,
+	createLinerNote,
+	showLinerNote,
+	updateLinerNote,
+	deleteLinerNote,
 } from './api.js'
 
 
 import { 
-	onIndexRecordSuccess,
-	onIndexCampaignSuccess,
 	onRecordFailure,
-	onCampaignFailure,
+	onIndexRecordSuccess,
 	onCreateRecordSuccess,
-	onCreateCampaignSuccess,
 	onShowRecordSuccess, 
-	onShowCampaignSuccess,
 	onUpdateRecordSuccess,
-	onUpdateCampaignSuccess,
 	onDeleteRecordSuccess,
-	onDeleteCampaignSuccess
+	onLinerNoteFailure,
+	onCreateLinerNoteSuccess,
+	onShowLinerNoteSuccess,
+	onUpdateLinerNoteSuccess,
+	onDeleteLinerNoteSuccess,
 } from './ui.js'
 
 const createRecordForm = document.querySelector('#create-record-form')
@@ -34,6 +32,7 @@ const showRecordContainer = document.querySelector('#show-record-container')
 
 // RECORDS
 
+// INDEX
 indexRecords()
     .then(res => res.json())
     .then(res => {
@@ -42,7 +41,7 @@ indexRecords()
     })
     .catch(onRecordFailure)
 
-
+// CREATE
 createRecordForm.addEventListener('submit', (event) => {
     event.preventDefault()
 
@@ -61,6 +60,7 @@ createRecordForm.addEventListener('submit', (event) => {
 			.catch(onRecordFailure)
 })
 
+// SHOW
 indexRecordContainer.addEventListener('click', (event) => {
     const id = event.target.getAttribute('data-id')
     console.log(id)
@@ -73,6 +73,7 @@ indexRecordContainer.addEventListener('click', (event) => {
 			.catch(onRecordFailure)
 })
 
+// UPDATE
 showRecordContainer.addEventListener('submit', (event) => {
 	event.preventDefault()
 
@@ -94,6 +95,7 @@ showRecordContainer.addEventListener('submit', (event) => {
 		.catch(onRecordFailure)
 })
 
+// DELETE
 showRecordContainer.addEventListener('click', (event) => {
 	const id = event.target.getAttribute('data-id')
 
@@ -104,75 +106,82 @@ showRecordContainer.addEventListener('click', (event) => {
 		.catch(onRecordFailure)
 })
 
-/*
+// LINER NOTES
 
-// CAMPAIGN
-const createCampaignForm = document.querySelector('#create-campaign-form')
-const indexCampaignContainer = document.querySelector('#index-campaign-container')
-const showCampaignContainer = document.querySelector('#show-campaign-container')
-
-indexCampaigns()
-    .then(res => res.json())
-    .then(res => {
-        console.log(res)
-        onIndexCampaignSuccess(res.campaigns)
-    })
-    .catch(onCampaignFailure)
+const createLinerNoteForm = document.querySelector('#create-liner-note-form')
+const showLinerNoteContainer = document.querySelector('#show-liner-note-container')
 
 
-createCampaignForm.addEventListener('submit', (event) => {
+// CREATE
+createLinerNoteForm.addEventListener('submit', (event) => {
     event.preventDefault()
+	const id = event.target.getAttribute('data-id')
 
-    const campaignData = {
-			campaign: {
-				name: event.target['name'].value,
+    const linerNoteData = {
+			linerNote: {
+				rating: event.target['rating'].value,
+				standoutTrack: event.target['standoutTrack'].value,
+				thoughts: event.target['thoughts'].value,
+				recordId: id
 			},
 		}
 
-    // console.log(campaignData)
-    createCampaign(campaignData)
-			.then(onCreateCampaignSuccess)
-			.catch(onCampaignFailure)
+    console.log(linerNoteData)
+    createLinerNote(linerNoteData)
+			.then(onCreateLinerNoteSuccess)
+			.catch(onLinerNoteFailure)
 })
 
-indexCampaignContainer.addEventListener('click', (event) => {
+// SHOW
+showLinerNoteContainer.addEventListener('submit', (event) => {
     const id = event.target.getAttribute('data-id')
-    // console.log(id)
+    console.log(id)
 
     if (!id) return
 
-    showCampaign(id)
+    showLinerNote(id)
 			.then((res) => res.json())
-			.then((res) => onShowCampaignSuccess(res.campaign))
-			.catch(onCampaignFailure)
+			.then((res) => onShowLinerNoteSuccess(res.linerNote))
+			.catch(onRecordFailure)
 })
 
-showCampaignContainer.addEventListener('submit', (event) => {
+// UPDATE
+showLinerNoteContainer.addEventListener('submit', (event) => {
 	event.preventDefault()
 
 	const id = event.target.getAttribute('data-id')
 
-	const campaignData = {
-		campaign: {
-			name: event.target['name'].value,
+    const linerNoteData = {
+		linerNote: {
+			rating: event.target['rating'].value,
+			standoutTrack: event.target['standoutTrack'].value,
+			thoughts: event.target['thoughts'].value,
 		},
 	}
 
     if (!id) return
 
-	updateCampaign(campaignData, id)
-		.then(onUpdateCampaignSuccess)
-		.catch(onCampaignFailure)
+	updateLinerNote(linerNoteData, id)
+		.then(onUpdateLinerNoteSuccess)
+		.catch(onLinerNoteFailure)
 })
 
-showCampaignContainer.addEventListener('click', (event) => {
+// DELETE
+showLinerNoteContainer.addEventListener('click', (event) => {
 	const id = event.target.getAttribute('data-id')
 
     if (!id) return
 
-	deleteCampaign(id)
-		.then(onDeleteCampaignSuccess)
-		.catch(onCampaignFailure)
+	deleteLinerNote(id)
+		.then(onDeleteLinerNoteSuccess)
+		.catch(onLinerNoteFailure)
 })
+
+
+/*
+
+const d = new Date();
+document.getElementById("demo").innerHTML = d.toDateString();
+
 
 */

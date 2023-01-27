@@ -1,11 +1,7 @@
 // RECORD CRUD EXPORTS
 
-export const indexRecords = () => {
-    return fetch(`http://localhost:8000/records`)
-}
-
 export const createRecord = (data) => {
-    return fetch(`http://localhost:8000/records`, {
+    return fetch(`http://localhost:7777/records`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -15,12 +11,16 @@ export const createRecord = (data) => {
     })
 }
 
+export const indexRecords = () => {
+    return fetch(`http://localhost:7777/records`)
+}
+
 export const showRecord = (id) => {
-    return fetch(`http://localhost:8000/records/${id}`)
+    return fetch(`http://localhost:7777/records/${id}`)
 }
 
 export const updateRecord = (data, id) => {
-    return fetch(`http://localhost:8000/records/${id}`, {
+    return fetch(`http://localhost:7777/records/${id}`, {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
@@ -31,21 +31,16 @@ export const updateRecord = (data, id) => {
 }
 
 export const deleteRecord = (id) => {
-    return fetch(`http://localhost:8000/records/${id}`, {
+    return fetch(`http://localhost:7777/records/${id}`, {
         method: 'DELETE'
     })
 }
 
 
-/*
+// LINER NOTE CRUD EXPORTS
 
-// CAMPAIGN CRUD EXPORTS
-export const indexCampaigns = () => {
-    return fetch(`http://localhost:8000/campaigns`)
-}
-
-export const createCampaign = (data) => {
-    return fetch(`http://localhost:8000/campaigns`, {
+export const createLinerNote = (data) => {
+    return fetch(`http://localhost:7777/liner-notes`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -55,12 +50,12 @@ export const createCampaign = (data) => {
     })
 }
 
-export const showCampaign = (id) => {
-    return fetch(`http://localhost:8000/campaigns/${id}`)
+export const showLinerNote = (id) => {
+    return fetch(`http://localhost:7777/liner-notes/${id}`)
 }
 
-export const updateCampaign = (data, id) => {
-    return fetch(`http://localhost:8000/campaigns/${id}`, {
+export const updateLinerNote = (data, id) => {
+    return fetch(`http://localhost:7777/liner-notes/${id}`, {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
@@ -70,10 +65,8 @@ export const updateCampaign = (data, id) => {
     })
 }
 
-export const deleteCampaign = (id) => {
-    return fetch(`http://localhost:8000/campaigns/${id}`, {
+export const deleteLinerNote = (id) => {
+    return fetch(`http://localhost:7777/liner-notes/${id}`, {
         method: 'DELETE'
     })
 }
-
-*/
