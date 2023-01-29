@@ -20,7 +20,7 @@ import {
 	onDeleteRecordSuccess,
 	onLinerNoteFailure,
 	onCreateLinerNoteSuccess,
-	onShowLinerNoteSuccess,
+	// onShowLinerNoteSuccess,
 	onUpdateLinerNoteSuccess,
 	onDeleteLinerNoteSuccess,
 } from './ui.js'
@@ -41,24 +41,26 @@ indexRecords()
     })
     .catch(onRecordFailure)
 
+
+// embed in "add album button"
 // CREATE
-createRecordForm.addEventListener('submit', (event) => {
-    event.preventDefault()
+// createRecordForm.addEventListener('submit', (event) => {
+//     event.preventDefault()
 
-    const recordData = {
-			record: {
-				albumTitle: event.target['albumTitle'].value,
-				artistName: event.target['artistName'].value,
-				yearReleased: event.target['yearReleased'].value,
-				comments: event.target['comments'].value,
-			},
-		}
+//     const recordData = {
+// 			record: {
+// 				albumTitle: event.target['albumTitle'].value,
+// 				artistName: event.target['artistName'].value,
+// 				yearReleased: event.target['yearReleased'].value,
+// 				comments: event.target['comments'].value,
+// 			},
+// 		}
 
-    console.log(recordData)
-    createRecord(recordData)
-			.then(onCreateRecordSuccess)
-			.catch(onRecordFailure)
-})
+//     console.log(recordData)
+//     createRecord(recordData)
+// 			.then(onCreateRecordSuccess)
+// 			.catch(onRecordFailure)
+// })
 
 // SHOW
 indexRecordContainer.addEventListener('click', (event) => {
@@ -111,71 +113,75 @@ showRecordContainer.addEventListener('click', (event) => {
 const createLinerNoteForm = document.querySelector('#create-liner-note-form')
 const showLinerNoteContainer = document.querySelector('#show-liner-note-container')
 
+// Create liner note form will only show when an album is selected and the
+// "add liner note button is clicked"
 
 // CREATE
-createLinerNoteForm.addEventListener('submit', (event) => {
-    event.preventDefault()
-	const id = event.target.getAttribute('data-id')
+// createLinerNoteForm.addEventListener('submit', (event) => {
+//     event.preventDefault()
+// 	const id = event.target.getAttribute('data-id')
 
-    const linerNoteData = {
-			linerNote: {
-				rating: event.target['rating'].value,
-				standoutTrack: event.target['standoutTrack'].value,
-				thoughts: event.target['thoughts'].value,
-				recordId: id
-			},
-		}
+//     const linerNoteData = {
+// 			linerNote: {
+// 				rating: event.target['rating'].value,
+// 				standoutTrack: event.target['standoutTrack'].value,
+// 				thoughts: event.target['thoughts'].value,
+// 				recordId: id
+// 			},
+// 		}
 
-    console.log(linerNoteData)
-    createLinerNote(linerNoteData)
-			.then(onCreateLinerNoteSuccess)
-			.catch(onLinerNoteFailure)
-})
+//     console.log(linerNoteData)
+//     createLinerNote(linerNoteData)
+// 			.then(onCreateLinerNoteSuccess)
+// 			.catch(onLinerNoteFailure)
+// })
 
 // SHOW
-showLinerNoteContainer.addEventListener('submit', (event) => {
-    const id = event.target.getAttribute('data-id')
-    console.log(id)
+// showLinerNoteContainer.addEventListener('submit', (event) => {
+//     const id = event.target.getAttribute('data-id')
+//     console.log(id)
 
-    if (!id) return
+//     if (!id) return
 
-    showLinerNote(id)
-			.then((res) => res.json())
-			.then((res) => onShowLinerNoteSuccess(res.linerNote))
-			.catch(onRecordFailure)
-})
+//     showLinerNote(id)
+// 			.then((res) => res.json())
+// 			.then((res) => onShowLinerNoteSuccess(res.linerNote))
+// 			.catch(onRecordFailure)
+// })
 
-// UPDATE
-showLinerNoteContainer.addEventListener('submit', (event) => {
+// UPDATE LINER NOTE
+showRecordContainer.addEventListener('submit', (event) => {
 	event.preventDefault()
 
-	const id = event.target.getAttribute('data-id')
+	const linerNoteId = event.target.getAttribute('data-id')
+	console.log(linerNoteId)
 
-    const linerNoteData = {
+	const linerNoteData = {
 		linerNote: {
 			rating: event.target['rating'].value,
 			standoutTrack: event.target['standoutTrack'].value,
 			thoughts: event.target['thoughts'].value,
+			recordId: event.target['recordId'].value
 		},
 	}
 
-    if (!id) return
+	if (!linerNoteId) return
 
-	updateLinerNote(linerNoteData, id)
+	updateLinerNote(linerNoteData, linerNoteId)
 		.then(onUpdateLinerNoteSuccess)
 		.catch(onLinerNoteFailure)
 })
 
-// DELETE
-showLinerNoteContainer.addEventListener('click', (event) => {
-	const id = event.target.getAttribute('data-id')
+// // DELETE
+// showLinerNoteContainer.addEventListener('click', (event) => {
+// 	const id = event.target.getAttribute('data-id')
 
-    if (!id) return
+//     if (!id) return
 
-	deleteLinerNote(id)
-		.then(onDeleteLinerNoteSuccess)
-		.catch(onLinerNoteFailure)
-})
+// 	deleteLinerNote(id)
+// 		.then(onDeleteLinerNoteSuccess)
+// 		.catch(onLinerNoteFailure)
+// })
 
 
 /*
