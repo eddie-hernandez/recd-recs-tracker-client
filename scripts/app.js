@@ -105,16 +105,6 @@ userSignUpForm.addEventListener('submit', (event) => {
 
 // RECORDS
 
-// // INDEX
-// indexRecords()
-// 	.then(reIndexRecordsButton.style.display = "none")
-//     .then(res => res.json())
-//     .then(res => {
-//         console.log(res)
-//         onIndexRecordSuccess(res.records)
-//     })
-//     .catch(onRecordFailure)
-
 // RE-INDEXING RECORDS
 const reIndexRecords = () => {
 	reIndexRecordsButton.style.display = "none"
@@ -280,66 +270,6 @@ deleteLinerNoteContainer.addEventListener('click', (event) => {
 			.catch(onLinerNoteFailure)
 	}
 })
-
-// // UPDATE LINER NOTE
-
-// linerNoteFormContainer.addEventListener('submit', (event) => {
-// 	event.preventDefault()
-// 	console.log(event.target)
-// 	if (event.target.classList.contains("update-liner-note-form")) {
-
-// 		const linerNoteId = event.target.getAttribute('data-id')
-// 		console.log(linerNoteId)
-
-// 		const linerNoteData = {
-// 			linerNote: {
-// 				rating: event.target['rating'].value,
-// 				standoutTrack: event.target['standoutTrack'].value,
-// 				thoughts: event.target['thoughts'].value,
-// 				recordId: event.target['recordId'].value
-// 			},
-// 		}
-
-// 		if (!linerNoteId) return
-
-// 		updateLinerNote(linerNoteData, linerNoteId)
-// 			.then(onUpdateLinerNoteSuccess)
-// 			.catch(onLinerNoteFailure)
-// 	}
-// })
-
-// updateLinerNoteForm.addEventListener('submit', (event) => {
-// 	event.preventDefault()
-
-// 	const linerNoteId = event.target.getAttribute('data-id')
-// 	console.log(linerNoteId)
-
-// 	const linerNoteData = {
-// 		linerNote: {
-// 			rating: event.target['rating'].value,
-// 			standoutTrack: event.target['standoutTrack'].value,
-// 			thoughts: event.target['thoughts'].value,
-// 			recordId: event.target['recordId'].value
-// 		},
-// 	}
-
-// 	if (!linerNoteId) return
-
-// 	updateLinerNote(linerNoteData, linerNoteId)
-// 		.then(onUpdateLinerNoteSuccess)
-// 		.catch(onLinerNoteFailure)
-// })
-
-// // DELETE LINER NOTE
-// showLinerNoteContainer.addEventListener('click', (event) => {
-// 	const id = event.target.getAttribute('data-id')
-
-//     if (!id) return
-
-// 	deleteLinerNote(id)
-// 		.then(onDeleteLinerNoteSuccess)
-// 		.catch(onLinerNoteFailure)
-// })
 
 
 /*
