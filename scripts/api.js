@@ -1,3 +1,29 @@
+import { store } from './store.js'
+
+// USER ACTION EXPORTS
+
+export const signIn = (data) => {
+	return fetch(`http://localhost:7777/sign-in`, {
+		method: 'POST',
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(data),
+	})
+}
+
+export const signUp = (data) => {
+	return fetch(`http://localhost:7777/sign-up`, {
+		method: 'POST',
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(data),
+	})
+}
+
 // RECORD CRUD EXPORTS
 
 export const createRecord = (data) => {
@@ -5,18 +31,36 @@ export const createRecord = (data) => {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${store.userToken}`
         },
         body: JSON.stringify(data)
     })
 }
 
 export const indexRecords = () => {
-    return fetch(`http://localhost:7777/records`)
+    return fetch(`http://localhost:7777/records`, {
+		headers: {
+			'Authorization': `Bearer ${store.userToken}`,
+		},
+	})
 }
 
+export const seedRecords = () => {
+    return fetch(`http://localhost:7777/seed/records`, {
+		headers: {
+			'Authorization': `Bearer ${store.userToken}`,
+		},
+	})
+}
+
+
 export const showRecord = (id) => {
-    return fetch(`http://localhost:7777/records/${id}`)
+    return fetch(`http://localhost:7777/records/${id}`, {
+		headers: {
+			'Authorization': `Bearer ${store.userToken}`,
+		},
+	})
 }
 
 export const updateRecord = (data, id) => {
@@ -24,7 +68,8 @@ export const updateRecord = (data, id) => {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${store.userToken}`
         },
         body: JSON.stringify(data)
     })
@@ -32,7 +77,10 @@ export const updateRecord = (data, id) => {
 
 export const deleteRecord = (id) => {
     return fetch(`http://localhost:7777/records/${id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+		headers: {
+			Authorization: `Bearer ${store.userToken}`,
+		},
     })
 }
 
@@ -44,22 +92,20 @@ export const createLinerNote = (data) => {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${store.userToken}`
         },
         body: JSON.stringify(data)
     })
 }
-
-// export const showLinerNote = (id) => {
-//     return fetch(`http://localhost:7777/liner-notes/${id}`)
-// }
 
 export const updateLinerNote = (data, id) => {
     return fetch(`http://localhost:7777/liner-notes/${id}`, {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${store.userToken}`
         },
         body: JSON.stringify(data)
     })
@@ -70,7 +116,8 @@ export const deleteLinerNote = (data, id) => {
         method: 'DELETE',
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${store.userToken}`
         },
         body: JSON.stringify(data)
     })

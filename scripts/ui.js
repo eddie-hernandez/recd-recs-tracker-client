@@ -1,10 +1,15 @@
+import { store } from './store.js'
+
 // RECORDS
 
 const indexRecordContainer = document.querySelector('#index-record-container')
+const userMessageContainer = document.querySelector('#user-message-container')
 const recordMessage = document.querySelector('#record-message')
 const showRecordContainer = document.querySelector('#show-record-container')
 const linerNoteFormContainer = document.querySelector('#liner-note-form-container')
 const deleteLinerNoteContainer = document.querySelector('#delete-liner-note-container')
+const authContainer = document.querySelector('#auth-container')
+const mainContainer = document.querySelector('#main-container')
 
 
 // accessing the rating would look like this!!
@@ -213,7 +218,6 @@ export const onHideLinerNoteSuccess = () => {
     linerNoteFormContainer.innerHTML = ``
 }
 
-
 export const onLinerNoteFailure = (error) => {
     recordMessage.innerHTML = `
         <h2>You've got a liner note error! :(</h2>
@@ -234,4 +238,22 @@ export const onUpdateLinerNoteSuccess = () => {
 export const onDeleteLinerNoteSuccess = () => {
     recordMessage.innerHTML = `<i>You just deleted a liner note! :O</i>`
     setTimeout(() => {recordMessage.innerText = ``}, 3000)
+}
+
+export const onSignUpSuccess = () => {
+    userMessageContainer.innerHTML = `You've created a new user! Now Sign In`
+}
+
+export const onSignInSuccess = (userToken) => {
+    userMessageContainer.innerHTML = ''
+    store.userToken = userToken
+    authContainer.classList.add('d-none')
+    mainContainer.classList.remove('d-none')
+}
+
+export const onUserFailure = (error) => {
+    userMessageContainer.innerHTML = `
+    <h2>User Error!</h2>
+    <p>${error}</p>
+`
 }

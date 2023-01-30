@@ -15,22 +15,84 @@
 </head>
 <body>
     <h1>Rec'd Recs</h1>
+    <div id="auth-container" class="show-container vh-80 gradient-custom">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div id="user-form-container" class="card bg-secondary text-white" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
+                            <div class="sign-in-container mb-md-5 mt-md-4 pb-5">
+                                <h2 class="fw-bold mb-2">Login!</h2>
+                                <p class="text-white-50 mb-5">Please Enter your Email and Password:</p>
+                                <form class="user-login-form">
+                                <div class="form-floating">
+                                    <input type="email" id="email" class="form-control" placeholder="email" />
+                                    <label class="form-label text-black" for="email">Email</label>
+                                </div></br>
+                                <div class="form-floating">
+                                    <input type="password" id="password" class="form-control" placeholder="password" />
+                                    <label class="form-label text-black" for="password">Password</label>
+                                </div></br>
+                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                                </form></br>
+                                <div>
+                                    <p class="mb-0">Don't have a Rec'd Recs account? <a class="new-account text-white-50 fw-bold">Sign Up</a>
+                                    </p>
+                                </div>
+                            </div>
 
-    <h2>My Recommended Albums</h2>
-    <div id="show-record-container"></div></br>
-    <div id="liner-note-form-container"></div>
-    <div id="delete-liner-note-container"></div></br>
-    <div id="index-record-container"></div></br></br>
-    <div id="record-message-container">
-        <h4 id="record-message"></h4>
+                            <div class="sign-up-container mb-md-5 mt-md-4 pb-5 d-none">
+                                <h2 class="fw-bold mb-2">Sign-Up!</h2>
+                                <p class="text-white-50 mb-5">Please Enter your Email and Password:</p>
+
+                                <form class="user-signup-form">
+                                    <div class="form-floating">
+                                        <input type="email" id="email" class="form-control" placeholder="email" />
+                                        <label class="form-label text-black" for="email">Email</label>
+                                    </div></br>
+                                    <div class="form-floating">
+                                        <input type="password" id="password" class="form-control" placeholder="password" />
+                                        <label class="form-label text-black" for="password">Password</label>
+                                    </div></br>
+                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Sign Me Up!</button>
+                                    </form></br>
+                                <div>
+                                    <p class="mb-0">Already have a Rec'd Recs account? <a class="existing-account text-white-50 fw-bold">Login Here</a>
+                                    </p>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="user-message-container"></div>
     </div>
-    <div id="re-index-records-container">
-        <button class="btn btn-primary" id="re-index-records-button">Back to Record Collection</button></br></br>
-    </div>
 
 
-    <div class="record-form-container">
-        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#create-record-form" aria-expanded="false" aria-controls="row" id="add-record-button">Add New Record</button></br></br>
+
+
+
+
+    <div id="main-container" class="d-none">
+
+        <h2>My Recommended Albums</h2>
+        <div id="show-record-container"></div></br>
+        <div id="liner-note-form-container"></div>
+        <div id="delete-liner-note-container"></div></br>
+        <div id="index-record-container"></div></br></br>
+        <div id="record-message-container">
+            <h4 id="record-message"></h4>
+        </div>
+        <div id="re-index-records-container">
+            <button class="btn btn-primary" id="re-index-records-button">Back to Record Collection</button></br></br>
+        </div>
+
+
+        <div class="record-form-container">
+            <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#create-record-form" aria-expanded="false" aria-controls="row" id="add-record-button">Add New Record</button></br></br>
             <form id="create-record-form" class="collapse">
                 <div class="form-floating">
                     <input type="text" name="albumTitle" id="albumTitle" placeholder="add record title here" class="form-control" />
@@ -50,7 +112,8 @@
                 </div></br>
                     <button type="submit" class="btn btn-success" value="Add New Record">Add Record to 'My Recommended Albums'</button></br></br>
             </form>
+        </div>
     </div>
-
 </body>
+
 </html>

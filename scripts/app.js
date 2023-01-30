@@ -1,5 +1,6 @@
 import { 
 	indexRecords,
+	seedRecords,
 	createRecord,
 	showRecord,
 	updateRecord,
@@ -7,6 +8,8 @@ import {
 	createLinerNote,
 	updateLinerNote,
 	deleteLinerNote,
+	signUp,
+	signIn,
 } from './api.js'
 
 
@@ -24,6 +27,9 @@ import {
 	onUpdateLinerNoteSuccess,
 	onDeleteLinerNoteSuccess,
 	onHideLinerNoteSuccess,
+	onSignUpSuccess,
+	onSignInSuccess,
+	onUserFailure
 } from './ui.js'
 
 const createRecordForm = document.querySelector('#create-record-form')
@@ -32,18 +38,82 @@ const showRecordContainer = document.querySelector('#show-record-container')
 const reIndexRecordsButton = document.querySelector('#re-index-records-button')
 const linerNoteFormContainer = document.querySelector('#liner-note-form-container')
 const deleteLinerNoteContainer = document.querySelector('#delete-liner-note-container')
+const signUpContainer = document.querySelector('.sign-up-container')
+const signInContainer = document.querySelector('.sign-in-container')
+const userFormContainer = document.querySelector('#user-form-container')
+const userSignInForm = document.querySelector('.user-login-form')
+const userSignUpForm = document.querySelector('.user-signup-form')
+
+// User Actions
+
+// NAV SIGN-IN to SIGN-UP
+signInContainer.addEventListener('click', (event) => {
+	if (event.target.classList.contains('new-account')) {
+		signInContainer.classList.add('d-none')
+		signUpContainer.classList.remove('d-none')
+		userFormContainer.classList = `card bg-dark text-white`
+	}
+})
+
+// NAV SIGN-UP to SIGN-IN
+signUpContainer.addEventListener('click', (event) => {
+	if (event.target.classList.contains('existing-account')) {
+		signUpContainer.classList.add('d-none')
+		signInContainer.classList.remove('d-none')
+		userFormContainer.classList = `card bg-secondary text-white`
+	}
+})
+
+// SIGN-IN
+userSignInForm.addEventListener('submit', (event) => {
+	console.log(event.target)
+	event.preventDefault()
+	const userData = {
+		credentials: {
+			email: event.target['email'].value,
+			password: event.target['password'].value,
+		},
+	}
+	signIn(userData)
+		.then((res) => res.json())
+		.then((res) => onSignInSuccess(res.token))
+		.then(indexRecords)
+		.then(reIndexRecordsButton.style.display = "none")
+		.then(res => res.json())
+		.then(res => {
+			console.log(res)
+			onIndexRecordSuccess(res.records)
+		})
+		.catch(onRecordFailure)
+})
+
+// SIGN-UP
+userSignUpForm.addEventListener('submit', (event) => {
+	console.log(event.target)
+	event.preventDefault()
+	const userData = {
+		credentials: {
+			email: event.target['email'].value,
+			password: event.target['password'].value,
+		},
+	}
+	signUp(userData)
+	.then(onSignUpSuccess)
+	.then(seedRecords)
+	.catch(onUserFailure)
+})
 
 // RECORDS
 
-// INDEX
-indexRecords()
-	.then(reIndexRecordsButton.style.display = "none")
-    .then(res => res.json())
-    .then(res => {
-        console.log(res)
-        onIndexRecordSuccess(res.records)
-    })
-    .catch(onRecordFailure)
+// // INDEX
+// indexRecords()
+// 	.then(reIndexRecordsButton.style.display = "none")
+//     .then(res => res.json())
+//     .then(res => {
+//         console.log(res)
+//         onIndexRecordSuccess(res.records)
+//     })
+//     .catch(onRecordFailure)
 
 // RE-INDEXING RECORDS
 const reIndexRecords = () => {
