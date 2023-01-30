@@ -118,6 +118,8 @@ userSignUpForm.addEventListener('submit', (event) => {
 // RE-INDEXING RECORDS
 const reIndexRecords = () => {
 	reIndexRecordsButton.style.display = "none"
+	deleteLinerNoteContainer.innerHTML = ``
+	deleteLinerNoteContainer.style.display = "none"
 	indexRecordContainer.style.display = "block"
 	onHideRecordSuccess()
 	onHideLinerNoteSuccess()
@@ -148,6 +150,7 @@ createRecordForm.addEventListener('submit', (event) => {
 indexRecordContainer.addEventListener('click', (event) => {
 	if (event.target.classList.contains('show-button')) {
 		reIndexRecordsButton.addEventListener('click', reIndexRecords)
+		deleteLinerNoteContainer.style.display = "block"
 		reIndexRecordsButton.style.display = "block"
 		const id = event.target.getAttribute('data-id')
 		console.log(id)

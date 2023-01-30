@@ -123,7 +123,7 @@ export const onShowRecordSuccess = (record) => {
                         <label for="recordId" class="form-label" class="form-control">Record ID</label>
                     </div></br>
                     <button type="submit" class="btn btn-success" value="Update Liner Note" />Update Liner Note Info for "${record.albumTitle}"</button></br></br>
-                </form></br>
+                </form>
         `
         linerNoteFormContainer.appendChild(linerNoteDiv)
 
