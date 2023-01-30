@@ -39,10 +39,6 @@ h3 {
     color: orange;
 }
 
-#delete-liner-note-container {
-    margin-top: -75px;
-}
-
 .update-liner-note-form {
-    margin-bottom: 40px;
+    margin-bottom: 25px;
 }
