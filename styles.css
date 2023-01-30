@@ -1,11 +1,19 @@
 body {
     text-align: center;
+    font-family: 'IM Fell English', serif;
+    margin-top: 50px;
 }
 
 h1 {
-    font-size: 40px;
+    font-size: 50px;
+    font-family: 'Rosarivo', serif;
 }
 
 h2 {
     font-size: 25px;
+    font-family: 'Rosarivo', serif;
+}
+
+h3 {
+    font-family: 'IM Fell English', italic;
 }
