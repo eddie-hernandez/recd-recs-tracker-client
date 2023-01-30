@@ -50,9 +50,9 @@ export const createLinerNote = (data) => {
     })
 }
 
-export const showLinerNote = (id) => {
-    return fetch(`http://localhost:7777/liner-notes/${id}`)
-}
+// export const showLinerNote = (id) => {
+//     return fetch(`http://localhost:7777/liner-notes/${id}`)
+// }
 
 export const updateLinerNote = (data, id) => {
     return fetch(`http://localhost:7777/liner-notes/${id}`, {
@@ -65,8 +65,13 @@ export const updateLinerNote = (data, id) => {
     })
 }
 
-export const deleteLinerNote = (id) => {
+export const deleteLinerNote = (data, id) => {
     return fetch(`http://localhost:7777/liner-notes/${id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
     })
 }

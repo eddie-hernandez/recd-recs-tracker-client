@@ -5,7 +5,6 @@ import {
 	updateRecord,
 	deleteRecord,
 	createLinerNote,
-	showLinerNote,
 	updateLinerNote,
 	deleteLinerNote,
 } from './api.js'
@@ -14,27 +13,31 @@ import {
 import { 
 	onRecordFailure,
 	onIndexRecordSuccess,
-	onHideRecordSuccess,
+	onHideIndexSuccess,
 	onCreateRecordSuccess,
 	onShowRecordSuccess, 
+	onHideRecordSuccess,
 	onUpdateRecordSuccess,
 	onDeleteRecordSuccess,
 	onLinerNoteFailure,
 	onCreateLinerNoteSuccess,
-	// onShowLinerNoteSuccess,
 	onUpdateLinerNoteSuccess,
 	onDeleteLinerNoteSuccess,
+	onHideLinerNoteSuccess,
 } from './ui.js'
 
 const createRecordForm = document.querySelector('#create-record-form')
 const indexRecordContainer = document.querySelector('#index-record-container')
 const showRecordContainer = document.querySelector('#show-record-container')
-
+const reIndexRecordsButton = document.querySelector('#re-index-records-button')
+const linerNoteFormContainer = document.querySelector('#liner-note-form-container')
+const deleteLinerNoteContainer = document.querySelector('#delete-liner-note-container')
 
 // RECORDS
 
 // INDEX
 indexRecords()
+	.then(reIndexRecordsButton.style.display = "none")
     .then(res => res.json())
     .then(res => {
         console.log(res)
@@ -42,42 +45,55 @@ indexRecords()
     })
     .catch(onRecordFailure)
 
+// RE-INDEXING RECORDS
+const reIndexRecords = () => {
+	reIndexRecordsButton.style.display = "none"
+	indexRecordContainer.style.display = "block"
+	onHideRecordSuccess()
+	onHideLinerNoteSuccess()
+	linerNoteFormContainer.style.display = "block"
+}
 
 // embed in "add album button"
-// CREATE
-// createRecordForm.addEventListener('submit', (event) => {
-//     event.preventDefault()
+// CREATE RECORD
+createRecordForm.addEventListener('submit', (event) => {
+    event.preventDefault()
 
-//     const recordData = {
-// 			record: {
-// 				albumTitle: event.target['albumTitle'].value,
-// 				artistName: event.target['artistName'].value,
-// 				yearReleased: event.target['yearReleased'].value,
-// 				comments: event.target['comments'].value,
-// 			},
-// 		}
+    const recordData = {
+			record: {
+				albumTitle: event.target['albumTitle'].value,
+				artistName: event.target['artistName'].value,
+				yearReleased: event.target['yearReleased'].value,
+				comments: event.target['comments'].value,
+			},
+		}
 
-//     console.log(recordData)
-//     createRecord(recordData)
-// 			.then(onCreateRecordSuccess)
-// 			.catch(onRecordFailure)
-// })
-
-// SHOW
-indexRecordContainer.addEventListener('click', (event) => {
-    const id = event.target.getAttribute('data-id')
-    console.log(id)
-
-    if (!id) return
-
-    showRecord(id)
-			.then((res) => res.json())
-			.then((res) => onShowRecordSuccess(res.record))
-			.then(onHideRecordSuccess)
+    console.log(recordData)
+    createRecord(recordData)
+			.then(onCreateRecordSuccess)
 			.catch(onRecordFailure)
 })
 
-// UPDATE
+// SHOW RECORD
+indexRecordContainer.addEventListener('click', (event) => {
+	if (event.target.classList.contains('show-button')) {
+		reIndexRecordsButton.addEventListener('click', reIndexRecords)
+		reIndexRecordsButton.style.display = "block"
+		const id = event.target.getAttribute('data-id')
+		console.log(id)
+
+		if (!id) return
+
+		showRecord(id)
+				.then((res) => res.json())
+				.then((res) => onShowRecordSuccess(res.record))
+				.then(onHideIndexSuccess)
+				.catch(onRecordFailure)
+	}
+})
+
+
+// UPDATE RECORD
 showRecordContainer.addEventListener('submit', (event) => {
 	event.preventDefault()
 
@@ -99,7 +115,7 @@ showRecordContainer.addEventListener('submit', (event) => {
 		.catch(onRecordFailure)
 })
 
-// DELETE
+// DELETE RECORD
 showRecordContainer.addEventListener('click', (event) => {
 	const id = event.target.getAttribute('data-id')
 
@@ -110,19 +126,25 @@ showRecordContainer.addEventListener('click', (event) => {
 		.catch(onRecordFailure)
 })
 
-// LINER NOTES
 
-const createLinerNoteForm = document.querySelector('#create-liner-note-form')
-const showLinerNoteContainer = document.querySelector('#show-liner-note-container')
+
+
+
+
+
+// LINER NOTES
 
 // Create liner note form will only show when an album is selected and the
 // "add liner note button is clicked"
 
-// CREATE LINER NOTE
-createLinerNoteForm.addEventListener('submit', (event) => {
-    event.preventDefault()
 
-    const linerNoteData = {
+linerNoteFormContainer.addEventListener('submit', (event) => {
+	event.preventDefault()
+	console.log(event.target)
+
+	// CREATE LINER NOTE
+	if (event.target.classList.contains("create-liner-note-form")) {
+	const linerNoteData = {
 			linerNote: {
 				rating: event.target['rating'].value,
 				standoutTrack: event.target['standoutTrack'].value,
@@ -131,27 +153,89 @@ createLinerNoteForm.addEventListener('submit', (event) => {
 			},
 		}
 
-    console.log(linerNoteData)
-    createLinerNote(linerNoteData)
+	console.log(linerNoteData)
+	createLinerNote(linerNoteData)
 			.then(onCreateLinerNoteSuccess)
 			.catch(onLinerNoteFailure)
+}
+
+	// UPDATE LINER NOTE
+	else if (event.target.classList.contains("update-liner-note-form")) {
+
+		const linerNoteId = event.target.getAttribute('data-id')
+		console.log(linerNoteId)
+
+		const linerNoteData = {
+			linerNote: {
+				rating: event.target['rating'].value,
+				standoutTrack: event.target['standoutTrack'].value,
+				thoughts: event.target['thoughts'].value,
+				recordId: event.target['recordId'].value
+			},
+		}
+
+		if (!linerNoteId) return
+
+		updateLinerNote(linerNoteData, linerNoteId)
+			.then(onUpdateLinerNoteSuccess)
+			.catch(onLinerNoteFailure)
+	}
+
+
 })
 
-// SHOW
-// showLinerNoteContainer.addEventListener('submit', (event) => {
-//     const id = event.target.getAttribute('data-id')
-//     console.log(id)
+// DELETE LINER NOTE
+deleteLinerNoteContainer.addEventListener('click', (event) => {
+	event.preventDefault()
+	console.log(event.target)
 
-//     if (!id) return
+	if (event.target.classList.contains("delete-liner-note")) {
+		const linerNoteId = event.target.getAttribute('data-id')
+		const deleteDiv = document.querySelector('#delete-container')
+		const recordId = deleteDiv.getAttribute('data-id')
 
-//     showLinerNote(id)
-// 			.then((res) => res.json())
-// 			.then((res) => onShowLinerNoteSuccess(res.linerNote))
-// 			.catch(onRecordFailure)
+		const linerNoteData = {
+			linerNote: {
+				recordId: recordId
+			},
+		}
+
+    	if (!linerNoteId) return
+
+		deleteLinerNote(linerNoteData, linerNoteId)
+			.then(onDeleteLinerNoteSuccess)
+			.catch(onLinerNoteFailure)
+	}
+})
+
+// // UPDATE LINER NOTE
+
+// linerNoteFormContainer.addEventListener('submit', (event) => {
+// 	event.preventDefault()
+// 	console.log(event.target)
+// 	if (event.target.classList.contains("update-liner-note-form")) {
+
+// 		const linerNoteId = event.target.getAttribute('data-id')
+// 		console.log(linerNoteId)
+
+// 		const linerNoteData = {
+// 			linerNote: {
+// 				rating: event.target['rating'].value,
+// 				standoutTrack: event.target['standoutTrack'].value,
+// 				thoughts: event.target['thoughts'].value,
+// 				recordId: event.target['recordId'].value
+// 			},
+// 		}
+
+// 		if (!linerNoteId) return
+
+// 		updateLinerNote(linerNoteData, linerNoteId)
+// 			.then(onUpdateLinerNoteSuccess)
+// 			.catch(onLinerNoteFailure)
+// 	}
 // })
 
-// UPDATE LINER NOTE
-// showRecordContainer.addEventListener('submit', (event) => {
+// updateLinerNoteForm.addEventListener('submit', (event) => {
 // 	event.preventDefault()
 
 // 	const linerNoteId = event.target.getAttribute('data-id')
@@ -173,7 +257,7 @@ createLinerNoteForm.addEventListener('submit', (event) => {
 // 		.catch(onLinerNoteFailure)
 // })
 
-// // DELETE
+// // DELETE LINER NOTE
 // showLinerNoteContainer.addEventListener('click', (event) => {
 // 	const id = event.target.getAttribute('data-id')
 

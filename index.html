@@ -18,13 +18,39 @@
 
     <h2>My Recommended Albums</h2>
     <div id="show-record-container"></div></br>
+    <div id="liner-note-form-container"></div>
+    <div id="delete-liner-note-container"></div></br>
+    <div id="index-record-container"></div></br></br>
     <div id="record-message-container">
         <h4 id="record-message"></h4>
     </div>
-    <div id="index-record-container"></div></br></br>
+    <div id="re-index-records-container">
+        <button class="btn btn-primary" id="re-index-records-button">Back to Record Collection</button></br></br>
+    </div>
 
-        <input type="submit" value="Add Album" />
-    </form></br></br>
+
+    <div class="record-form-container">
+        <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#create-record-form" aria-expanded="false" aria-controls="row" id="add-record-button">Add New Record</button></br></br>
+            <form id="create-record-form" class="collapse">
+                <div class="form-floating">
+                    <input type="text" name="albumTitle" id="albumTitle" placeholder="add record title here" class="form-control" />
+                    <label for="albumTitle" class="form-label" class="form-control">Record Title</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" name="artistName" id="artistName" placeholder="add artist name here" class="form-control" />
+                    <label for="artistName" class="form-label" class="form-control">Artist Name</label>
+                </div>
+                <div class="form-floating">
+                    <input type="number" name="yearReleased" id="yearReleased" placeholder="year record was released" class="form-control" />
+                    <label for="yearReleased" class="form-label" class="form-control">Year Released</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" name="comments" id="comments" placeholder="add any comments about the record here" class="form-control" />
+                    <label for="comments" class="form-label" class="form-control">Comments (if any)</label>
+                </div></br>
+                    <button type="submit" class="btn btn-success" value="Add New Record">Add Record to 'My Recommended Albums'</button></br></br>
+            </form>
+    </div>
 
 </body>
 </html>
