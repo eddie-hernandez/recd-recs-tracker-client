@@ -18,7 +18,6 @@ const mainContainer = document.querySelector('#main-container')
 
 export const onIndexRecordSuccess = (records) => {
     indexRecordContainer.style.display = "block"
-    console.log(store)
     records.forEach(record => {
         const div = document.createElement('div')
         div.innerHTML = `
