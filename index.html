@@ -24,7 +24,7 @@
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                     <div id="user-form-container" class="card bg-secondary text-white" style="border-radius: 1rem;">
                         <div class="card-body p-5 text-center">
-                            <div class="sign-in-container mb-md-5 mt-md-4 pb-5">
+                            <div class="sign-in-container">
                                 <h2 class="fw-bold mb-2">Login!</h2>
                                 <p class="text-white-50 mb-5">Please Enter your Email and Password:</p>
                                 <form class="user-login-form">
@@ -44,7 +44,7 @@
                                 </div>
                             </div>
 
-                            <div class="sign-up-container mb-md-5 mt-md-4 pb-5 d-none">
+                            <div class="sign-up-container d-none">
                                 <h2 class="fw-bold mb-2">Sign-Up!</h2>
                                 <p class="text-white-50 mb-5">Please Enter your Email and Password:</p>
 
@@ -80,22 +80,24 @@
 
     <div id="main-container" class="d-none">
 
-        <h2>My Recommended Albums</h2>
-        <div id="show-record-container"></div></br>
-        <div id="liner-note-form-container"></div>
-        <div id="delete-liner-note-container"></div></br>
-        <div id="index-record-container"></div></br></br>
-        <div id="record-message-container">
-            <h4 id="record-message"></h4>
+        <h2 id="record-collection">My Recommended Albums</h2>
+        <div id="show-all-container" class="row m-auto">
+            <div id="show-record-container" class="col-4 offset-2"></div></br>
+            <div id="liner-note-form-container" class="col-4"></div>
+            <div id="delete-liner-note-container" class="col-6 offset-5"></div></br>
         </div>
+            <div id="index-record-container"></div></br></br>
+            <div id="record-message-container">
+                <h4 id="record-message"></h4>
+            </div>
         <div class="d-flex justify-content-center" id="re-index-records-container">
-            <button class="btn btn-primary" id="re-index-records-button">Back to Record Collection</button></br></br></div></br>
+            <button class="btn btn-warning" id="re-index-records-button">Back to Record Collection</button></br></br></div></br>
         </div>
 
 
-        <div class="record-form-container">
-            <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#create-record-form" aria-expanded="false" aria-controls="row" id="add-record-button">Add New Record</button></br></br>
-            <form id="create-record-form" class="collapse">
+        <div class="record-form-container d-none">
+            <button class="btn btn-dark p-3" data-bs-toggle="collapse" data-bs-target="#create-record-form" aria-expanded="false" aria-controls="row" id="add-record-button">Add New Record</button></br></br>
+            <form id="create-record-form" class="col-6 offset-3 collapse">
                 <div class="form-floating">
                     <input type="text" name="albumTitle" id="albumTitle" placeholder="add record title here" class="form-control" />
                     <label for="albumTitle" class="form-label" class="form-control">Record Title</label>

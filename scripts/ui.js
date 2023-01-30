@@ -47,7 +47,9 @@ export const onRecordFailure = (error) => {
 export const onShowRecordSuccess = (record) => {
     showRecordContainer.style.display = "block"
     const recordDiv = document.createElement('div')
-    recordDiv.innerHTML = `</br>
+    recordDiv.setAttribute('class', 'col')
+    recordDiv.innerHTML = `
+        <h2 id="show-record-title">Selected Album</h2>
         <h2 id="show-record"><b>"${record.albumTitle}"</b></h2>
         <h5>Artist Name: <b>${record.artistName}</b></h5>
         <h5>Year Released: <b>${record.yearReleased}</b></h5>
@@ -96,10 +98,11 @@ export const onShowRecordSuccess = (record) => {
 
 
     if (record.linerNotes.length == 1) {
-
+        deleteLinerNoteContainer.style.display = "block"
         const linerNoteDiv = document.createElement('div')
+        linerNoteDiv.setAttribute('class', 'col')
         linerNoteDiv.innerHTML = `
-            <h4 id="show-liner-note"><b><i>Liner Notes:</i></b></h4>
+            <h2 id="show-liner-note">Liner Notes:</h2>
             <h5>Album Rating: <b>${record.linerNotes[0].rating}/10</b></h5>
             <h5>Standout Track: <b>"${record.linerNotes[0].standoutTrack}"</b></h5>
             <h5>Thoughts: <b><i>"${record.linerNotes[0].thoughts}"</i></b></h5></br>
@@ -122,7 +125,7 @@ export const onShowRecordSuccess = (record) => {
                         <input type="text" name="recordId" id="recordId" value="${record._id}" class="form-control" disabled />
                         <label for="recordId" class="form-label" class="form-control">Record ID</label>
                     </div></br>
-                    <button type="submit" class="btn btn-success" value="Update Liner Note" />Update Liner Note Info for "${record.albumTitle}"</button></br></br>
+                    <button type="submit" class="btn btn-success" value="Update Liner Note" />Update Liner Note Info for "${record.albumTitle}"</button></br></br></br></br>
                 </form>
         `
         linerNoteFormContainer.appendChild(linerNoteDiv)
@@ -155,7 +158,9 @@ export const onShowRecordSuccess = (record) => {
     }
 
     else {
+        deleteLinerNoteContainer.style.display = "none"
         const linerNoteDiv = document.createElement('div')
+        linerNoteDiv.setAttribute('class', 'col-12')
         linerNoteDiv.innerHTML = `
             <h4 id="show-liner-note"><b><i>Finished Listening?</i></b></h4></br>
             <button class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target=".create-liner-note-form" aria-expanded="false" aria-controls="row" id="create-liner-note-button">Create New Liner Note</button></br></br>

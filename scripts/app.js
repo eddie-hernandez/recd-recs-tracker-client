@@ -43,6 +43,7 @@ const signInContainer = document.querySelector('.sign-in-container')
 const userFormContainer = document.querySelector('#user-form-container')
 const userSignInForm = document.querySelector('.user-login-form')
 const userSignUpForm = document.querySelector('.user-signup-form')
+const recordFormContainer = document.querySelector('.record-form-container')
 
 // User Actions
 
@@ -84,6 +85,7 @@ userSignInForm.addEventListener('submit', (event) => {
 			console.log(res)
 			onIndexRecordSuccess(res.records)
 		})
+		.then(recordFormContainer.classList = "record-form-container")
 		.catch(onRecordFailure)
 })
 
