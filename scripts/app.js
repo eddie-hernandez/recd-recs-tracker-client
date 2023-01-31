@@ -33,6 +33,7 @@ import {
 } from './ui.js'
 
 const addRecordButton = document.querySelector("#add-record-button")
+const mainIcon = document.querySelector('.main-icon')
 const createRecordForm = document.querySelector('#create-record-form')
 const indexRecordContainer = document.querySelector('#index-record-container')
 const showRecordContainer = document.querySelector('#show-record-container')
@@ -44,8 +45,29 @@ const signInContainer = document.querySelector('.sign-in-container')
 const userFormContainer = document.querySelector('#user-form-container')
 const userSignInForm = document.querySelector('.user-login-form')
 const userSignUpForm = document.querySelector('.user-signup-form')
-const recordFormContainer = document.querySelector('.record-form-container')
 const recordCollection = document.querySelector('#record-collection')
+const emptyLibraryContainer = document.querySelector('#empty-library-container')
+
+// Index Records when user signs in
+const showIndex = () => {
+	indexRecords()
+			.then(res => res.json())
+			.then(res => {
+				console.log(res)
+				onIndexRecordSuccess(res.records)
+				if (res.records.length === 0) {
+					emptyLibraryContainer.innerHTML = 
+					`<h4>There are currently no albums in your collection.</br>
+					We should change that. Add a record maybe?</h4>
+					`
+				}
+				else {
+					emptyLibraryContainer.innerHTML = ``
+				}
+			})
+			.catch(onRecordFailure)
+}
+
 
 // User Actions
 
@@ -80,15 +102,7 @@ userSignInForm.addEventListener('submit', (event) => {
 	signIn(userData)
 		.then((res) => res.json())
 		.then((res) => onSignInSuccess(res.token))
-		.then(indexRecords)
-		.then(reIndexRecordsButton.style.display = "none")
-		.then(res => res.json())
-		.then(res => {
-			console.log(res)
-			onIndexRecordSuccess(res.records)
-		})
-		.then(recordFormContainer.classList = 'record-form-container')
-		.catch(onRecordFailure)
+		.then(showIndex)
 		.catch(onUserFailure)
 })
 
@@ -112,7 +126,7 @@ userSignUpForm.addEventListener('submit', (event) => {
 
 // RE-INDEXING RECORDS
 const reIndexRecords = () => {
-	reIndexRecordsButton.style.display = "none"
+	reIndexRecordsButton.classList = `d-none btn btn-warning`
 	deleteLinerNoteContainer.innerHTML = ``
 	deleteLinerNoteContainer.style.display = "none"
 	indexRecordContainer.style.display = "block"
@@ -121,22 +135,19 @@ const reIndexRecords = () => {
 	linerNoteFormContainer.style.display = "block"
 }
 
-// Event Listener on Record Collection Title to refresh indexed records
-// and hide any containers still showing
-recordCollection.addEventListener('click', () => {
+// refreshes indexed records and hide any containers thaat may still be showing
+
+const refresh = () => {
 	reIndexRecords()
 	indexRecordContainer.innerHTML = ``
 	addRecordButton.classList = `btn btn-dark p-3 collapsed`
     createRecordForm.classList = `col-6 offset-3 collapse`
-	indexRecords()
-		.then(reIndexRecordsButton.style.display = "none")
-		.then(res => res.json())
-		.then(res => {
-			console.log(res)
-			onIndexRecordSuccess(res.records)
-		})
-		.catch(onRecordFailure)
-})
+	showIndex()
+}
+
+// refreshable event listeners
+recordCollection.addEventListener('click', refresh)
+mainIcon.addEventListener('click', refresh)
 
 // embed in "add album button"
 // CREATE RECORD
@@ -155,6 +166,7 @@ createRecordForm.addEventListener('submit', (event) => {
     console.log(recordData)
     createRecord(recordData)
 			.then(onCreateRecordSuccess)
+			.then(refresh)
 			.catch(onRecordFailure)
 })
 
@@ -163,7 +175,7 @@ indexRecordContainer.addEventListener('click', (event) => {
 	if (event.target.classList.contains('show-button')) {
 		reIndexRecordsButton.addEventListener('click', reIndexRecords)
 		deleteLinerNoteContainer.style.display = "block"
-		reIndexRecordsButton.style.display = "block"
+		reIndexRecordsButton.classList = `btn btn-warning`
 		const id = event.target.getAttribute('data-id')
 		console.log(id)
 
@@ -208,6 +220,7 @@ showRecordContainer.addEventListener('click', (event) => {
 
 	deleteRecord(id)
 		.then(onDeleteRecordSuccess)
+		.then(refresh)
 		.catch(onRecordFailure)
 })
 

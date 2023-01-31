@@ -5,7 +5,8 @@ import { store } from './store.js'
 
 const indexRecordContainer = document.querySelector('#index-record-container')
 const userMessageContainer = document.querySelector('#user-message-container')
-const recordMessage = document.querySelector('#record-message')
+const recordFormContainer = document.querySelector('.record-form-container')
+const recordMessageContainer = document.querySelector('#record-message-container')
 const showRecordContainer = document.querySelector('#show-record-container')
 const linerNoteFormContainer = document.querySelector('#liner-note-form-container')
 const deleteLinerNoteContainer = document.querySelector('#delete-liner-note-container')
@@ -39,26 +40,25 @@ export const onHideRecordSuccess = () => {
 }
 
 export const onRecordFailure = (error) => {
-    recordMessage.innerHTML = `
-        <h2>You've got a record error! :(</h2>
-        <p>${error}</p>
+    recordMessageContainer.innerHTML = `
+        <h4>You've got a record error! :(</h4>
+        <p id="error">${error}</p>
     `
-    setTimeout(() => {recordMessage.innerHTML = ``}, 3000)
+    setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
 }
 
 export const onShowRecordSuccess = (record) => {
     showRecordContainer.style.display = "block"
     const recordDiv = document.createElement('div')
-    recordDiv.setAttribute('class', 'col')
     recordDiv.innerHTML = `
         <h2 id="show-record-title">Selected Album</h2>
-        <h2 id="show-record"><b>"${record.albumTitle}"</b></h2>
+        <h3 id="show-record"><b>"${record.albumTitle}"</b></h3>
         <h5>Artist Name: <b>${record.artistName}</b></h5>
         <h5>Year Released: <b>${record.yearReleased}</b></h5>
         <h5>Comments: <b><i>"${record.comments}"</i></b></h5></br>
 
         <div class="record-form-container">
-            <button class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#record-form" aria-expanded="false" aria-controls="row" id="edit-record-button">Edit Record Info</button></br></br>
+            <button class="btn btn-light" data-bs-toggle="collapse" data-bs-target="#record-form" aria-expanded="false" aria-controls="row" id="edit-record-button">Edit Record Info</button></br></br>
                 <form id="record-form" class="collapse" data-id="${record._id}">
                     <div class="form-floating">
                         <input type="text" name="albumTitle" id="albumTitle" value="${record.albumTitle}" class="form-control" />
@@ -108,7 +108,7 @@ export const onShowRecordSuccess = (record) => {
             <h5>Standout Track: <b>"${record.linerNotes[0].standoutTrack}"</b></h5>
             <h5>Thoughts: <b><i>"${record.linerNotes[0].thoughts}"</i></b></h5></br>
 
-            <button class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target=".update-liner-note-form" aria-expanded="false" aria-controls="row" id="edit-liner-note-button">Edit Liner Note Info</button></br></br>
+            <button class="btn btn-light" data-bs-toggle="collapse" data-bs-target=".update-liner-note-form" aria-expanded="false" aria-controls="row" id="edit-liner-note-button">Edit Liner Note Info</button></br></br>
                 <form class="update-liner-note-form collapse" data-id="${record.linerNotes[0]._id}">
                     <div class="form-floating">
                         <input type="number" name="rating" id="rating" value="${record.linerNotes[0].rating}" class="form-control" />
@@ -161,10 +161,9 @@ export const onShowRecordSuccess = (record) => {
     else {
         deleteLinerNoteContainer.style.display = "none"
         const linerNoteDiv = document.createElement('div')
-        linerNoteDiv.setAttribute('class', 'col-12')
         linerNoteDiv.innerHTML = `
             <h4 id="show-liner-note"><b><i>Finished Listening?</i></b></h4></br>
-            <button class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target=".create-liner-note-form" aria-expanded="false" aria-controls="row" id="create-liner-note-button">Create New Liner Note</button></br></br>
+            <button class="btn btn-light" data-bs-toggle="collapse" data-bs-target=".create-liner-note-form" aria-expanded="false" aria-controls="row" id="create-liner-note-button">Create New Liner Note</button></br></br>
                 <form class="create-liner-note-form collapse">
                     <div class="form-floating">
                         <input type="number" name="rating" id="rating" placeholder="add rating here" class="form-control" />
@@ -202,19 +201,19 @@ export const onShowRecordSuccess = (record) => {
 }
 
 export const onCreateRecordSuccess = () => {
-    recordMessage.innerHTML = `<i>Now <b>THAT'S</b> a record!</i>`
-    setTimeout(() => {recordMessage.innerHTML = ``}, 3000)
+    recordMessageContainer.innerHTML = `<h4><i>Now THAT'S a record!</i></h4>`
+    setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
     
 }
 
 export const onUpdateRecordSuccess = () => {
-    recordMessage.innerHTML = `<i>Record Successfully Updated!</i>`
-    setTimeout(() => {recordMessage.innerHTML = ``}, 3000)
+    recordMessageContainer.innerHTML = `<h4><i>Record Successfully Updated!</i></h4>`
+    setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
 }
 
 export const onDeleteRecordSuccess = () => {
-    recordMessage.innerHTML = `<i>Record deletion successful!</i>`
-    setTimeout(() => {recordMessage.innerHTML = ``}, 3000)
+    recordMessageContainer.innerHTML = `<h4><i>Record deletion successful!</i></h4>`
+    setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
 }
 
 
@@ -227,31 +226,33 @@ export const onHideLinerNoteSuccess = () => {
 }
 
 export const onLinerNoteFailure = (error) => {
-    recordMessage.innerHTML = `
-        <h2>You've got a liner note error! :(</h2>
-        <p>${error}</p>
+    recordMessageContainer.innerHTML = `
+        <h4>You've got a liner note error! :(</h4>
+        <p id="error">${error}</p>
     `
-    setTimeout(() => {recordMessage.innerHTML = ``}, 3000)
+    setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
 }
 
 export const onCreateLinerNoteSuccess = () => {
-    recordMessage.innerHTML = `<i>You've just created a liner note!! :)</i>`
-    setTimeout(() => {recordMessage.innerText = ``}, 3000)
+    recordMessageContainer.innerHTML = `<h4><i>You've just created a liner note!! :)</i></h4>`
+    setTimeout(() => {recordMessageContainer.innerText = ``}, 1500)
 }
 
 export const onUpdateLinerNoteSuccess = () => {
-    recordMessage.innerHTML = `<i>You've edited a liner note! :)</i>`
-    setTimeout(() => {recordMessage.innerText = ``}, 3000)
+    recordMessageContainer.innerHTML = `<h4><i>You've edited a liner note! :)</i></h4>`
+    setTimeout(() => {recordMessageContainer.innerText = ``}, 1500)
 }
 
 export const onDeleteLinerNoteSuccess = () => {
-    recordMessage.innerHTML = `<i>You just deleted a liner note! :O</i>`
-    setTimeout(() => {recordMessage.innerText = ``}, 3000)
+    recordMessageContainer.innerHTML = `<h4><i>You just deleted a liner note! :O</i></h4>`
+    setTimeout(() => {recordMessageContainer.innerText = ``}, 1500)
 }
 
 export const onSignUpSuccess = () => {
-    userMessageContainer.innerHTML = `You've created a new user!</br>Sign-in to your new account.`
-    setTimeout(() => {userMessageContainer.innerHTML = ``}, 3000)
+    userMessageContainer.innerHTML = `
+    <h4>You've created a new user!</h4>
+    <h4>Sign-in to your new account.</h4>`
+    setTimeout(() => {userMessageContainer.innerHTML = ``}, 1500)
 }
 
 export const onSignInSuccess = (userToken) => {
@@ -259,13 +260,13 @@ export const onSignInSuccess = (userToken) => {
     store.userToken = userToken
     authContainer.classList.add('d-none')
     mainContainer.classList.remove('d-none')
+    recordFormContainer.classList = 'record-form-container'
 }
 
-export const onUserFailure = (error) => {
+export const onUserFailure = () => {
     userMessageContainer.innerHTML = `
-    <h2>An error was encountered:</h2>
-    <p>"${error}"</p>
-    <h2>Please sign in again.</h2>
+    <h4>The email and password you have provided is not correct.</h4>
+    <h4>Please sign in again.</h4>
 `
-setTimeout(() => {recordMessage.innerHTML = ``}, 3000)
+setTimeout(() => {userMessageContainer.innerHTML = ``}, 1500)
 }

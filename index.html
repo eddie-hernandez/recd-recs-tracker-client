@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=MedievalSharp&family=Rosarivo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=IM+Fell+English:ital@0;1&family=MedievalSharp&family=Rosarivo&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles.css" type="text/css"/>
@@ -14,10 +14,15 @@
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
     <script type="module" src="./scripts/app.js" defer></script>
-    <title>Rec'd Recs Tracker</title>
+    <title>noted</title>
 </head>
 <body>
-    <h1>noted</h1>
+    <div id="title-header" class="row d-flex">
+        <h1>noted <img src="./images/noted-icon.png" type="button" width="40" height="40" id="icon" class="main-icon rotate-center">
+            <img src="./images/noted-icon-backup.png" type="button" width="40" height="40" id="icon">
+            <img src="./images/noted-icon-backup2.png" type="button" width="40" height="40" id="icon">
+        </h1>
+    </div>
     <div id="auth-container" class="show-container vh-80 gradient-custom">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -25,7 +30,7 @@
                     <div id="user-form-container" class="card bg-secondary text-white" style="border-radius: 1rem;">
                         <div class="card-body p-5 text-center">
                             <div class="sign-in-container">
-                                <h2 class="fw-bold mb-2">Login!</h2>
+                                <h2 class="fw-bold mb-2">* Login *</h2>
                                 <p class="text-white">Please Enter your Email and Password:</p>
                                 <!-- USER LOGIN FORM -->
                                 <form class="user-login-form">
@@ -37,16 +42,16 @@
                                     <input type="password" id="password" class="form-control" placeholder="password" />
                                     <label class="form-label text-black" for="password">Password</label>
                                 </div></br>
-                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Log Me In!</button>
                                 </form></br>
                                 <div>
-                                    <p class="mb-0">Don't have a Rec'd Recs account?</p>
+                                    <p class="mb-0">Don't have a noted account?</p>
                                     <a href="#" class="new-account btn-light text-white fw-bold">Sign Up!</a>
                                 </div>
                             </div>
 
                             <div class="sign-up-container d-none">
-                                <h2 class="fw-bold mb-2">Sign-Up!</h2>
+                                <h2 class="fw-bold mb-2">* Sign-Up *</h2>
                                 <p class="text-white">Please Enter your Email and Password:</p>
 
                                 <!-- USER SIGN-UP FORM -->
@@ -62,7 +67,7 @@
                                     <button class="btn btn-outline-light btn-lg px-5" type="submit">Sign Me Up!</button>
                                     </form></br>
                                 <div>
-                                    <p class="mb-0">Already have a Rec'd Recs account?</p><a href="#" class="existing-account btn-light text-white fw-bold">Login Here!</a>
+                                    <p class="mb-0">Already have a noted account?</p><a href="#" class="existing-account btn-light text-white fw-bold">Login Here!</a>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +86,7 @@
     <div id="main-container" class="d-none">
 
         <button class="btn btn-link" id="record-collection">My Recommended Records</button>
-        <div id="show-all-container" class="row m-auto">
+        <div id="show-all-container" class="row">
             <div id="show-record-container" class="col-4 offset-2"></div></br>
             <div id="liner-note-container" class="col-4">
                 <div id="liner-note-form-container"></div>
@@ -89,11 +94,10 @@
             </div>
         </div>
             <div id="index-record-container"></div></br></br>
-            <div id="record-message-container">
-                <h4 id="record-message"></h4>
-            </div>
+            <div id="record-message-container"></div>
+            <div id="empty-library-container"></div>
         <div class="d-flex justify-content-center" id="re-index-records-container">
-            <button class="btn btn-warning" id="re-index-records-button">Back to Record Collection</button></br></br></div></br>
+            <button class="d-none btn btn-warning" id="re-index-records-button">Back to Record Collection</button></br></br></div></br>
         </div>
 
 

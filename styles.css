@@ -1,15 +1,14 @@
 body {
     text-align: center;
-    font-family: 'IM Fell English', serif;
+    font-family: 'DotGothic16', serif;
     background-color: #0033ff;
-    margin-top: 50px;
+    margin-top: 25px;
     color: lightcyan;
 }
 
 h1 {
     margin-top: 20px;
     font-size: 65px;
-    font-family: 'Rosarivo', serif;
     color: yellow;
 }
 
@@ -19,33 +18,103 @@ label {
 
 h2 {
     font-size: 25px;
-    font-family: 'Rosarivo', serif;
 }
 
 h3 {
-    font-family: 'IM Fell English', italic;
+    font-size: 20px;
 }
 
-#copyright {
-    font-size: 20px;
+#icon {
+    margin-left: -10px;
 }
 
 #record-collection {
     color: lightyellow;
     font-size: 30px;
-    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+#show-record {
+    margin-bottom: 25px;
 }
 
 #show-record-title {
-    font-size: 40px;
     color: lightyellow;
 }
 
 #show-liner-note {
-    font-size: 40px;
+    margin-top: 5px;
     color: lightyellow;
+}
+
+#record-message-container {
+    color: gold;
 }
 
 .update-liner-note-form {
     margin-bottom: 25px;
 }
+
+.rotate-center:hover {
+	-webkit-animation: rotate-center 0.3s ease-in-out both;
+	        animation: rotate-center 0.3s ease-in-out both;
+}
+
+
+
+
+
+@-webkit-keyframes rotate-center {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  @keyframes rotate-center {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+
+    h1 {
+        font-size: 40px;
+    }
+    h2 {
+        font-size: 25px;
+    }
+    h3 {
+        font-size: 20px;
+    }
+
+    h4 {
+        font-size: 18px;
+    }
+
+    h5 {
+        font-size: 15px;
+    }
+
+    .create-liner-note-form {
+        font-size: 12px;
+    }
+
+    #user-form-container {
+        margin: 30px;
+    }
+
+
+    .btn {
+        font-size: 12px;
+    }
+  }
