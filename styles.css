@@ -3,11 +3,12 @@ body {
     font-family: 'IM Fell English', serif;
     background-color: #0033ff;
     margin-top: 50px;
-    color: white;
+    color: lightcyan;
 }
 
 h1 {
-    font-size: 75px;
+    margin-top: 20px;
+    font-size: 65px;
     font-family: 'Rosarivo', serif;
     color: yellow;
 }
@@ -25,20 +26,24 @@ h3 {
     font-family: 'IM Fell English', italic;
 }
 
+#copyright {
+    font-size: 20px;
+}
+
 #record-collection {
-    color: white;
+    color: lightyellow;
     font-size: 30px;
     margin-bottom: 40px;
 }
 
 #show-record-title {
     font-size: 40px;
-    color: yellow;
+    color: lightyellow;
 }
 
 #show-liner-note {
     font-size: 40px;
-    color: orange;
+    color: lightyellow;
 }
 
 .update-liner-note-form {

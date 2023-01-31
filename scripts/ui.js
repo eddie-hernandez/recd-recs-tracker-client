@@ -2,6 +2,7 @@ import { store } from './store.js'
 
 // RECORDS
 
+
 const indexRecordContainer = document.querySelector('#index-record-container')
 const userMessageContainer = document.querySelector('#user-message-container')
 const recordMessage = document.querySelector('#record-message')
@@ -201,6 +202,8 @@ export const onShowRecordSuccess = (record) => {
 
 export const onCreateRecordSuccess = () => {
     recordMessage.innerHTML = `<i>Now <b>THAT'S</b> a record!</i>`
+    setTimeout(() => {recordMessage.innerHTML = ``}, 3000)
+    
 }
 
 export const onUpdateRecordSuccess = () => {
@@ -227,6 +230,7 @@ export const onLinerNoteFailure = (error) => {
         <h2>You've got a liner note error! :(</h2>
         <p>${error}</p>
     `
+    setTimeout(() => {recordMessage.innerHTML = ``}, 3000)
 }
 
 export const onCreateLinerNoteSuccess = () => {
@@ -245,7 +249,8 @@ export const onDeleteLinerNoteSuccess = () => {
 }
 
 export const onSignUpSuccess = () => {
-    userMessageContainer.innerHTML = `You've created a new user! Now Sign In`
+    userMessageContainer.innerHTML = `You've created a new user!</br>Sign-in to your new account.`
+    setTimeout(() => {userMessageContainer.innerHTML = ``}, 3000)
 }
 
 export const onSignInSuccess = (userToken) => {

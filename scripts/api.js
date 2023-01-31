@@ -27,6 +27,7 @@ export const signUp = (data) => {
 // RECORD CRUD EXPORTS
 
 export const createRecord = (data) => {
+    console.log(data)
     return fetch(`http://localhost:7777/records`, {
         method: 'POST',
         headers: {

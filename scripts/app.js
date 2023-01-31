@@ -32,6 +32,7 @@ import {
 	onUserFailure
 } from './ui.js'
 
+const addRecordButton = document.querySelector("#add-record-button")
 const createRecordForm = document.querySelector('#create-record-form')
 const indexRecordContainer = document.querySelector('#index-record-container')
 const showRecordContainer = document.querySelector('#show-record-container')
@@ -124,6 +125,8 @@ const reIndexRecords = () => {
 recordCollection.addEventListener('click', () => {
 	reIndexRecords()
 	indexRecordContainer.innerHTML = ``
+	addRecordButton.classList = `btn btn-dark p-3 collapsed`
+    createRecordForm.classList = `col-6 offset-3 collapse`
 	indexRecords()
 		.then(reIndexRecordsButton.style.display = "none")
 		.then(res => res.json())
