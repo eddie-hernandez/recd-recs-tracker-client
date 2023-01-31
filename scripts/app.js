@@ -89,6 +89,7 @@ userSignInForm.addEventListener('submit', (event) => {
 		})
 		.then(recordFormContainer.classList = 'record-form-container')
 		.catch(onRecordFailure)
+		.catch(onUserFailure)
 })
 
 // SIGN-UP

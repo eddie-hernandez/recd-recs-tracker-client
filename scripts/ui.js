@@ -43,6 +43,7 @@ export const onRecordFailure = (error) => {
         <h2>You've got a record error! :(</h2>
         <p>${error}</p>
     `
+    setTimeout(() => {recordMessage.innerHTML = ``}, 3000)
 }
 
 export const onShowRecordSuccess = (record) => {
@@ -262,7 +263,9 @@ export const onSignInSuccess = (userToken) => {
 
 export const onUserFailure = (error) => {
     userMessageContainer.innerHTML = `
-    <h2>User Error!</h2>
-    <p>${error}</p>
+    <h2>An error was encountered:</h2>
+    <p>"${error}"</p>
+    <h2>Please sign in again.</h2>
 `
+setTimeout(() => {recordMessage.innerHTML = ``}, 3000)
 }
