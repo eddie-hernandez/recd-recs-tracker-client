@@ -44,6 +44,7 @@ const userFormContainer = document.querySelector('#user-form-container')
 const userSignInForm = document.querySelector('.user-login-form')
 const userSignUpForm = document.querySelector('.user-signup-form')
 const recordFormContainer = document.querySelector('.record-form-container')
+const recordCollection = document.querySelector('#record-collection')
 
 // User Actions
 
@@ -85,7 +86,7 @@ userSignInForm.addEventListener('submit', (event) => {
 			console.log(res)
 			onIndexRecordSuccess(res.records)
 		})
-		.then(recordFormContainer.classList = "record-form-container")
+		.then(recordFormContainer.classList = 'record-form-container')
 		.catch(onRecordFailure)
 })
 
@@ -117,6 +118,21 @@ const reIndexRecords = () => {
 	onHideLinerNoteSuccess()
 	linerNoteFormContainer.style.display = "block"
 }
+
+// Event Listener on Record Collection Title to refresh indexed records
+// and hide any containers still showing
+recordCollection.addEventListener('click', () => {
+	reIndexRecords()
+	indexRecordContainer.innerHTML = ``
+	indexRecords()
+		.then(reIndexRecordsButton.style.display = "none")
+		.then(res => res.json())
+		.then(res => {
+			console.log(res)
+			onIndexRecordSuccess(res.records)
+		})
+		.catch(onRecordFailure)
+})
 
 // embed in "add album button"
 // CREATE RECORD
