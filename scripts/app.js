@@ -51,18 +51,13 @@ const eddieForm = document.querySelector('#eddie-form')
 const recordCollection = document.querySelector('#record-collection')
 const reIndexRecordsButton = document.querySelector('#re-index-records-button')
 
-// refreshable event listener
-recordCollection.addEventListener('click', refresh)
-
-// re-index event listener
-reIndexRecordsButton.addEventListener('click', reIndexRecordSuccess)
-
 
 // INDEX Records (for user sign-in)
 export const showIndex = () => {
 	indexRecords()
 			.then(res => res.json())
 			.then(res => {
+				console.log(res)
 				onIndexRecordSuccess(res.records)
 				if (res.records.length === 0) {
 					emptyLibraryContainer.innerHTML = 
@@ -78,10 +73,20 @@ export const showIndex = () => {
 }
 
 
-// User Actions!
+// refreshable event listener
+recordCollection.addEventListener('click', refresh)
+
+
+// re-index event listener
+reIndexRecordsButton.addEventListener('click', reIndexRecordSuccess)
+
+
+
+// User Actions
 
 // SIGN-IN
 userSignInForm.addEventListener('submit', (event) => {
+	console.log(event.target)
 	event.preventDefault()
 	const userData = {
 		credentials: {
@@ -98,6 +103,7 @@ userSignInForm.addEventListener('submit', (event) => {
 
 // SIGN-UP
 userSignUpForm.addEventListener('submit', (event) => {
+	console.log(event.target)
 	event.preventDefault()
 	const userData = {
 		credentials: {
@@ -113,8 +119,8 @@ userSignUpForm.addEventListener('submit', (event) => {
 
 // RECORDS
 
-// CREATE RECORD
 // embedded in "add album button"
+// CREATE RECORD
 createRecordForm.addEventListener('submit', (event) => {
     event.preventDefault()
 
@@ -127,14 +133,14 @@ createRecordForm.addEventListener('submit', (event) => {
 			},
 		}
 
+    console.log(recordData)
     createRecord(recordData)
 			.then(onCreateRecordSuccess)
 			.then(refresh)
 			.catch(onRecordFailure)
 })
 
-// ADD EDDIE RECOMMENDED RECORD TO COLLECTION
-// form can be found in monthly recommendation page
+// ADD EDDIE RECORD TO COLLECTION
 eddieForm.addEventListener('submit', (event) => {
     event.preventDefault()
 
@@ -147,6 +153,7 @@ eddieForm.addEventListener('submit', (event) => {
 			},
 		}
 
+    console.log(recordData)
     createRecord(recordData)
 			.then(onCreateRecordSuccess)
 			.then(refresh)
@@ -158,6 +165,7 @@ eddieForm.addEventListener('submit', (event) => {
 indexRecordContainer.addEventListener('click', (event) => {
 	if (event.target.classList.contains('show-button')) {
 		const id = event.target.getAttribute('data-id')
+		console.log(id)
 
 		if (!id) return
 
@@ -210,6 +218,7 @@ showRecordContainer.addEventListener('click', (event) => {
 
 linerNoteFormContainer.addEventListener('submit', (event) => {
 	event.preventDefault()
+	console.log(event.target)
 
 	// CREATE LINER NOTE
 	if (event.target.classList.contains("create-liner-note-form")) {
@@ -222,6 +231,7 @@ linerNoteFormContainer.addEventListener('submit', (event) => {
 			},
 		}
 
+	console.log(linerNoteData)
 	createLinerNote(linerNoteData)
 			.then(onCreateLinerNoteSuccess)
 			.catch(onLinerNoteFailure)
@@ -231,6 +241,7 @@ linerNoteFormContainer.addEventListener('submit', (event) => {
 	else if (event.target.classList.contains("update-liner-note-form")) {
 
 		const linerNoteId = event.target.getAttribute('data-id')
+		console.log(linerNoteId)
 
 		const linerNoteData = {
 			linerNote: {
@@ -254,6 +265,7 @@ linerNoteFormContainer.addEventListener('submit', (event) => {
 // DELETE LINER NOTE
 deleteLinerNoteContainer.addEventListener('click', (event) => {
 	event.preventDefault()
+	console.log(event.target)
 
 	if (event.target.classList.contains("delete-liner-note")) {
 		const linerNoteId = event.target.getAttribute('data-id')

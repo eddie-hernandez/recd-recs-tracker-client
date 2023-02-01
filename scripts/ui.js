@@ -108,6 +108,18 @@ const navToPlaylist = () => {
     playlistPageContainer.classList.remove('d-none')
 }
 
+// SHOW PLAYLIST
+const onShowPlaylist = (records) => {
+    records.forEach(record => {
+        if (record.linerNotes[0].standoutTrack !== "") {
+        const playlistDiv = document.createElement('div')
+        playlistDiv.innerHTML = `<h2 id="show-song">&#10038; ${record.artistName} - "${record.linerNotes[0].standoutTrack}"</h2>
+        `
+        playlistContainer.appendChild(playlistDiv)
+        }
+    })
+}
+
 // CREATE PLAYLIST
 const activatePlaylist = () => {
     navToPlaylist()
@@ -117,18 +129,6 @@ const activatePlaylist = () => {
             onShowPlaylist(res.records)
         })
         .catch(onRecordFailure)
-}
-
-// SHOW PLAYLIST
-const onShowPlaylist = (records) => {
-    records.forEach(record => {
-        if (record.linerNotes[0].standoutTrack !== undefined) {
-        const playlistDiv = document.createElement('div')
-        playlistDiv.innerHTML = `<h2 id="show-song">&#10038; ${record.artistName} - "${record.linerNotes[0].standoutTrack}"</h2>
-        `
-        playlistContainer.appendChild(playlistDiv)
-        }
-    })
 }
 
 /* RECORDS SUCCESS / FAILURE EXPORTS */
@@ -174,7 +174,7 @@ export const onShowRecordSuccess = (record) => {
             <label for="yearReleased" class="form-label" class="form-control">Year Released</label>
         </div>
         <div class="form-floating">
-            <input type="text" name="comments" id="comments" value="'${record.comments}'" class="form-control" />
+            <input type="text" name="comments" id="comments" value="${record.comments}" class="form-control" />
             <label for="comments" class="form-label" class="form-control">Comments (if any)</label>
         </div></br>
         <button type="submit" class="btn btn-success" value="Update Record Info" />Update Record Info</button></br></br>
@@ -268,11 +268,13 @@ export const onCreateRecordSuccess = () => {
 }
 
 export const onUpdateRecordSuccess = () => {
+    refresh()
     recordMessageContainer.innerHTML = `<h4 id="record-message" class="col-8 offset-2"><i>record successfully updated!</i></h4>`
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
 }
 
 export const onDeleteRecordSuccess = () => {
+    refresh()
     recordMessageContainer.innerHTML = `<h4 id="record-message" class="col-8 offset-2"><i>record deletion successful!</i></h4>`
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
 }
