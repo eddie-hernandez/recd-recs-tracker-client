@@ -148,8 +148,7 @@ export const onShowRecordSuccess = (record) => {
     
     showRecordContainer.appendChild(recordDiv)
         
-        
-        
+    // if the record has a liner note already, show the update / delete options
     if (record.linerNotes.length == 1) {
         deleteLinerNoteContainer.style.display = "block"
         const linerNoteDiv = document.createElement('div')
@@ -192,6 +191,7 @@ export const onShowRecordSuccess = (record) => {
         
     }
         
+    // if the record does NOT yet have a liner note, show create liner note option
     else {
         deleteLinerNoteContainer.style.display = "none"
         const linerNoteDiv = document.createElement('div')
