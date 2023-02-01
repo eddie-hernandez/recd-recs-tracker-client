@@ -1,21 +1,92 @@
 import { store } from './store.js'
+import { showIndex } from './app.js'
+import { indexRecords } from './api.js'
 
 // RECORDS
 
 
+const signUpContainer = document.querySelector('.sign-up-container')
+const signInContainer = document.querySelector('.sign-in-container')
+const userFormContainer = document.querySelector('#user-form-container')
+const addRecordButton = document.querySelector("#add-record-button")
 const indexRecordContainer = document.querySelector('#index-record-container')
 const userMessageContainer = document.querySelector('#user-message-container')
-const recordFormContainer = document.querySelector('.record-form-container')
 const recordMessageContainer = document.querySelector('#record-message-container')
 const showRecordContainer = document.querySelector('#show-record-container')
 const linerNoteFormContainer = document.querySelector('#liner-note-form-container')
 const deleteLinerNoteContainer = document.querySelector('#delete-liner-note-container')
+const playlistPageContainer = document.querySelector('#playlist-page-container')
+const playlistContainer = document.querySelector('#playlist-container')
 const authContainer = document.querySelector('#auth-container')
 const mainContainer = document.querySelector('#main-container')
+const eddieContainer = document.querySelector('#eddie-container')
+const createRecordForm = document.querySelector('#create-record-form')
+const reIndexRecordsButton = document.querySelector('#re-index-records-button')
+const eddieButton = document.querySelector('.eddie-icon')
+const mainIcon = document.querySelector('.main-icon')
+const playlistIcon = document.querySelector('.playlist-icon')
+
+// refreshes indexed records and hide any containers that may still be showing
+export const refresh = () => {
+    navFromEddie()
+    navFromPlaylist()
+    reIndexRecordSuccess()
+    indexRecordContainer.innerHTML = ``
+    addRecordButton.classList = `btn btn-dark p-3 collapsed`
+    createRecordForm.classList = `col-6 offset-3 collapse`
+    showIndex()
+}
 
 
-// accessing the rating would look like this!!
-// record.linerNotes[0].rating
+// EDDIE PAGE NAVIGATION
+const navFromEddie = () => {
+    eddieContainer.classList.add('d-none')
+    mainContainer.classList.remove('d-none')
+}
+
+const navToEddie = () => {
+    playlistContainer.innerHTML = ``
+    playlistPageContainer.classList.add('d-none')
+    mainContainer.classList.add('d-none')
+    eddieContainer.classList.remove('d-none')
+}
+
+// PLAYLIST NAV
+const navFromPlaylist = () => {
+    playlistContainer.innerHTML = ``
+    mainContainer.classList.remove('d-none')
+    playlistPageContainer.classList.add('d-none')
+}
+
+const navToPlaylist = () => {
+    eddieContainer.classList.add('d-none')
+    mainContainer.classList.add('d-none')
+    playlistPageContainer.classList.remove('d-none')
+}
+
+// CREATE PLAYLIST
+const activatePlaylist = () => {
+    navToPlaylist()
+    indexRecords()
+        .then(res => res.json())
+        .then(res => {
+            console.log(res)
+            onShowPlaylist(res.records)
+        })
+        .catch(onRecordFailure)
+}
+
+const onShowPlaylist = (records) => {
+    records.forEach(record => {
+        console.log(record)
+        if (record.linerNotes[0].standoutTrack !== undefined) {
+        const playlistDiv = document.createElement('div')
+        playlistDiv.innerHTML = `<h2 id="show-song">&#10038; ${record.artistName} - "${record.linerNotes[0].standoutTrack}"</h2>
+        `
+        playlistContainer.appendChild(playlistDiv)
+        }
+    })
+}
 
 
 export const onIndexRecordSuccess = (records) => {
@@ -30,24 +101,18 @@ export const onIndexRecordSuccess = (records) => {
     })
 }
 
-export const onHideIndexSuccess = () => {
-    indexRecordContainer.style.display = "none"
-}
-
-export const onHideRecordSuccess = () => {
-    showRecordContainer.style.display = "none"
-    showRecordContainer.innerHTML = ``
-}
-
 export const onRecordFailure = (error) => {
     recordMessageContainer.innerHTML = `
-        <h4>You've got a record error! :(</h4>
+        <h4>woah! you've got a record error!</h4>
         <p id="error">${error}</p>
     `
-    setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
+    setTimeout(() => {recordMessageContainer.innerHTML = ``}, 2500)
 }
 
 export const onShowRecordSuccess = (record) => {
+    deleteLinerNoteContainer.style.display = "block"
+    reIndexRecordsButton.classList = `btn btn-warning`
+    indexRecordContainer.style.display = "none"
     showRecordContainer.style.display = "block"
     const recordDiv = document.createElement('div')
     recordDiv.innerHTML = `
@@ -82,19 +147,7 @@ export const onShowRecordSuccess = (record) => {
         <button type="button" class="delete-record btn btn-danger" value="Delete Record" data-id="${record._id}" />Delete Record</button></br>
         </div>
         `
-/*
-        <form data-id="${record._id}">
-            <input type="text" name="albumTitle" value="${record.albumTitle}" />
-            <input type="text" name="artistName" value="${record.artistName}" />
-            <input type="number" name="yearReleased" value="${record.yearReleased}" />
-            <input type="text" name="comments" value="${record.comments}" />
-            <input type="submit" value="Update Record" />
-        </form>
 
-        <button data-id="${record._id}">Delete Record</button></br></br>
-    `
-
-*/
     showRecordContainer.appendChild(recordDiv)
 
 
@@ -103,7 +156,7 @@ export const onShowRecordSuccess = (record) => {
         deleteLinerNoteContainer.style.display = "block"
         const linerNoteDiv = document.createElement('div')
         linerNoteDiv.innerHTML = `
-            <h2 id="show-liner-note">Liner Notes:</h2>
+            <h2 id="show-liner-note"><i><u>Liner Notes</u>:</i></h2>
             <h5>Album Rating: <b>${record.linerNotes[0].rating}/10</b></h5>
             <h5>Standout Track: <b>"${record.linerNotes[0].standoutTrack}"</b></h5>
             <h5>Thoughts: <b><i>"${record.linerNotes[0].thoughts}"</i></b></h5></br>
@@ -139,23 +192,6 @@ export const onShowRecordSuccess = (record) => {
     `
         deleteLinerNoteContainer.appendChild(deleteLinerNoteDiv)
 
-/*
-
-
-// UPDATE LINER NOTE FORM
-        <form data-id="${record.linerNotes[0]._id}">
-            <input type="number" name="rating" value="${record.linerNotes[0].rating}" />
-            <input type="text" name="standoutTrack" value="${record.linerNotes[0].standoutTrack}" />
-            <input type="text" name="thoughts" value="${record.linerNotes[0].thoughts}" />
-            <input type="text" name="recordId" value="${record._id}" disabled /></br></br>
-            <input type="submit" value="Update Liner Note" /></br>
-        </form>
-
-// DELETE LINER NOTE BUTTON
-        <button data-id="${record.linerNotes[0]._id}">Delete Liner Note</button>
-    `
-*/
-
     }
 
     else {
@@ -185,34 +221,23 @@ export const onShowRecordSuccess = (record) => {
                 </form>
         `
 
-/*
-
-// UPDATE LINER NOTE FORMAT
-            <form data-id="${record.linerNotes[0]._id}">
-                <input type="number" name="rating" value="${record.linerNotes[0].rating}" />
-                <input type="text" name="standoutTrack" value="${record.linerNotes[0].standoutTrack}" />
-                <input type="text" name="thoughts" value="${record.linerNotes[0].thoughts}" />
-                <input type="text" name="recordId" value="${record._id}" disabled /></br></br>
-                <input type="submit" value="Update Liner Note" /></br>
-            </form>
-*/
         linerNoteFormContainer.appendChild(linerNoteDiv)
     }
 }
 
 export const onCreateRecordSuccess = () => {
-    recordMessageContainer.innerHTML = `<h4><i>Now THAT'S a record!</i></h4>`
+    recordMessageContainer.innerHTML = `<h4><i>now THAT'S a record!</i></h4>`
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
     
 }
 
 export const onUpdateRecordSuccess = () => {
-    recordMessageContainer.innerHTML = `<h4><i>Record Successfully Updated!</i></h4>`
+    recordMessageContainer.innerHTML = `<h4><i>record successfully updated!</i></h4>`
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
 }
 
 export const onDeleteRecordSuccess = () => {
-    recordMessageContainer.innerHTML = `<h4><i>Record deletion successful!</i></h4>`
+    recordMessageContainer.innerHTML = `<h4><i>record deletion successful!</i></h4>`
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
 }
 
@@ -220,38 +245,33 @@ export const onDeleteRecordSuccess = () => {
 
 // LINER NOTES
 
-export const onHideLinerNoteSuccess = () => {
-    linerNoteFormContainer.style.display = "none"
-    linerNoteFormContainer.innerHTML = ``
-}
-
 export const onLinerNoteFailure = (error) => {
     recordMessageContainer.innerHTML = `
-        <h4>You've got a liner note error! :(</h4>
+        <h4>woah! you've got a liner note error!</h4>
         <p id="error">${error}</p>
     `
-    setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
+    setTimeout(() => {recordMessageContainer.innerHTML = ``}, 2500)
 }
 
 export const onCreateLinerNoteSuccess = () => {
-    recordMessageContainer.innerHTML = `<h4><i>You've just created a liner note!! :)</i></h4>`
+    recordMessageContainer.innerHTML = `<h4><i>incredible...you've just created a liner note!!</i></h4>`
     setTimeout(() => {recordMessageContainer.innerText = ``}, 1500)
 }
 
 export const onUpdateLinerNoteSuccess = () => {
-    recordMessageContainer.innerHTML = `<h4><i>You've edited a liner note! :)</i></h4>`
+    recordMessageContainer.innerHTML = `<h4><i>amazing...you've just edited a liner note!</i></h4>`
     setTimeout(() => {recordMessageContainer.innerText = ``}, 1500)
 }
 
 export const onDeleteLinerNoteSuccess = () => {
-    recordMessageContainer.innerHTML = `<h4><i>You just deleted a liner note! :O</i></h4>`
+    recordMessageContainer.innerHTML = `<h4><i>you've just deleted a liner note! :0</i></h4>`
     setTimeout(() => {recordMessageContainer.innerText = ``}, 1500)
 }
 
 export const onSignUpSuccess = () => {
     userMessageContainer.innerHTML = `
-    <h4>You've created a new user!</h4>
-    <h4>Sign-in to your new account.</h4>`
+    <h4>you've created a new user!</h4>
+    <h4>sign-in to your new account.</h4>`
     setTimeout(() => {userMessageContainer.innerHTML = ``}, 1500)
 }
 
@@ -260,13 +280,47 @@ export const onSignInSuccess = (userToken) => {
     store.userToken = userToken
     authContainer.classList.add('d-none')
     mainContainer.classList.remove('d-none')
-    recordFormContainer.classList = 'record-form-container'
+    eddieButton.addEventListener('click', navToEddie)
+    playlistIcon.addEventListener('click', activatePlaylist)
+    mainIcon.addEventListener('click', refresh)
 }
 
 export const onUserFailure = () => {
     userMessageContainer.innerHTML = `
-    <h4>The email and password you have provided is not correct.</h4>
-    <h4>Please sign in again.</h4>
+    <h4 id="error">the email and/or password provided is not correct.</h4>
+    <h4 id="error">please sign in again.</h4>
 `
-setTimeout(() => {userMessageContainer.innerHTML = ``}, 1500)
+setTimeout(() => {userMessageContainer.innerHTML = ``}, 2500)
 }
+
+
+// RE-INDEXING RECORDS
+export const reIndexRecordSuccess = () => {
+	reIndexRecordsButton.classList = `d-none btn btn-warning`
+	deleteLinerNoteContainer.innerHTML = ``
+	deleteLinerNoteContainer.style.display = "none"
+	indexRecordContainer.style.display = "block"
+    showRecordContainer.style.display = "none"
+    showRecordContainer.innerHTML = ``
+    linerNoteFormContainer.style.display = "none"
+    linerNoteFormContainer.innerHTML = ``
+	linerNoteFormContainer.style.display = "block"
+}
+
+// NAV SIGN-IN to SIGN-UP
+signInContainer.addEventListener('click', (event) => {
+	if (event.target.classList.contains('new-account')) {
+		signInContainer.classList.add('d-none')
+		signUpContainer.classList.remove('d-none')
+		userFormContainer.classList = `card bg-dark text-white`
+	}
+})
+
+// NAV SIGN-UP to SIGN-IN
+signUpContainer.addEventListener('click', (event) => {
+	if (event.target.classList.contains('existing-account')) {
+		signUpContainer.classList.add('d-none')
+		signInContainer.classList.remove('d-none')
+		userFormContainer.classList = `card bg-warning text-black`
+	}
+})

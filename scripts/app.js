@@ -16,40 +16,44 @@ import {
 import { 
 	onRecordFailure,
 	onIndexRecordSuccess,
-	onHideIndexSuccess,
+	reIndexRecordSuccess,
 	onCreateRecordSuccess,
-	onShowRecordSuccess, 
-	onHideRecordSuccess,
+	onShowRecordSuccess,
 	onUpdateRecordSuccess,
 	onDeleteRecordSuccess,
 	onLinerNoteFailure,
 	onCreateLinerNoteSuccess,
 	onUpdateLinerNoteSuccess,
 	onDeleteLinerNoteSuccess,
-	onHideLinerNoteSuccess,
 	onSignUpSuccess,
 	onSignInSuccess,
-	onUserFailure
+	onUserFailure,
+	refresh,
 } from './ui.js'
 
-const addRecordButton = document.querySelector("#add-record-button")
-const mainIcon = document.querySelector('.main-icon')
-const createRecordForm = document.querySelector('#create-record-form')
+// DOM DECLARATIONS
+
+// SELECTING BY CONTAINER
 const indexRecordContainer = document.querySelector('#index-record-container')
 const showRecordContainer = document.querySelector('#show-record-container')
-const reIndexRecordsButton = document.querySelector('#re-index-records-button')
 const linerNoteFormContainer = document.querySelector('#liner-note-form-container')
 const deleteLinerNoteContainer = document.querySelector('#delete-liner-note-container')
-const signUpContainer = document.querySelector('.sign-up-container')
-const signInContainer = document.querySelector('.sign-in-container')
-const userFormContainer = document.querySelector('#user-form-container')
-const userSignInForm = document.querySelector('.user-login-form')
-const userSignUpForm = document.querySelector('.user-signup-form')
-const recordCollection = document.querySelector('#record-collection')
 const emptyLibraryContainer = document.querySelector('#empty-library-container')
 
-// Index Records when user signs in
-const showIndex = () => {
+// SELECTING BY FORM
+const createRecordForm = document.querySelector('#create-record-form')
+const userSignInForm = document.querySelector('.user-login-form')
+const userSignUpForm = document.querySelector('.user-signup-form')
+const eddieForm = document.querySelector('#eddie-form')
+
+
+// SELECTING BY BUTTON 'TYPE'
+const recordCollection = document.querySelector('#record-collection')
+const reIndexRecordsButton = document.querySelector('#re-index-records-button')
+
+
+// INDEX Records (for user sign-in)
+export const showIndex = () => {
 	indexRecords()
 			.then(res => res.json())
 			.then(res => {
@@ -69,25 +73,16 @@ const showIndex = () => {
 }
 
 
+// refreshable event listener
+recordCollection.addEventListener('click', refresh)
+
+
+// re-index event listener
+reIndexRecordsButton.addEventListener('click', reIndexRecordSuccess)
+
+
+
 // User Actions
-
-// NAV SIGN-IN to SIGN-UP
-signInContainer.addEventListener('click', (event) => {
-	if (event.target.classList.contains('new-account')) {
-		signInContainer.classList.add('d-none')
-		signUpContainer.classList.remove('d-none')
-		userFormContainer.classList = `card bg-dark text-white`
-	}
-})
-
-// NAV SIGN-UP to SIGN-IN
-signUpContainer.addEventListener('click', (event) => {
-	if (event.target.classList.contains('existing-account')) {
-		signUpContainer.classList.add('d-none')
-		signInContainer.classList.remove('d-none')
-		userFormContainer.classList = `card bg-secondary text-white`
-	}
-})
 
 // SIGN-IN
 userSignInForm.addEventListener('submit', (event) => {
@@ -124,32 +119,7 @@ userSignUpForm.addEventListener('submit', (event) => {
 
 // RECORDS
 
-// RE-INDEXING RECORDS
-const reIndexRecords = () => {
-	reIndexRecordsButton.classList = `d-none btn btn-warning`
-	deleteLinerNoteContainer.innerHTML = ``
-	deleteLinerNoteContainer.style.display = "none"
-	indexRecordContainer.style.display = "block"
-	onHideRecordSuccess()
-	onHideLinerNoteSuccess()
-	linerNoteFormContainer.style.display = "block"
-}
-
-// refreshes indexed records and hide any containers thaat may still be showing
-
-const refresh = () => {
-	reIndexRecords()
-	indexRecordContainer.innerHTML = ``
-	addRecordButton.classList = `btn btn-dark p-3 collapsed`
-    createRecordForm.classList = `col-6 offset-3 collapse`
-	showIndex()
-}
-
-// refreshable event listeners
-recordCollection.addEventListener('click', refresh)
-mainIcon.addEventListener('click', refresh)
-
-// embed in "add album button"
+// embedded in "add album button"
 // CREATE RECORD
 createRecordForm.addEventListener('submit', (event) => {
     event.preventDefault()
@@ -170,12 +140,30 @@ createRecordForm.addEventListener('submit', (event) => {
 			.catch(onRecordFailure)
 })
 
+// ADD EDDIE RECORD TO COLLECTION
+eddieForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+
+    const recordData = {
+			record: {
+				albumTitle: event.target['albumTitle'].value,
+				artistName: event.target['artistName'].value,
+				yearReleased: event.target['yearReleased'].value,
+				comments: event.target['comments'].value,
+			},
+		}
+
+    console.log(recordData)
+    createRecord(recordData)
+			.then(onCreateRecordSuccess)
+			.then(refresh)
+			.catch(onRecordFailure)
+})
+
+
 // SHOW RECORD
 indexRecordContainer.addEventListener('click', (event) => {
 	if (event.target.classList.contains('show-button')) {
-		reIndexRecordsButton.addEventListener('click', reIndexRecords)
-		deleteLinerNoteContainer.style.display = "block"
-		reIndexRecordsButton.classList = `btn btn-warning`
 		const id = event.target.getAttribute('data-id')
 		console.log(id)
 
@@ -184,7 +172,6 @@ indexRecordContainer.addEventListener('click', (event) => {
 		showRecord(id)
 				.then((res) => res.json())
 				.then((res) => onShowRecordSuccess(res.record))
-				.then(onHideIndexSuccess)
 				.catch(onRecordFailure)
 	}
 })
@@ -224,16 +211,9 @@ showRecordContainer.addEventListener('click', (event) => {
 		.catch(onRecordFailure)
 })
 
-
-
-
-
-
-
 // LINER NOTES
 
-// Create liner note form will only show when an album is selected and the
-// "add liner note button is clicked"
+// Create liner note form will only show when an album is selected and the "add liner note button is clicked"
 
 
 linerNoteFormContainer.addEventListener('submit', (event) => {
@@ -305,12 +285,3 @@ deleteLinerNoteContainer.addEventListener('click', (event) => {
 			.catch(onLinerNoteFailure)
 	}
 })
-
-
-/*
-
-const d = new Date();
-document.getElementById("demo").innerHTML = d.toDateString();
-
-
-*/

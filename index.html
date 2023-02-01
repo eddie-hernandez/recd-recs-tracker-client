@@ -1,73 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=IM+Fell+English:ital@0;1&family=MedievalSharp&family=Rosarivo&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DotGothic16&family=IM+Fell+English:ital@0;1&family=MedievalSharp&family=Rosarivo&display=swap"
+        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="./styles.css" type="text/css"/>
-<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css" type="text/css" />
+    <link rel="icon" type="image/x-icon" href="/images/noted-icon.png">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
     <script type="module" src="./scripts/app.js" defer></script>
     <title>noted</title>
 </head>
+
 <body>
+    <!-- header -->
     <div id="title-header" class="row d-flex">
-        <h1>noted <img src="./images/noted-icon.png" type="button" width="40" height="40" id="icon" class="main-icon rotate-center">
-            <img src="./images/noted-icon-backup.png" type="button" width="40" height="40" id="icon">
-            <img src="./images/noted-icon-backup2.png" type="button" width="40" height="40" id="icon">
+        <h1>noted <img src="./images/noted-icon.png" type="button" width="40" height="40" id="icon"
+                class="main-icon rotate-center">
+            <img src="./images/noted-icon-backup.png" type="button" width="40" height="40" id="icon"
+                class="playlist-icon heartbeat">
+            <img src="./images/noted-icon-backup2.png" type="button" width="40" height="40" id="icon"
+                class="eddie-icon wobble-hor-bottom">
         </h1>
     </div>
+
+
     <div id="auth-container" class="show-container vh-80 gradient-custom">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                    <div id="user-form-container" class="card bg-secondary text-white" style="border-radius: 1rem;">
+                    <div id="user-form-container" class="card bg-warning text-black" style="border-radius: 1rem;">
                         <div class="card-body p-5 text-center">
+
+                            <!-- USER LOGIN -->
+
                             <div class="sign-in-container">
                                 <h2 class="fw-bold mb-2">* Login *</h2>
-                                <p class="text-white">Please Enter your Email and Password:</p>
-                                <!-- USER LOGIN FORM -->
+                                <p class="text-black">Please Enter your Email and Password:</p>
                                 <form class="user-login-form">
-                                <div class="form-floating">
-                                    <input type="email" id="email" class="form-control" placeholder="email" />
-                                    <label class="form-label text-black" for="email">Email</label>
-                                </div></br>
-                                <div class="form-floating">
-                                    <input type="password" id="password" class="form-control" placeholder="password" />
-                                    <label class="form-label text-black" for="password">Password</label>
-                                </div></br>
-                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Log Me In!</button>
+                                    <div class="form-floating">
+                                        <input type="email" id="email" class="form-control" placeholder="email" />
+                                        <label class="form-label text-black" for="email">Email</label>
+                                    </div></br>
+                                    <div class="form-floating">
+                                        <input type="password" id="password" class="form-control"
+                                            placeholder="password" />
+                                        <label class="form-label text-black" for="password">Password</label>
+                                    </div></br>
+                                    <button class="btn btn-outline-dark btn-lg px-5" type="submit">Log Me In!</button>
                                 </form></br>
                                 <div>
                                     <p class="mb-0">Don't have a noted account?</p>
-                                    <a href="#" class="new-account btn-light text-white fw-bold">Sign Up!</a>
+                                    <a href="#" class="new-account btn-light text-black fw-bold">Sign Up!</a>
                                 </div>
                             </div>
+
+                            <!-- USER SIGN-UP -->
 
                             <div class="sign-up-container d-none">
                                 <h2 class="fw-bold mb-2">* Sign-Up *</h2>
                                 <p class="text-white">Please Enter your Email and Password:</p>
-
-                                <!-- USER SIGN-UP FORM -->
                                 <form class="user-signup-form">
                                     <div class="form-floating">
                                         <input type="email" id="email" class="form-control" placeholder="email" />
                                         <label class="form-label text-black" for="email">Email</label>
                                     </div></br>
                                     <div class="form-floating">
-                                        <input type="password" id="password" class="form-control" placeholder="password" />
+                                        <input type="password" id="password" class="form-control"
+                                            placeholder="password" />
                                         <label class="form-label text-black" for="password">Password</label>
                                     </div></br>
                                     <button class="btn btn-outline-light btn-lg px-5" type="submit">Sign Me Up!</button>
-                                    </form></br>
+                                </form></br>
                                 <div>
-                                    <p class="mb-0">Already have a noted account?</p><a href="#" class="existing-account btn-light text-white fw-bold">Login Here!</a>
+                                    <p class="mb-0">Already have a noted account?</p><a href="#"
+                                        class="existing-account btn-light text-white fw-bold">Login Here!</a>
                                 </div>
                             </div>
                         </div>
@@ -78,13 +94,9 @@
         <div id="user-message-container"></div>
     </div>
 
-
-
-
-
+    <!-- main page container -->
 
     <div id="main-container" class="d-none">
-
         <button class="btn btn-link" id="record-collection">My Recommended Records</button>
         <div id="show-all-container" class="row">
             <div id="show-record-container" class="col-4 offset-2"></div></br>
@@ -93,37 +105,89 @@
                 <div id="delete-liner-note-container"></div>
             </div>
         </div>
-            <div id="index-record-container"></div></br></br>
-            <div id="record-message-container"></div>
-            <div id="empty-library-container"></div>
+        <div id="index-record-container"></div></br></br>
+        <div id="empty-library-container"></div>
+        <div id="record-message-container"></div>
         <div class="d-flex justify-content-center" id="re-index-records-container">
-            <button class="d-none btn btn-warning" id="re-index-records-button">Back to Record Collection</button></br></br></div></br>
-        </div>
+            <button class="d-none btn btn-warning" id="re-index-records-button">Back to Record
+                Collection</button></br></br>
+        </div></br>
 
 
-        <div class="record-form-container d-none">
-            <button class="btn btn-dark p-3" data-bs-toggle="collapse" data-bs-target="#create-record-form" aria-expanded="false" aria-controls="row" id="add-record-button">Add New Record</button></br></br>
+
+        <div class="create-record-container">
+            <button class="btn btn-dark p-3" data-bs-toggle="collapse" data-bs-target="#create-record-form"
+                aria-expanded="false" aria-controls="row" id="add-record-button">Add New Record</button></br></br>
             <form id="create-record-form" class="col-6 offset-3 collapse">
                 <div class="form-floating">
-                    <input type="text" name="albumTitle" id="albumTitle" placeholder="add record title here" class="form-control" />
+                    <input type="text" name="albumTitle" id="albumTitle" placeholder="add record title here"
+                        class="form-control" />
                     <label for="albumTitle" class="form-label" class="form-control">Record Title</label>
                 </div>
                 <div class="form-floating">
-                    <input type="text" name="artistName" id="artistName" placeholder="add artist name here" class="form-control" />
+                    <input type="text" name="artistName" id="artistName" placeholder="add artist name here"
+                        class="form-control" />
                     <label for="artistName" class="form-label" class="form-control">Artist Name</label>
                 </div>
                 <div class="form-floating">
-                    <input type="number" name="yearReleased" id="yearReleased" placeholder="year record was released" class="form-control" />
+                    <input type="number" name="yearReleased" id="yearReleased" placeholder="year record was released"
+                        class="form-control" />
                     <label for="yearReleased" class="form-label" class="form-control">Year Released</label>
                 </div>
                 <div class="form-floating">
-                    <input type="text" name="comments" id="comments" placeholder="add any comments about the record here" class="form-control" />
+                    <input type="text" name="comments" id="comments"
+                        placeholder="add any comments about the record here" class="form-control" />
                     <label for="comments" class="form-label" class="form-control">Comments (if any)</label>
                 </div></br>
-                    <button type="submit" class="btn btn-success" value="Add New Record">Add Record to 'My Recommended Albums'</button></br></br>
+                <button type="submit" class="btn btn-success" value="Add New Record">Add Record to 'My Recommended
+                    Records'</button></br></br>
             </form>
         </div>
     </div>
+
+
+<!-- playlist page-->
+
+<div id="playlist-page-container" class="d-none mt-4 row">
+
+    <h2 id="playlist-title"><u>&#9834; Standouts Mix &#9834;</u></h2>
+    <h3 id="playlist-subtitle" class="p-4"><i>this playlist is comprised of all your standout tracks! don't forget to create a liner note to add more standout tracks to your standout mix!</i></h3>
+    <div id="playlist-container"></div>
+</div>
+
+
+<!-- eddie's page -->
+
+<div id="eddie-container" class="d-none mt-4 row">
+    <h2 id="eddie-title"><u>Eddie's Rec of the Month</u></h2>
+    <h2 id="eddie-subtitle"><u>(February 2023)</i></u></h2>
+    <h3 id="eddie-description" class="col-8 offset-2 pt-4"><i>Hey! Thanks for coming in here, here's an album I think you should listen to, if you wanna...it literally sounds how the album cover looks, it's heavenly.</h3>
+    <div class="row mt-3 px-4">
+        <div id="eddie-rec-container" class="col-6 mt-5">
+            <img id="eddie-rec" src="./images/feb2023rec.jpg" >
+        </div>
+        <form id="eddie-form" class="col-6">
+            <label for="albumTitle" id="eddie-label" class="form-label">Album Title:</label>
+            <h4 id="eddie-input">Vision Songs, vol.1</h4>
+            <input type="text" name="albumTitle" id="albumTitle" value="Vision Songs, vol.1" 
+            readonly class="d-none" />
+            <label for="artistName" id="eddie-label" class="form-label">Artist Name:</label>
+            <h4 id="eddie-input">Laraaji</h4>
+            <input type="text" name="artistName" id="artistName" value="Laraaji"
+            readonly class="d-none" />
+            <label for="yearReleased" id="eddie-label" class="form-label">Year Released:</label>
+            <h4 id="eddie-input">1984</h4>
+            <input type="number" name="yearReleased" id="yearReleased" value=1984
+            readonly class="d-none" />
+            <label for="comments" id="eddie-label" class="form-label">Comments (if any)</label>
+            <h4 id="eddie-input">this album brings me so much joy...</h4>
+            <input type="text" name="comments" id="comments" value="this album brings me so much joy..."
+            readonly class="d-none" />
+            <button type="submit" id="add-eddie-rec" class="mt-3 btn btn-outline-warning" value="Add New Record">Add Eddie's Rec to Collection</button></br></br>
+        </form>
+    </div>
+</div>
+
 </body>
 
 </html>
