@@ -49,8 +49,10 @@ h3 {
 }
 
 #record-message {
-    margin-top: 20px;
-    color: gold;
+    font-size: 30px;
+    border-style:dashed;
+    margin-top: 10px;
+    color: #25f463;
 }
 
 #user-message-container {
@@ -348,12 +350,18 @@ h3 {
         font-size: 15px;
     }
 
+    #record-message {
+        font-size: 20px;
+    }
+
     #playlist-title {
         font-size: 30px;
     }
+
     #show-song {
         font-size: 20px;
     }
+
     #userError {
         margin-top: -40px;
     }
