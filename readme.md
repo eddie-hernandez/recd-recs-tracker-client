@@ -2,7 +2,7 @@
 
 Welcome to noted – an app that allows a user to create an account, login, and build and track their own recommended record collection. 
 
-This collection is designed to log any albums the user has intended to listen to. Once the user has given a listen through, they are encouraged to write a "liner note" – a review of the album comprised of a rating, a "standout track", and additional personal thoughts. 
+This collection is designed to log any albums the user has intended to listen to. Once the user has given a listen through, they are encouraged to write a "liner note" – a review of the album comprised of a rating (1-10), a "standout track", and additional personal thoughts. 
 
 Currently, additional features of the app include monthly record recommendations and a compiled playlist of the users' "standout tracks".
 
