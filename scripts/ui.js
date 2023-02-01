@@ -174,7 +174,7 @@ export const onShowRecordSuccess = (record) => {
             <label for="yearReleased" class="form-label" class="form-control">Year Released</label>
         </div>
         <div class="form-floating">
-            <input type="text" name="comments" id="comments" value="${record.comments}" class="form-control" />
+            <input type="text" name="comments" id="comments" value="'${record.comments}'" class="form-control" />
             <label for="comments" class="form-label" class="form-control">Comments (if any)</label>
         </div></br>
         <button type="submit" class="btn btn-success" value="Update Record Info" />Update Record Info</button></br></br>
