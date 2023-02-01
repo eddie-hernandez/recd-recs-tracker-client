@@ -24,10 +24,9 @@ export const signUp = (data) => {
 	})
 }
 
-// RECORD CRUD EXPORTS
+// RECORD CRUD ACTION EXPORTS
 
 export const createRecord = (data) => {
-    console.log(data)
     return fetch(`http://localhost:7777/records`, {
         method: 'POST',
         headers: {
@@ -86,7 +85,7 @@ export const deleteRecord = (id) => {
 }
 
 
-// LINER NOTE CRUD EXPORTS
+// LINER NOTE CRUD ACTION EXPORTS
 
 export const createLinerNote = (data) => {
     return fetch(`http://localhost:7777/liner-notes`, {

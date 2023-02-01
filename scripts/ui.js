@@ -70,7 +70,6 @@ const activatePlaylist = () => {
     indexRecords()
         .then(res => res.json())
         .then(res => {
-            console.log(res)
             onShowPlaylist(res.records)
         })
         .catch(onRecordFailure)
@@ -78,7 +77,6 @@ const activatePlaylist = () => {
 
 const onShowPlaylist = (records) => {
     records.forEach(record => {
-        console.log(record)
         if (record.linerNotes[0].standoutTrack !== undefined) {
         const playlistDiv = document.createElement('div')
         playlistDiv.innerHTML = `<h2 id="show-song">&#10038; ${record.artistName} - "${record.linerNotes[0].standoutTrack}"</h2>
