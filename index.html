@@ -105,12 +105,12 @@
                 <div id="delete-liner-note-container"></div>
             </div>
         </div>
-        <div id="index-record-container"></div></br></br>
+        <div id="index-record-container"></div>
         <div id="empty-library-container"></div>
         <div id="record-message-container"></div>
         <div class="d-flex justify-content-center" id="re-index-records-container">
             <button class="d-none btn btn-warning" id="re-index-records-button">Back to Record
-                Collection</button></br></br>
+                Collection</button>
         </div></br>
 
 
@@ -151,7 +151,7 @@
 <div id="playlist-page-container" class="d-none mt-4 row">
 
     <h2 id="playlist-title"><u>&#9834; Standouts Mix &#9834;</u></h2>
-    <h3 id="playlist-subtitle" class="p-4"><i>this playlist is comprised of all your standout tracks! don't forget to create a liner note to add more standout tracks to your standout mix!</i></h3>
+    <h3 id="playlist-subtitle" class="col-8 offset-2 p-4"><i>this playlist is comprised of all your standout tracks! don't forget to create a liner note to add more standout tracks to your standout mix!</i></h3>
     <div id="playlist-container"></div>
 </div>
 
@@ -162,11 +162,11 @@
     <h2 id="eddie-title"><u>Eddie's Rec of the Month</u></h2>
     <h2 id="eddie-subtitle"><u>(February 2023)</i></u></h2>
     <h3 id="eddie-description" class="col-8 offset-2 pt-4"><i>Hey! Thanks for coming in here, here's an album I think you should listen to, if you wanna...it literally sounds how the album cover looks, it's heavenly.</h3>
-    <div class="row mt-3 px-4">
-        <div id="eddie-rec-container" class="col-6 mt-5">
+    <div class="row px-4">
+        <div id="eddie-rec-container" class="col-sm-12 col-lg-6 mt-5">
             <img id="eddie-rec" src="./images/feb2023rec.jpg" >
         </div>
-        <form id="eddie-form" class="col-6">
+        <form id="eddie-form" class="col-sm-12 col-lg-4">
             <label for="albumTitle" id="eddie-label" class="form-label">Album Title:</label>
             <h4 id="eddie-input">Vision Songs, vol.1</h4>
             <input type="text" name="albumTitle" id="albumTitle" value="Vision Songs, vol.1" 
@@ -180,8 +180,8 @@
             <input type="number" name="yearReleased" id="yearReleased" value=1984
             readonly class="d-none" />
             <label for="comments" id="eddie-label" class="form-label">Comments (if any)</label>
-            <h4 id="eddie-input">this album brings me so much joy...</h4>
-            <input type="text" name="comments" id="comments" value="this album brings me so much joy..."
+            <h4 id="eddie-input">peaceful tunes, great to have on in the background...doin' dishes, thinkin' about life...all that jazz</h4>
+            <input type="text" name="comments" id="comments" value="peaceful tunes, background music type album"
             readonly class="d-none" />
             <button type="submit" id="add-eddie-rec" class="mt-3 btn btn-outline-warning" value="Add New Record">Add Eddie's Rec to Collection</button></br></br>
         </form>

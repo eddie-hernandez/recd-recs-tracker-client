@@ -48,7 +48,8 @@ h3 {
     color: #25f463;
 }
 
-#record-message-container {
+#record-message {
+    margin-top: 20px;
     color: gold;
 }
 
@@ -115,6 +116,10 @@ h3 {
 
 #playlist-subtitle {
     color:gold;
+}
+
+#re-index-records-button {
+    margin-top: 30px;
 }
 
 /* ANIMATIONS (CREDIT: ANIMISTA) */
@@ -275,6 +280,13 @@ h3 {
     #eddie-input {
         font-size: 20px;
     }
+    #eddie-rec {
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+    #eddie-description {
+        margin-bottom: -20px;
+    }
 }
 
 /* RESIZING FOR SMALLER SCREENS */
@@ -317,10 +329,6 @@ h3 {
     #eddie-subtitle {
         font-size: 20px;
         color: rgb(234, 255, 213);
-    }
-
-    #eddie-rec {
-        margin-top: 0px;
     }
 
     #eddie-label {
