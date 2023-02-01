@@ -80,8 +80,6 @@ recordCollection.addEventListener('click', refresh)
 // re-index event listener
 reIndexRecordsButton.addEventListener('click', reIndexRecordSuccess)
 
-
-
 // User Actions
 
 // SIGN-IN
