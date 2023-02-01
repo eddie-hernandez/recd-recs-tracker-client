@@ -1,26 +1,34 @@
+// IMPORTS
+
 import { store } from './store.js'
 import { showIndex } from './app.js'
 import { indexRecords } from './api.js'
 
-// RECORDS
+// DOM SELECTIONS
 
-
+// selecting by container
 const signUpContainer = document.querySelector('.sign-up-container')
 const signInContainer = document.querySelector('.sign-in-container')
-const userFormContainer = document.querySelector('#user-form-container')
-const addRecordButton = document.querySelector("#add-record-button")
 const indexRecordContainer = document.querySelector('#index-record-container')
 const userMessageContainer = document.querySelector('#user-message-container')
 const recordMessageContainer = document.querySelector('#record-message-container')
 const showRecordContainer = document.querySelector('#show-record-container')
+const playlistContainer = document.querySelector('#playlist-container')
+
+// selecting by forms & form container
+const createRecordForm = document.querySelector('#create-record-form')
+const userFormContainer = document.querySelector('#user-form-container')
 const linerNoteFormContainer = document.querySelector('#liner-note-form-container')
 const deleteLinerNoteContainer = document.querySelector('#delete-liner-note-container')
+
+// selecting by page
 const playlistPageContainer = document.querySelector('#playlist-page-container')
-const playlistContainer = document.querySelector('#playlist-container')
 const authContainer = document.querySelector('#auth-container')
 const mainContainer = document.querySelector('#main-container')
 const eddieContainer = document.querySelector('#eddie-container')
-const createRecordForm = document.querySelector('#create-record-form')
+
+// selecting by button
+const addRecordButton = document.querySelector("#add-record-button")
 const reIndexRecordsButton = document.querySelector('#re-index-records-button')
 const eddieButton = document.querySelector('.eddie-icon')
 const mainIcon = document.querySelector('.main-icon')
@@ -36,7 +44,6 @@ export const refresh = () => {
     createRecordForm.classList = `col-6 offset-3 collapse`
     showIndex()
 }
-
 
 // EDDIE PAGE NAVIGATION
 const navFromEddie = () => {
@@ -85,6 +92,8 @@ const onShowPlaylist = (records) => {
         }
     })
 }
+
+// RECORD SUCCESS / FAILURE EXPORTS
 
 export const onIndexRecordSuccess = (records) => {
     indexRecordContainer.style.display = "block"
@@ -239,15 +248,7 @@ export const onRecordFailure = (error) => {
 }
     
     
-// LINER NOTES
-    
-export const onLinerNoteFailure = (error) => {
-    recordMessageContainer.innerHTML = `
-        <h4 id="record-message" class="col-8 offset-2">woah! you've got a liner note error!</h4>
-        <p id="error" class="col-8 offset-2">${error}</p>
-    `
-    setTimeout(() => {recordMessageContainer.innerHTML = ``}, 2500)
-}
+// LINER NOTES SUCCESS / FAILURE EXPORTS
 
 export const onCreateLinerNoteSuccess = () => {
     refresh()
@@ -259,7 +260,7 @@ export const onUpdateLinerNoteSuccess = () => {
     refresh()
     recordMessageContainer.innerHTML = `<h4 id="record-message" class="col-8 offset-2"><i>amazing...you've just edited a liner note!</i></h4>`
     setTimeout(() => {recordMessageContainer.innerText = ``}, 1500)
-
+    
 }
 
 export const onDeleteLinerNoteSuccess = () => {
@@ -267,6 +268,16 @@ export const onDeleteLinerNoteSuccess = () => {
     recordMessageContainer.innerHTML = `<h4 id="record-message" class="col-8 offset-2"><i>you've just deleted a liner note! :0</i></h4>`
     setTimeout(() => {recordMessageContainer.innerText = ``}, 1500)
 }
+
+export const onLinerNoteFailure = (error) => {
+    recordMessageContainer.innerHTML = `
+        <h4 id="record-message" class="col-8 offset-2">woah! you've got a liner note error!</h4>
+        <p id="error" class="col-8 offset-2">${error}</p>
+    `
+    setTimeout(() => {recordMessageContainer.innerHTML = ``}, 2500)
+}
+
+// USER SUCCESS / FAILURE EXPORTS
 
 export const onSignUpSuccess = () => {
     userMessageContainer.innerHTML = `
