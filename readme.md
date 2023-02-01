@@ -16,7 +16,7 @@ Currently, additional features of the app include monthly record recommendations
 
 ## Index Records Page (Main Container)
 
-![Index Records Page](/images/noted-index.png)
+![Index Records Page](/images/noted-index-records.png)
 
 ## Show/Create/Update/Delete Records
 
