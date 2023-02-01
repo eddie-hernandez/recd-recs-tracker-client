@@ -34,6 +34,8 @@ const eddieButton = document.querySelector('.eddie-icon')
 const mainIcon = document.querySelector('.main-icon')
 const playlistIcon = document.querySelector('.playlist-icon')
 
+/* ESSENTIAL UI FUNCTIONS */
+
 // refreshes indexed records and hide any containers that may still be showing
 export const refresh = () => {
     navFromEddie()
@@ -44,6 +46,39 @@ export const refresh = () => {
     createRecordForm.classList = `col-6 offset-3 collapse`
     showIndex()
 }
+
+// RE-INDEXING RECORDS
+export const reIndexRecordSuccess = () => {
+	reIndexRecordsButton.classList = `d-none btn btn-warning`
+	deleteLinerNoteContainer.innerHTML = ``
+	deleteLinerNoteContainer.style.display = "none"
+	indexRecordContainer.style.display = "block"
+    showRecordContainer.style.display = "none"
+    showRecordContainer.innerHTML = ``
+    linerNoteFormContainer.style.display = "none"
+    linerNoteFormContainer.innerHTML = ``
+	linerNoteFormContainer.style.display = "block"
+}
+
+/* PAGE NAVIGATIONS */
+
+// NAV SIGN-IN to SIGN-UP
+signInContainer.addEventListener('click', (event) => {
+    if (event.target.classList.contains('new-account')) {
+        signInContainer.classList.add('d-none')
+        signUpContainer.classList.remove('d-none')
+        userFormContainer.classList = `card bg-dark text-white`
+    }
+})
+
+// NAV SIGN-UP to SIGN-IN
+signUpContainer.addEventListener('click', (event) => {
+    if (event.target.classList.contains('existing-account')) {
+        signUpContainer.classList.add('d-none')
+        signInContainer.classList.remove('d-none')
+        userFormContainer.classList = `card bg-warning text-black`
+    }
+})
 
 // EDDIE PAGE NAVIGATION
 const navFromEddie = () => {
@@ -58,7 +93,9 @@ const navToEddie = () => {
     eddieContainer.classList.remove('d-none')
 }
 
-// PLAYLIST NAV
+/* PLAYLIST PAGE ACTIONS */
+
+// PLAYLIST PAGE NAVIGATION
 const navFromPlaylist = () => {
     playlistContainer.innerHTML = ``
     mainContainer.classList.remove('d-none')
@@ -82,6 +119,7 @@ const activatePlaylist = () => {
         .catch(onRecordFailure)
 }
 
+// SHOW PLAYLIST
 const onShowPlaylist = (records) => {
     records.forEach(record => {
         if (record.linerNotes[0].standoutTrack !== undefined) {
@@ -93,7 +131,7 @@ const onShowPlaylist = (records) => {
     })
 }
 
-// RECORD SUCCESS / FAILURE EXPORTS
+/* RECORDS SUCCESS / FAILURE EXPORTS */
 
 export const onIndexRecordSuccess = (records) => {
     indexRecordContainer.style.display = "block"
@@ -248,7 +286,7 @@ export const onRecordFailure = (error) => {
 }
     
     
-// LINER NOTES SUCCESS / FAILURE EXPORTS
+/* LINER NOTE SUCCESS / FAILURE EXPORTS */
 
 export const onCreateLinerNoteSuccess = () => {
     refresh()
@@ -277,7 +315,7 @@ export const onLinerNoteFailure = (error) => {
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 2500)
 }
 
-// USER SUCCESS / FAILURE EXPORTS
+/* USER SUCCESS / FAILURE EXPORTS */
 
 export const onSignUpSuccess = () => {
     userMessageContainer.innerHTML = `
@@ -303,35 +341,3 @@ export const onUserFailure = () => {
 `
 setTimeout(() => {userMessageContainer.innerHTML = ``}, 2500)
 }
-
-
-// RE-INDEXING RECORDS
-export const reIndexRecordSuccess = () => {
-	reIndexRecordsButton.classList = `d-none btn btn-warning`
-	deleteLinerNoteContainer.innerHTML = ``
-	deleteLinerNoteContainer.style.display = "none"
-	indexRecordContainer.style.display = "block"
-    showRecordContainer.style.display = "none"
-    showRecordContainer.innerHTML = ``
-    linerNoteFormContainer.style.display = "none"
-    linerNoteFormContainer.innerHTML = ``
-	linerNoteFormContainer.style.display = "block"
-}
-
-// NAV SIGN-IN to SIGN-UP
-signInContainer.addEventListener('click', (event) => {
-	if (event.target.classList.contains('new-account')) {
-		signInContainer.classList.add('d-none')
-		signUpContainer.classList.remove('d-none')
-		userFormContainer.classList = `card bg-dark text-white`
-	}
-})
-
-// NAV SIGN-UP to SIGN-IN
-signUpContainer.addEventListener('click', (event) => {
-	if (event.target.classList.contains('existing-account')) {
-		signUpContainer.classList.add('d-none')
-		signInContainer.classList.remove('d-none')
-		userFormContainer.classList = `card bg-warning text-black`
-	}
-})
