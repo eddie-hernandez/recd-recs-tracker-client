@@ -207,7 +207,6 @@ showRecordContainer.addEventListener('click', (event) => {
 
 	deleteRecord(id)
 		.then(onDeleteRecordSuccess)
-		.then(refresh)
 		.catch(onRecordFailure)
 })
 

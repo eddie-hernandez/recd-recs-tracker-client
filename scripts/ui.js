@@ -113,7 +113,8 @@ const onShowPlaylist = (records) => {
     records.forEach(record => {
         if (record.linerNotes[0].standoutTrack !== "") {
         const playlistDiv = document.createElement('div')
-        playlistDiv.innerHTML = `<h2 id="show-song">&#10038; ${record.artistName} - "${record.linerNotes[0].standoutTrack}"</h2>
+        playlistDiv.innerHTML = `
+            <h2 id="show-song">&#10038; ${record.artistName} - "${record.linerNotes[0].standoutTrack}"</h2>
         `
         playlistContainer.appendChild(playlistDiv)
         }
@@ -262,20 +263,25 @@ export const onShowRecordSuccess = (record) => {
 }
     
 export const onCreateRecordSuccess = () => {
-    recordMessageContainer.innerHTML = `<h4 id="record-message" class="col-8 offset-2"><i>now THAT'S a record!</i></h4>`
+    recordMessageContainer.innerHTML = `
+        <h4 id="record-message" class="col-8 offset-2"><i>now THAT'S a record!</i></h4>
+    `
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
-    
 }
 
 export const onUpdateRecordSuccess = () => {
     refresh()
-    recordMessageContainer.innerHTML = `<h4 id="record-message" class="col-8 offset-2"><i>record successfully updated!</i></h4>`
+    recordMessageContainer.innerHTML = `
+        <h4 id="record-message" class="col-8 offset-2"><i>record successfully updated!</i></h4>
+    `
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
 }
 
 export const onDeleteRecordSuccess = () => {
     refresh()
-    recordMessageContainer.innerHTML = `<h4 id="record-message" class="col-8 offset-2"><i>record deletion successful!</i></h4>`
+    recordMessageContainer.innerHTML = `
+        <h4 id="record-message" class="col-8 offset-2"><i>record deletion successful!</i></h4>
+    `
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
 }
 
@@ -292,20 +298,26 @@ export const onRecordFailure = (error) => {
 
 export const onCreateLinerNoteSuccess = () => {
     refresh()
-    recordMessageContainer.innerHTML = `<h4 id="record-message" class="col-8 offset-2"><i>incredible...you've just created a liner note!!</i></h4>`
+    recordMessageContainer.innerHTML = `
+    <h4 id="record-message" class="col-8 offset-2"><i>incredible...you've just created a liner note!!</i></h4>
+    `
     setTimeout(() => {recordMessageContainer.innerText = ``}, 1500)
 }
 
 export const onUpdateLinerNoteSuccess = () => {
     refresh()
-    recordMessageContainer.innerHTML = `<h4 id="record-message" class="col-8 offset-2"><i>amazing...you've just edited a liner note!</i></h4>`
+    recordMessageContainer.innerHTML = `
+        <h4 id="record-message" class="col-8 offset-2"><i>amazing...you've just edited a liner note!</i></h4>
+    `
     setTimeout(() => {recordMessageContainer.innerText = ``}, 1500)
     
 }
 
 export const onDeleteLinerNoteSuccess = () => {
     refresh()
-    recordMessageContainer.innerHTML = `<h4 id="record-message" class="col-8 offset-2"><i>you've just deleted a liner note! :0</i></h4>`
+    recordMessageContainer.innerHTML = `
+        <h4 id="record-message" class="col-8 offset-2"><i>you've just deleted a liner note! :0</i></h4>
+    `
     setTimeout(() => {recordMessageContainer.innerText = ``}, 1500)
 }
 
@@ -321,8 +333,9 @@ export const onLinerNoteFailure = (error) => {
 
 export const onSignUpSuccess = () => {
     userMessageContainer.innerHTML = `
-    <h4>you've created a new user!</h4>
-    <h4>sign-in to your new account.</h4>`
+        <h4>you've created a new user!</h4>
+        <h4>sign-in to your new account.</h4>
+    `
     setTimeout(() => {userMessageContainer.innerHTML = ``}, 1500)
 }
 
@@ -338,8 +351,8 @@ export const onSignInSuccess = (userToken) => {
 
 export const onUserFailure = () => {
     userMessageContainer.innerHTML = `
-    <h4 id="error">the email and/or password provided is not correct.</h4>
-    <h4 id="error">please sign in again.</h4>
-`
+        <h4 id="error">the email and/or password provided is not correct.</h4>
+        <h4 id="error">please sign in again.</h4>
+    `
 setTimeout(() => {userMessageContainer.innerHTML = ``}, 2500)
 }
