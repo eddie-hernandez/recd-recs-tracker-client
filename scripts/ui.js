@@ -212,8 +212,7 @@ export const onShowRecordSuccess = (record) => {
             <label for="thoughts" class="form-label" class="form-control">Thoughts? (if any)</label>
         </div>
         <div class="form-floating">
-            <input type="text" name="recordId" id="recordId" value="${record._id}" class="form-control" disabled />
-            <label for="recordId" class="form-label" class="form-control">Record ID</label>
+            <input type="text" name="recordId" id="recordId" value="${record._id}" class="form-control d-none" disabled />
         </div></br>
         <button type="submit" class="btn btn-success" value="Update Liner Note" />Update Liner Note Info for "${record.albumTitle}"</button>
         </form>
@@ -251,8 +250,7 @@ export const onShowRecordSuccess = (record) => {
             <label for="thoughts" class="form-label" class="form-control">Thoughts? (if any)</label>
         </div>
         <div class="form-floating">
-            <input type="text" name="recordId" id="recordId" value="${record._id}" class="form-control" disabled />
-            <label for="recordId" class="form-label" class="form-control">Record ID</label>
+            <input type="text" name="recordId" id="recordId" value="${record._id}" class="form-control d-none" disabled />
         </div></br>
         <button type="submit" class="btn btn-success" value="Add Liner Note" />Add Liner Note to "${record.albumTitle}"</button></br>
         </form>
