@@ -264,7 +264,7 @@ export const onShowRecordSuccess = (record) => {
     
 export const onCreateRecordSuccess = () => {
     recordMessageContainer.innerHTML = `
-        <h4 id="record-message" class="col-8 offset-2"><i>now THAT'S a record!</i></h4>
+        <h4 id="record-message"><i>now THAT'S a record!</i></h4>
     `
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
 }
@@ -272,7 +272,7 @@ export const onCreateRecordSuccess = () => {
 export const onUpdateRecordSuccess = () => {
     refresh()
     recordMessageContainer.innerHTML = `
-        <h4 id="record-message" class="col-8 offset-2"><i>record successfully updated!</i></h4>
+        <h4 id="record-message"><i>record successfully updated!</i></h4>
     `
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
 }
@@ -280,15 +280,15 @@ export const onUpdateRecordSuccess = () => {
 export const onDeleteRecordSuccess = () => {
     refresh()
     recordMessageContainer.innerHTML = `
-        <h4 id="record-message" class="col-8 offset-2"><i>record deletion successful!</i></h4>
+        <h4 id="record-message"><i>record deletion successful!</i></h4>
     `
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
 }
 
 export const onRecordFailure = (error) => {
     recordMessageContainer.innerHTML = `
-        <h4 id="record-message" class="col-8 offset-2">woah! you've got a record error!</h4>
-        <p id="error" class="col-8 offset-2">${error}</p>
+        <h4 id="record-message">woah! you've got a record error!</h4>
+        <p id="error">${error}</p>
     `
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 2500)
 }
@@ -299,7 +299,7 @@ export const onRecordFailure = (error) => {
 export const onCreateLinerNoteSuccess = () => {
     refresh()
     recordMessageContainer.innerHTML = `
-    <h4 id="record-message" class="col-8 offset-2"><i>incredible...you've just created a liner note!!</i></h4>
+    <h4 id="record-message"><i>incredible...you've just created a liner note!!</i></h4>
     `
     setTimeout(() => {recordMessageContainer.innerText = ``}, 1500)
 }
@@ -307,7 +307,7 @@ export const onCreateLinerNoteSuccess = () => {
 export const onUpdateLinerNoteSuccess = () => {
     refresh()
     recordMessageContainer.innerHTML = `
-        <h4 id="record-message" class="col-8 offset-2"><i>amazing...you've just edited a liner note!</i></h4>
+        <h4 id="record-message"><i>amazing...you've just edited a liner note!</i></h4>
     `
     setTimeout(() => {recordMessageContainer.innerText = ``}, 1500)
     
@@ -316,15 +316,15 @@ export const onUpdateLinerNoteSuccess = () => {
 export const onDeleteLinerNoteSuccess = () => {
     refresh()
     recordMessageContainer.innerHTML = `
-        <h4 id="record-message" class="col-8 offset-2"><i>you've just deleted a liner note! :0</i></h4>
+        <h4 id="record-message"><i>you've just deleted a liner note! :0</i></h4>
     `
     setTimeout(() => {recordMessageContainer.innerText = ``}, 1500)
 }
 
 export const onLinerNoteFailure = (error) => {
     recordMessageContainer.innerHTML = `
-        <h4 id="record-message" class="col-8 offset-2">woah! you've got a liner note error!</h4>
-        <p id="error" class="col-8 offset-2">${error}</p>
+        <h4 id="record-message">woah! you've got a liner note error!</h4>
+        <p id="error">${error}</p>
     `
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 2500)
 }

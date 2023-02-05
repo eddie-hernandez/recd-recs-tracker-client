@@ -51,7 +51,8 @@ h3 {
 #record-message {
     font-size: 30px;
     border-style:dashed;
-    margin-top: 10px;
+    margin: 10px 0px 20px 0px;
+    padding: 10px 0px 10px 0px;
     color: #25f463;
 }
 
