@@ -3,7 +3,7 @@ import { store } from './store.js'
 // USER ACTION EXPORTS
 
 export const signIn = (data) => {
-	return fetch(`http://localhost:7777/sign-in`, {
+	return fetch(`https://pure-beach-20673.herokuapp.com/sign-in`, {
 		method: 'POST',
 		headers: {
 			'Accept': 'application/json',
@@ -14,7 +14,7 @@ export const signIn = (data) => {
 }
 
 export const signUp = (data) => {
-	return fetch(`http://localhost:7777/sign-up`, {
+	return fetch(`https://pure-beach-20673.herokuapp.com/sign-up`, {
 		method: 'POST',
 		headers: {
 			'Accept': 'application/json',
@@ -27,7 +27,7 @@ export const signUp = (data) => {
 // RECORD CRUD ACTION EXPORTS
 
 export const createRecord = (data) => {
-    return fetch(`http://localhost:7777/records`, {
+    return fetch(`https://pure-beach-20673.herokuapp.com/records`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -39,15 +39,7 @@ export const createRecord = (data) => {
 }
 
 export const indexRecords = () => {
-    return fetch(`http://localhost:7777/records`, {
-		headers: {
-			'Authorization': `Bearer ${store.userToken}`,
-		},
-	})
-}
-
-export const seedRecords = () => {
-    return fetch(`http://localhost:7777/seed/records`, {
+    return fetch(`https://pure-beach-20673.herokuapp.com/records`, {
 		headers: {
 			'Authorization': `Bearer ${store.userToken}`,
 		},
@@ -56,7 +48,7 @@ export const seedRecords = () => {
 
 
 export const showRecord = (id) => {
-    return fetch(`http://localhost:7777/records/${id}`, {
+    return fetch(`https://pure-beach-20673.herokuapp.com/records/${id}`, {
 		headers: {
 			'Authorization': `Bearer ${store.userToken}`,
 		},
@@ -64,7 +56,7 @@ export const showRecord = (id) => {
 }
 
 export const updateRecord = (data, id) => {
-    return fetch(`http://localhost:7777/records/${id}`, {
+    return fetch(`https://pure-beach-20673.herokuapp.com/records/${id}`, {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
@@ -76,7 +68,7 @@ export const updateRecord = (data, id) => {
 }
 
 export const deleteRecord = (id) => {
-    return fetch(`http://localhost:7777/records/${id}`, {
+    return fetch(`https://pure-beach-20673.herokuapp.com/records/${id}`, {
         method: 'DELETE',
 		headers: {
 			Authorization: `Bearer ${store.userToken}`,
@@ -88,7 +80,7 @@ export const deleteRecord = (id) => {
 // LINER NOTE CRUD ACTION EXPORTS
 
 export const createLinerNote = (data) => {
-    return fetch(`http://localhost:7777/liner-notes`, {
+    return fetch(`https://pure-beach-20673.herokuapp.com/liner-notes`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -100,7 +92,7 @@ export const createLinerNote = (data) => {
 }
 
 export const updateLinerNote = (data, id) => {
-    return fetch(`http://localhost:7777/liner-notes/${id}`, {
+    return fetch(`https://pure-beach-20673.herokuapp.com/liner-notes/${id}`, {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
@@ -112,7 +104,7 @@ export const updateLinerNote = (data, id) => {
 }
 
 export const deleteLinerNote = (data, id) => {
-    return fetch(`http://localhost:7777/liner-notes/${id}`, {
+    return fetch(`https://pure-beach-20673.herokuapp.com/liner-notes/${id}`, {
         method: 'DELETE',
         headers: {
             'Accept': 'application/json',
