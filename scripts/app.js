@@ -1,6 +1,5 @@
 import { 
 	indexRecords,
-	seedRecords,
 	createRecord,
 	showRecord,
 	updateRecord,
@@ -111,7 +110,6 @@ userSignUpForm.addEventListener('submit', (event) => {
 	}
 	signUp(userData)
 	.then(onSignUpSuccess)
-	.then(seedRecords)
 	.catch(onUserFailure)
 })
 
