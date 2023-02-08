@@ -6,6 +6,7 @@ export const signIn = (data) => {
 	return fetch(`https://pure-beach-20673.herokuapp.com/sign-in`, {
 		method: 'POST',
 		headers: {
+            'Access-Control-Allow-Origin': 'http://localhost:7777/sign-in',
 			'Accept': 'application/json',
 			'Content-Type': 'application/json',
 		},
@@ -17,6 +18,7 @@ export const signUp = (data) => {
 	return fetch(`https://pure-beach-20673.herokuapp.com/sign-up`, {
 		method: 'POST',
 		headers: {
+            'Access-Control-Allow-Origin': 'http://localhost:7777',
 			'Accept': 'application/json',
 			'Content-Type': 'application/json',
 		},
@@ -30,6 +32,7 @@ export const createRecord = (data) => {
     return fetch(`https://pure-beach-20673.herokuapp.com/records`, {
         method: 'POST',
         headers: {
+            'Access-Control-Allow-Origin': 'http://localhost:7777',
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${store.userToken}`
@@ -41,6 +44,7 @@ export const createRecord = (data) => {
 export const indexRecords = () => {
     return fetch(`https://pure-beach-20673.herokuapp.com/records`, {
 		headers: {
+            'Access-Control-Allow-Origin': 'http://localhost:7777',
 			'Authorization': `Bearer ${store.userToken}`,
 		},
 	})
@@ -50,6 +54,7 @@ export const indexRecords = () => {
 export const showRecord = (id) => {
     return fetch(`https://pure-beach-20673.herokuapp.com/records/${id}`, {
 		headers: {
+            'Access-Control-Allow-Origin': 'http://localhost:7777',
 			'Authorization': `Bearer ${store.userToken}`,
 		},
 	})
@@ -59,6 +64,7 @@ export const updateRecord = (data, id) => {
     return fetch(`https://pure-beach-20673.herokuapp.com/records/${id}`, {
         method: 'PATCH',
         headers: {
+            'Access-Control-Allow-Origin': 'http://localhost:7777',
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${store.userToken}`
@@ -71,7 +77,8 @@ export const deleteRecord = (id) => {
     return fetch(`https://pure-beach-20673.herokuapp.com/records/${id}`, {
         method: 'DELETE',
 		headers: {
-			Authorization: `Bearer ${store.userToken}`,
+            'Access-Control-Allow-Origin': 'http://localhost:7777',
+			'Authorization': `Bearer ${store.userToken}`,
 		},
     })
 }
@@ -83,6 +90,7 @@ export const createLinerNote = (data) => {
     return fetch(`https://pure-beach-20673.herokuapp.com/liner-notes`, {
         method: 'POST',
         headers: {
+            'Access-Control-Allow-Origin': 'http://localhost:7777',
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${store.userToken}`
@@ -95,6 +103,7 @@ export const updateLinerNote = (data, id) => {
     return fetch(`https://pure-beach-20673.herokuapp.com/liner-notes/${id}`, {
         method: 'PATCH',
         headers: {
+            'Access-Control-Allow-Origin': 'http://localhost:7777',
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${store.userToken}`
@@ -107,6 +116,7 @@ export const deleteLinerNote = (data, id) => {
     return fetch(`https://pure-beach-20673.herokuapp.com/liner-notes/${id}`, {
         method: 'DELETE',
         headers: {
+            'Access-Control-Allow-Origin': 'http://localhost:7777',
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${store.userToken}`
