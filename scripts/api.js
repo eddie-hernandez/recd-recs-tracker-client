@@ -2,6 +2,9 @@ import { store } from './store.js'
 
 // USER ACTION EXPORTS
 
+// local host http://localhost:7777/
+// heroku host https://pure-beach-20673.herokuapp.com/
+
 export const signIn = (data) => {
 	return fetch(`https://pure-beach-20673.herokuapp.com/sign-in`, {
 		method: 'POST',

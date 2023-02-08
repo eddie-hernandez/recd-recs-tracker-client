@@ -1,4 +1,5 @@
 body {
+    margin-left: 0px;
     text-align: center;
     font-family: 'DotGothic16', serif;
     background-color: #0033ff;
@@ -31,7 +32,7 @@ h3 {
 #record-collection {
     color: lightyellow;
     font-size: 30px;
-    margin-top: 20px;
+    margin: 20px 0px 20px 0px;
 }
 
 #show-record {
@@ -40,25 +41,36 @@ h3 {
 
 #show-record-title {
     margin-top: 20px;
+    margin-bottom: 20px;
     color: gold;
+}
+
+.record-title {
+    font-size: 22px;
+    color: rgb(217, 255, 0);
 }
 
 #show-liner-note {
     margin-top: 20px;
+    margin-bottom: 20px;
     color: #25f463;
 }
 
+#record-message-container {
+    padding-right: 12px;
+}
+
 #record-message {
-    font-size: 30px;
-    border-style:dashed;
-    margin: 10px 0px 20px 0px;
     padding: 10px 0px 10px 0px;
+    margin: 0px 0px 20px 0px;
+    font-size: 25px;
+    border-style:dashed;
     color: #25f463;
 }
 
 #user-message-container {
     color: gold;
-    margin-top: -30px;
+    margin-top: -50px;
 }
 
 .update-liner-note-form {
@@ -117,8 +129,14 @@ h3 {
     font-size: 40px;
 }
 
+#subtitle-container {
+    margin-left: 0px;
+    padding-left: 12px;
+}
+
 #playlist-subtitle {
     color:gold;
+    margin: 20px 0px 40px 0px;
 }
 
 #re-index-records-button {
@@ -331,6 +349,7 @@ h3 {
 
     #eddie-subtitle {
         font-size: 20px;
+        margin-top: 20px;
         color: rgb(234, 255, 213);
     }
 
@@ -343,7 +362,7 @@ h3 {
     #eddie-input {
         font-size: 15px;
         color: lightcyan;
-        margin: -5px -5px -5px -5px;
+        margin: -5px;
     }
 
     #add-eddie-rec {
@@ -352,7 +371,9 @@ h3 {
     }
 
     #record-message {
-        font-size: 18px;
+        font-size: 20px;
+        padding: 10px 0px 10px 0px;
+        margin: 0px 50px 20px 50px;
     }
 
     #playlist-title {
@@ -365,5 +386,11 @@ h3 {
 
     #userError {
         margin-top: -40px;
+    }
+    .form-label {
+        font-size: 12px;
+    }
+    .user-input {
+        font-size: 12px;
     }
 }

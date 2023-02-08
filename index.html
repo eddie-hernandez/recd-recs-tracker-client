@@ -99,16 +99,18 @@
     <div id="main-container" class="d-none">
         <button class="btn btn-link" id="record-collection">My Recommended Records</button>
         <div id="show-all-container" class="row">
-            <div id="show-record-container" class="col-4 offset-2"></div></br>
-            <div id="liner-note-container" class="col-4">
+            <div class="col-1"></div>
+            <div id="show-record-container" class="col-5"></div>
+            <div id="liner-note-container" class="col-5">
                 <div id="liner-note-form-container"></div>
                 <div id="delete-liner-note-container"></div>
             </div>
+            <div class="col-1"></div>
         </div>
         <div id="message-container" class="row">
-            <div class="col-s-2 col-4"></div>
-            <div id="record-message-container" class="col-s-5 col-4"></div>
-            <div class="col-s-2 col-4"></div>
+            <div class="col-sm-5 col-md-4 col-lg-4 col-xl-4 col-xxl-4"></div>
+            <div id="record-message-container" class="col-sm-2 col-md-4 col-lg-4 col-xl-4 col-xxl-4"></div>
+            <div class="col-sm-5 col-md-4 col-lg-4 col-xl-4 col-xxl-4"></div>
         </div>
         <div id="index-record-container"></div>
         <div id="empty-library-container"></div>
@@ -125,22 +127,22 @@
             <form id="create-record-form" class="col-6 offset-3 collapse">
                 <div class="form-floating">
                     <input type="text" name="albumTitle" id="albumTitle" placeholder="add record title here"
-                        class="form-control" />
+                        class="user-input form-control" />
                     <label for="albumTitle" class="form-label" class="form-control">Record Title</label>
                 </div>
                 <div class="form-floating">
                     <input type="text" name="artistName" id="artistName" placeholder="add artist name here"
-                        class="form-control" />
+                        class="user-input form-control" />
                     <label for="artistName" class="form-label" class="form-control">Artist Name</label>
                 </div>
                 <div class="form-floating">
                     <input type="number" name="yearReleased" id="yearReleased" placeholder="year record was released"
-                        class="form-control" />
+                        class="user-input form-control" />
                     <label for="yearReleased" class="form-label" class="form-control">Year Released</label>
                 </div>
                 <div class="form-floating">
                     <input type="text" name="comments" id="comments"
-                        placeholder="add any comments about the record here" class="form-control" />
+                        placeholder="add any comments about the record here" class="user-input form-control" />
                     <label for="comments" class="form-label" class="form-control">Comments (if any)</label>
                 </div></br>
                 <button type="submit" class="btn btn-success" value="Add New Record">Add Record to 'My Recommended
@@ -155,7 +157,12 @@
 <div id="playlist-page-container" class="d-none mt-4 row">
 
     <h2 id="playlist-title"><u>&#9834; Standouts Mix &#9834;</u></h2>
-    <h3 id="playlist-subtitle" class="col-8 offset-2 p-4"><i>this playlist is comprised of all your standout tracks! don't forget to create a liner note to add more standout tracks to your standout mix!</i></h3>
+    <div id="subtitle-container" class="row">
+        <div class="col-2"></div>
+        <div class="col-8"><h3 id="playlist-subtitle"><i>this playlist is comprised of all your standout tracks! don't forget to create a liner note to add more standout tracks to your standout mix!</i></h3></div>
+        <div class="col-2"></div>
+    </div>
+
     <div id="playlist-container"></div>
 </div>
 
@@ -165,7 +172,7 @@
 <div id="eddie-container" class="d-none mt-4 row">
     <h2 id="eddie-title"><u>Eddie's Rec of the Month</u></h2>
     <h2 id="eddie-subtitle"><u>(February 2023)</i></u></h2>
-    <h3 id="eddie-description" class="col-8 offset-2 pt-4"><i>Hey! Thanks for coming in here, here's an album I think you should listen to, if you wanna...it literally sounds how the album cover looks, it's heavenly.</h3>
+    <h3 id="eddie-description" class="col-8 offset-2 pt-4"><i>Hey! Thanks for coming in here, here's an album I think you should listen to, if you wanna...it literally sounds how the album cover looks &#8212; heavenly.</h3>
     <div class="row px-4">
         <div id="eddie-rec-container" class="col-sm-12 col-lg-6 mt-5">
             <img id="eddie-rec" src="./images/feb2023rec.jpg" >
@@ -183,7 +190,7 @@
             <h4 id="eddie-input">1984</h4>
             <input type="number" name="yearReleased" id="yearReleased" value=1984
             readonly class="d-none" />
-            <label for="comments" id="eddie-label" class="form-label">Comments (if any)</label>
+            <label for="comments" id="eddie-label" class="form-label">Comments:</label>
             <h4 id="eddie-input">peaceful tunes, great to have on in the background...doin' dishes, thinkin' about life...all that jazz</h4>
             <input type="text" name="comments" id="comments" value="peaceful tunes, background music type album"
             readonly class="d-none" />
