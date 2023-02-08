@@ -70,7 +70,7 @@ h3 {
 
 #user-message-container {
     color: gold;
-    margin-top: 25px;
+    margin-top: -25px;
 }
 
 .update-liner-note-form {
