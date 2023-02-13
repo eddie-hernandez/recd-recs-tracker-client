@@ -27,9 +27,9 @@
         <h1>noted <img src="./images/noted-icon.png" type="button" width="40" height="40" id="icon"
                 class="main-icon rotate-center">
             <img src="./images/noted-icon-backup.png" type="button" width="40" height="40" id="icon"
-                class="playlist-icon heartbeat">
+                class="playlist-icon heartbeat"> <!-- enable word wrap instead of indenting manually at a chosen point  -->
             <img src="./images/noted-icon-backup2.png" type="button" width="40" height="40" id="icon"
-                class="eddie-icon wobble-hor-bottom">
+                class="eddie-icon wobble-hor-bottom"> <!-- id's must be unique ! yet you have icon listed here 3 times, use a more specific id name -->
         </h1>
     </div>
 
@@ -50,14 +50,14 @@
                                     <div class="form-floating">
                                         <input type="email" id="email" class="form-control" placeholder="email" />
                                         <label class="form-label text-black" for="email">Email</label>
-                                    </div></br>
+                                    </div></br> <!-- this br tag is incorrect and should have the `/` after the r, ie : <br/> to denote self closing  -->
                                     <div class="form-floating">
                                         <input type="password" id="password" class="form-control"
                                             placeholder="password" />
                                         <label class="form-label text-black" for="password">Password</label>
-                                    </div></br>
+                                    </div></br> <!-- see 53 -->
                                     <button class="btn btn-outline-dark btn-lg px-5" type="submit">Log Me In!</button>
-                                </form></br>
+                                </form></br> <!-- see 53 -->
                                 <div>
                                     <p class="mb-0">Don't have a noted account?</p>
                                     <a href="#" class="new-account btn-light text-black fw-bold">Sign Up!</a>
@@ -71,16 +71,16 @@
                                 <p class="text-white">Please Enter your Email and Password:</p>
                                 <form class="user-signup-form">
                                     <div class="form-floating">
-                                        <input type="email" id="email" class="form-control" placeholder="email" />
+                                        <input type="email" id="email" class="form-control" placeholder="email" /> <!-- ids must be unique! -->
                                         <label class="form-label text-black" for="email">Email</label>
                                     </div></br>
                                     <div class="form-floating">
                                         <input type="password" id="password" class="form-control"
-                                            placeholder="password" />
+                                            placeholder="password" /> <!-- see 32 -->
                                         <label class="form-label text-black" for="password">Password</label>
                                     </div></br>
                                     <button class="btn btn-outline-light btn-lg px-5" type="submit">Sign Me Up!</button>
-                                </form></br>
+                                </form></br><!-- see 53 -->
                                 <div>
                                     <p class="mb-0">Already have a noted account?</p><a href="#"
                                         class="existing-account btn-light text-white fw-bold">Login Here!</a>
@@ -94,7 +94,7 @@
         <div id="user-message-container"></div>
     </div>
 
-    <!-- main page container -->
+    <!-- main page container --> <!-- good comments -->
 
     <div id="main-container" class="d-none">
         <button class="btn btn-link" id="record-collection">My Recommended Records</button>
@@ -117,13 +117,13 @@
         <div class="d-flex justify-content-center" id="re-index-records-container">
             <button class="d-none btn btn-warning" id="re-index-records-button">Back to Record
                 Collection</button>
-        </div></br>
+        </div></br> <!-- see 53 -->
 
 
 
         <div class="create-record-container">
             <button class="btn btn-dark p-3" data-bs-toggle="collapse" data-bs-target="#create-record-form"
-                aria-expanded="false" aria-controls="row" id="add-record-button">Add New Record</button></br></br>
+                aria-expanded="false" aria-controls="row" id="add-record-button">Add New Record</button></br></br> <!-- see 53 -->
             <form id="create-record-form" class="col-6 offset-3 collapse">
                 <div class="form-floating">
                     <input type="text" name="albumTitle" id="albumTitle" placeholder="add record title here"
@@ -167,7 +167,7 @@
 </div>
 
 
-<!-- eddie's page -->
+<!-- eddie's page --><!-- love the idea of an admin page ! -->
 
 <div id="eddie-container" class="d-none mt-4 row">
     <h2 id="eddie-title"><u>Eddie's Rec of the Month</u></h2>
@@ -177,7 +177,7 @@
         <div id="eddie-rec-container" class="col-sm-12 col-lg-6 mt-5">
             <img id="eddie-rec" src="./images/feb2023rec.jpg" >
         </div>
-        <form id="eddie-form" class="col-sm-12 col-lg-4">
+        <form id="eddie-form" class="col-sm-12 col-lg-4"> <!-- nearly all the ids are non unique in this form -->
             <label for="albumTitle" id="eddie-label" class="form-label">Album Title:</label>
             <h4 id="eddie-input">Vision Songs, vol.1</h4>
             <input type="text" name="albumTitle" id="albumTitle" value="Vision Songs, vol.1" 
