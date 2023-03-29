@@ -14,6 +14,7 @@ export const signIn = (data) => {
 }
 
 export const signUp = (data) => {
+    console.log(data)
 	return fetch(`https://noted-inc.herokuapp.com/sign-up`, {
 		method: 'POST',
 		headers: {

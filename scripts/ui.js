@@ -17,6 +17,8 @@ const playlistContainer = document.querySelector('#playlist-container')
 
 // selecting by forms & form container
 const createRecordForm = document.querySelector('#create-record-form')
+const userSignInForm = document.querySelector('.user-login-form')
+const userSignUpForm = document.querySelector('.user-signup-form')
 const userFormContainer = document.querySelector('#user-form-container')
 const linerNoteFormContainer = document.querySelector('#liner-note-form-container')
 const deleteLinerNoteContainer = document.querySelector('#delete-liner-note-container')
@@ -33,6 +35,7 @@ const reIndexRecordsButton = document.querySelector('#re-index-records-button')
 const eddieButton = document.querySelector('.eddie-icon')
 const mainIcon = document.querySelector('.main-icon')
 const playlistIcon = document.querySelector('.playlist-icon')
+const userSign = document.querySelector('#user-sign-container')
 
 /* ESSENTIAL UI FUNCTIONS */
 
@@ -334,12 +337,16 @@ export const onSignUpSuccess = () => {
         <h4>you've created a new user!</h4>
         <h4>sign-in to your new account.</h4>
     `
+    userSignUpForm.reset()
     setTimeout(() => {userMessageContainer.innerHTML = ``}, 1500)
 }
 
 export const onSignInSuccess = (userToken) => {
     userMessageContainer.innerHTML = ''
+    userSignInForm.reset()
     store.userToken = userToken
+    localStorage.setItem('token', userToken)
+    userSign.classList.remove('invisible')
     authContainer.classList.add('d-none')
     mainContainer.classList.remove('d-none')
     eddieButton.addEventListener('click', navToEddie)
@@ -353,4 +360,34 @@ export const onUserFailure = () => {
         <h4 id="error">please sign in again.</h4>
     `
 setTimeout(() => {userMessageContainer.innerHTML = ``}, 2500)
+}
+
+export const getToken = () => {
+    const token = localStorage.getItem('token')
+    if(!token) return null
+    const payload = JSON.parse(atob(token.split('.')[1]))
+    console.log(payload)
+    if (payload.exp < Date.now() / 1000) {
+        localStorage.removeItem('token')
+        return null
+    }
+    return token
+}
+
+export const getUser = () => {
+    const token = getToken()
+    console.log(JSON.parse(atob(token.split('.')[1])).id)
+    return token ? JSON.parse(atob(token.split('.')[1])).id : null
+}
+
+export const logOut = () => {
+    localStorage.removeItem('token')
+}
+
+export const onSignOutSuccess = () => {
+    userSign.classList.add('invisible')
+    mainContainer.classList.add('d-none')
+    authContainer.classList.remove('d-none')
+    playlistContainer.innerHTML = ``
+    indexRecordContainer.innerHTML = ``
 }

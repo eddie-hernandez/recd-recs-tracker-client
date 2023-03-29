@@ -26,8 +26,11 @@ import {
 	onDeleteLinerNoteSuccess,
 	onSignUpSuccess,
 	onSignInSuccess,
+	onSignOutSuccess,
 	onUserFailure,
 	refresh,
+	logOut,
+	getUser,
 } from './ui.js'
 
 // DOM DECLARATIONS
@@ -49,6 +52,7 @@ const eddieForm = document.querySelector('#eddie-form')
 // SELECTING BY BUTTON 'TYPE'
 const recordCollection = document.querySelector('#record-collection')
 const reIndexRecordsButton = document.querySelector('#re-index-records-button')
+const logoutButton = document.querySelector('#logout')
 
 
 // INDEX Records (for user sign-in)
@@ -70,7 +74,6 @@ export const showIndex = () => {
 			.catch(onRecordFailure)
 }
 
-
 // refreshable event listener
 recordCollection.addEventListener('click', refresh)
 
@@ -79,6 +82,19 @@ recordCollection.addEventListener('click', refresh)
 reIndexRecordsButton.addEventListener('click', reIndexRecordSuccess)
 
 // User Actions
+
+// check if user on page load (if user has signed in already)
+document.addEventListener('DOMContentLoaded', function() {
+	if (localStorage.getItem('token')) {
+		getUser()
+		onSignInSuccess(localStorage.getItem('token'))
+		showIndex()
+	}
+	else {
+		logOut()
+		onSignOutSuccess()
+	}
+})
 
 // SIGN-IN
 userSignInForm.addEventListener('submit', (event) => {
@@ -101,6 +117,7 @@ userSignUpForm.addEventListener('submit', (event) => {
 	event.preventDefault()
 	const userData = {
 		credentials: {
+			username: event.target['username'].value,
 			email: event.target['email'].value,
 			password: event.target['password'].value,
 		},
@@ -108,6 +125,13 @@ userSignUpForm.addEventListener('submit', (event) => {
 	signUp(userData)
 	.then(onSignUpSuccess)
 	.catch(onUserFailure)
+})
+
+// LOGOUT
+logoutButton.addEventListener('click', (event) => {
+	event.preventDefault()
+	logOut()
+  onSignOutSuccess()
 })
 
 // RECORDS

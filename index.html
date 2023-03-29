@@ -23,14 +23,24 @@
 
 <body>
     <!-- header -->
-    <div id="title-header" class="row d-flex">
-        <h1>noted <img src="./images/noted-icon.png" type="button" width="40" height="40" id="icon"
-                class="main-icon rotate-center">
-            <img src="./images/noted-icon-backup.png" type="button" width="40" height="40" id="icon"
-                class="playlist-icon heartbeat">
-            <img src="./images/noted-icon-backup2.png" type="button" width="40" height="40" id="icon"
-                class="eddie-icon wobble-hor-bottom">
-        </h1>
+    <div id="navbar" class="row">
+        <div class="col"></div>
+        <div id="title-header" class="col d-flex justify-content-center align-items-center column-gap-3">
+            <h1>noted</h1>
+                <img src="./images/noted-icon.png" type="button" id="icon"
+                    class="main-icon rotate-center" />
+                <img src="./images/noted-icon-backup.png" type="button" id="icon"
+                    class="playlist-icon heartbeat" />
+                <img src="./images/noted-icon-backup2.png" type="button" id="icon"
+                    class="eddie-icon wobble-hor-bottom" />
+        </div>
+        <div id="user-sign-container" class="col d-flex justify-content-end align-items-center invisible">
+            <div id="user-sign">
+                <p>hello, </p>
+            </div>
+            <p>&nbsp;|&nbsp;</p>
+            <p type="button" id="logout">logout</p>
+        </div>
     </div>
 
 
@@ -68,8 +78,12 @@
 
                             <div class="sign-up-container d-none">
                                 <h2 class="fw-bold mb-2">* Sign-Up *</h2>
-                                <p class="text-white">Please Enter your Email and Password:</p>
+                                <p class="text-white">Please enter a unique username, your email address, and password:</p>
                                 <form class="user-signup-form">
+                                    <div class="form-floating">
+                                        <input type="text" id="username" class="form-control" placeholder="username" />
+                                        <label class="form-label text-black" for="username">Username</label>
+                                    </div></br>
                                     <div class="form-floating">
                                         <input type="email" id="email" class="form-control" placeholder="email" />
                                         <label class="form-label text-black" for="email">Email</label>
@@ -97,7 +111,7 @@
     <!-- main page container -->
 
     <div id="main-container" class="d-none">
-        <button class="btn btn-link" id="record-collection">My Recommended Records</button>
+        <h2 id="record-collection">My Recommended Records</h2>
         <div id="show-all-container" class="row">
             <div class="col-1"></div>
             <div id="show-record-container" class="col-5"></div>
