@@ -1,410 +1,412 @@
 body {
-    text-align: center;
-    font-family: 'DotGothic16', serif;
-    background-color: #0033ff;
-    margin: 4vh 10vh;
-    color: lightcyan;
-    overflow-x: hidden;
+  text-align: center;
+  font-family: 'DotGothic16', serif;
+  background-color: #0033ff;
+  margin: 4vh 3vh;
+  color: lightcyan;
+  overflow-x: hidden;
 }
 
 .modal {
-    top: 15%;
-    --bs-modal-width: 80vh;
+  top: 15%;
+  --bs-modal-width: 80vh;
 }
 
 .modal-content {
-    background-color: rgb(217, 255, 0);
-    --bs-modal-header-border-color: none;
-    color: black;
+  background-color: rgb(217, 255, 0);
+  --bs-modal-header-border-color: none;
+  color: black;
+}
+
+#user-form-container {
+    margin-top: 10vh;
+    border-radius: 1rem;
+    width: 50vh;
 }
 
 label {
-    font-size: 1.5vh;
-    color: black;
+  font-size: 1.5vh;
+  color: black;
 }
 
 h1 {
-    font-size: 8vh;
-    color: yellow;
+  font-size: 8vh;
+  color: yellow;
 }
 
 h2 {
-    font-size: 4vh;
+  font-size: 4vh;
 }
 
 h3 {
-    font-size: 3vh;
+  font-size: 3vh;
 }
 
 h4 {
-    font-size: 2.5vh;
+  font-size: 2.5vh;
 }
 
 h5 {
-    font-size: 2vh;
+  font-size: 2vh;
 }
 
 h6 {
-    font-size: 1.75vh;
+  font-size: 1.75vh;
 }
 
-
 #record-collection {
-    color: lightyellow;
-    text-decoration: underline;
-    margin: 2vh 0vh;
+  color: lightyellow;
+  text-decoration: underline;
+  margin: 2vh 0vh;
 }
 
 #record-collection:hover {
-    color:rgb(217, 255, 0);
+  color: rgb(217, 255, 0);
 }
 
 .username {
-    text-decoration: underline;
-    color:rgb(217, 255, 0);
+  text-decoration: underline;
+  color: rgb(217, 255, 0);
 }
 
 .help {
-    margin-top: 2vh;
-    color:rgb(255, 118, 118);
+  margin-top: 2vh;
+  color: rgb(255, 118, 118);
 }
 
 .clickable {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .clickable:hover {
-    text-decoration: underline;
-    color:rgb(217, 255, 0);
+  text-decoration: underline;
+  color: rgb(217, 255, 0);
 }
 
 #icon {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 40px;
-    height: 40px;
-    margin-top: 1vh;
+  appearance: none;
+  -webkit-appearance: none;
+  width: 40px;
+  height: 40px;
+  margin-top: 1vh;
 }
 
 #user-sign-container {
-    margin-top: 2vh;
+  margin-top: 2vh;
 }
 
 #show-all-container {
-    margin-top: 8vh;
+  margin-top: 8vh;
 }
 
 #show-record {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 #show-record-title {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: gold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: gold;
 }
 
 .record-title {
-    color: rgb(217, 255, 0);
+  color: rgb(217, 255, 0);
 }
 
 #show-liner-note {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: #25f463;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #25f463;
 }
 
 #record-message-container {
-    padding-right: 12px;
+  padding-right: 12px;
 }
 
 #record-message {
-    padding: 10px 0px;
-    margin: 0px 0px 20px 0px;
-    border-style:dashed;
-    color: #25f463;
+  padding: 10px 0px;
+  margin: 0px 0px 20px 0px;
+  border-style: dashed;
+  color: #25f463;
 }
 
 #user-message-container {
-    color: gold;
-    margin-top: -25px;
+  color: gold;
+  margin-top: -25px;
 }
 
 .update-liner-note-form {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 #error {
-    color:rgb(255, 118, 118);
+  color: rgb(255, 118, 118);
 }
 
 #eddie-label {
-    color: gold;
-    margin: 20px 0px 20px 0px;
+  color: gold;
+  margin: 20px 0px 20px 0px;
 }
 
 #eddie-input {
-    color: lightcyan;
-    border-radius: 2rem;
+  color: lightcyan;
+  border-radius: 2rem;
 }
 
 #add-eddie-rec {
-    margin-top: -20px;
-    font-size: 2vh;
+  margin-top: -20px;
+  font-size: 2vh;
 }
 
 .rotate-center:hover {
-	-webkit-animation: rotate-center 0.3s ease-in-out both;
-	        animation: rotate-center 0.3s ease-in-out both;
+  -webkit-animation: rotate-center 0.3s ease-in-out both;
+  animation: rotate-center 0.3s ease-in-out both;
 }
 
 .heartbeat:hover {
-	-webkit-animation: heartbeat 1.5s ease-in-out infinite both;
-	        animation: heartbeat 1.5s ease-in-out infinite both;
+  -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
+  animation: heartbeat 1.5s ease-in-out infinite both;
 }
 
 .wobble-hor-bottom:hover {
-	-webkit-animation: wobble-hor-bottom 0.8s both;
-	        animation: wobble-hor-bottom 0.8s both;
+  -webkit-animation: wobble-hor-bottom 0.8s both;
+  animation: wobble-hor-bottom 0.8s both;
 }
 
 #eddie-rec {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
 }
 
 #eddie-description {
-    color: lightsalmon;
+  color: lightsalmon;
 }
 
 #subtitle-container {
-    margin-left: 0px;
-    padding-left: 12px;
+  margin-left: 0px;
+  padding-left: 12px;
 }
 
 #playlist-subtitle {
-    color:gold;
-    margin: 20px 0px 40px 0px;
+  color: gold;
+  margin: 20px 0px 40px 0px;
 }
 
 #re-index-records-button {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 /* ANIMATIONS (CREDIT: ANIMISTA) */
 @-webkit-keyframes rotate-center {
-    0% {
-        -webkit-transform: rotate(0);
-                transform: rotate(0);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
-    }
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 @-webkit-keyframes heartbeat {
-    from {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-      -webkit-transform-origin: center center;
-              transform-origin: center center;
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
-    }
-    10% {
-      -webkit-transform: scale(0.70);
-              transform: scale(0.70);
-      -webkit-animation-timing-function: ease-in;
-              animation-timing-function: ease-in;
-    }
-    17% {
-      -webkit-transform: scale(0.80);
-              transform: scale(0.80);
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
-    }
-    33% {
-      -webkit-transform: scale(0.60);
-              transform: scale(0.60);
-      -webkit-animation-timing-function: ease-in;
-              animation-timing-function: ease-in;
-    }
-    45% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
-    }
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.6);
+    transform: scale(0.6);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
 }
 @-webkit-keyframes wobble-hor-bottom {
-    0%,
-    100% {
-      -webkit-transform: translateX(0%);
-              transform: translateX(0%);
-      -webkit-transform-origin: 50% 50%;
-              transform-origin: 50% 50%;
-    }
-    15% {
-      -webkit-transform: translateX(-15px) rotate(-6deg);
-              transform: translateX(-15px) rotate(-6deg);
-    }
-    30% {
-      -webkit-transform: translateX(15px) rotate(6deg);
-              transform: translateX(15px) rotate(6deg);
-    }
-    45% {
-      -webkit-transform: translateX(-9px) rotate(-3.6deg);
-              transform: translateX(-9px) rotate(-3.6deg);
-    }
-    60% {
-      -webkit-transform: translateX(6px) rotate(2.4deg);
-              transform: translateX(6px) rotate(2.4deg);
-    }
-    75% {
-      -webkit-transform: translateX(-6px) rotate(-1.2deg);
-              transform: translateX(-6px) rotate(-1.2deg);
-    }
+  0%,
+  100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+  15% {
+    -webkit-transform: translateX(-15px) rotate(-6deg);
+    transform: translateX(-15px) rotate(-6deg);
+  }
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    -webkit-transform: translateX(-9px) rotate(-3.6deg);
+    transform: translateX(-9px) rotate(-3.6deg);
+  }
+  60% {
+    -webkit-transform: translateX(6px) rotate(2.4deg);
+    transform: translateX(6px) rotate(2.4deg);
+  }
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
 }
 @keyframes rotate-center {
-    0% {
-        -webkit-transform: rotate(0);
-        transform: rotate(0);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 @keyframes heartbeat {
-    from {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-      -webkit-transform-origin: center center;
-              transform-origin: center center;
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
-    }
-    10% {
-      -webkit-transform: scale(0.70);
-              transform: scale(0.70);
-      -webkit-animation-timing-function: ease-in;
-              animation-timing-function: ease-in;
-    }
-    17% {
-      -webkit-transform: scale(0.80);
-              transform: scale(0.80);
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
-    }
-    33% {
-      -webkit-transform: scale(0.60);
-              transform: scale(0.60);
-      -webkit-animation-timing-function: ease-in;
-              animation-timing-function: ease-in;
-    }
-    45% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-      -webkit-animation-timing-function: ease-out;
-              animation-timing-function: ease-out;
-    }
+  from {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  10% {
+    -webkit-transform: scale(0.7);
+    transform: scale(0.7);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  17% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
+  33% {
+    -webkit-transform: scale(0.6);
+    transform: scale(0.6);
+    -webkit-animation-timing-function: ease-in;
+    animation-timing-function: ease-in;
+  }
+  45% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+  }
 }
 @keyframes wobble-hor-bottom {
-    0%,
-    100% {
-      -webkit-transform: translateX(0%);
-              transform: translateX(0%);
-      -webkit-transform-origin: 50% 50%;
-              transform-origin: 50% 50%;
-    }
-    15% {
-      -webkit-transform: translateX(-15px) rotate(-6deg);
-              transform: translateX(-15px) rotate(-6deg);
-    }
-    30% {
-      -webkit-transform: translateX(15px) rotate(6deg);
-              transform: translateX(15px) rotate(6deg);
-    }
-    45% {
-      -webkit-transform: translateX(-9px) rotate(-3.6deg);
-              transform: translateX(-9px) rotate(-3.6deg);
-    }
-    60% {
-      -webkit-transform: translateX(6px) rotate(2.4deg);
-              transform: translateX(6px) rotate(2.4deg);
-    }
-    75% {
-      -webkit-transform: translateX(-6px) rotate(-1.2deg);
-              transform: translateX(-6px) rotate(-1.2deg);
-    }
+  0%,
+  100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+  }
+  15% {
+    -webkit-transform: translateX(-15px) rotate(-6deg);
+    transform: translateX(-15px) rotate(-6deg);
+  }
+  30% {
+    -webkit-transform: translateX(15px) rotate(6deg);
+    transform: translateX(15px) rotate(6deg);
+  }
+  45% {
+    -webkit-transform: translateX(-9px) rotate(-3.6deg);
+    transform: translateX(-9px) rotate(-3.6deg);
+  }
+  60% {
+    -webkit-transform: translateX(6px) rotate(2.4deg);
+    transform: translateX(6px) rotate(2.4deg);
+  }
+  75% {
+    -webkit-transform: translateX(-6px) rotate(-1.2deg);
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
 }
-  
+
 @media screen and (max-width: 750px) {
-    #eddie-rec {
-        margin-top: 0px;
-        margin-bottom: 20px;
-    }
-    #eddie-description {
-        margin-bottom: -20px;
-    }
+  #eddie-rec {
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+  #eddie-description {
+    margin-bottom: -20px;
+  }
 }
 
 /* RESIZING FOR SMALLER SCREENS */
 @media screen and (max-width: 600px) {
-    #show-all-container {
-        margin-top: 3vh;
-    }
-    .modal {
-        top: 5%;
-    }
-    .create-liner-note-form {
-        font-size: 12px;
-    }
+  #show-all-container {
+    margin-top: 3vh;
+  }
+  .modal {
+    top: 5%;
+  }
+  .create-liner-note-form {
+    font-size: 12px;
+  }
+  .btn {
+    font-size: 12px;
+  }
 
-    #user-form-container {
-        margin: -30px 30px 0px 30px;
-        padding: 15px;
-    }
+  #eddie-subtitle {
+    margin-top: 20px;
+    color: rgb(234, 255, 213);
+  }
 
-    .btn {
-        font-size: 12px;
-    }
+  #eddie-label {
+    color: gold;
+    margin: 10px 0px 10px 0px;
+  }
+  #eddie-rec {
+    max-width: 300px;
+  }
 
-    #eddie-subtitle {
-        margin-top: 20px;
-        color: rgb(234, 255, 213);
-    }
+  #eddie-input {
+    color: lightcyan;
+    margin: -5px;
+  }
 
-    #eddie-label {
-        color: gold;
-        margin: 10px 0px 10px 0px;
-    }
-    #eddie-rec {
-        max-width: 300px;
-    }
-    
-    #eddie-input {
-        color: lightcyan;
-        margin: -5px;
-    }
+  #add-eddie-rec {
+    margin-top: -20px;
+  }
 
-    #add-eddie-rec {
-        margin-top: -20px;
-    }
+  #record-message {
+    padding: 10px 0px 10px 0px;
+    margin: 0px 50px 20px 50px;
+  }
 
-    #record-message {
-        padding: 10px 0px 10px 0px;
-        margin: 0px 50px 20px 50px;
-    }
-
-    #userError {
-        margin-top: -40px;
-    }
-    .form-label {
-        font-size: 12px;
-    }
-    .user-input {
-        font-size: 12px;
-    }
+  #userError {
+    margin-top: -40px;
+  }
+  .form-label {
+    font-size: 12px;
+  }
+  .user-input {
+    font-size: 12px;
+  }
+  #user-form-container {
+    margin-top: 0vh;
+  }
 }
