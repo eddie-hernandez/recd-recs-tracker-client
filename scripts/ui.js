@@ -35,7 +35,14 @@ const reIndexRecordsButton = document.querySelector('#re-index-records-button')
 const eddieButton = document.querySelector('.eddie-icon')
 const mainIcon = document.querySelector('.main-icon')
 const playlistIcon = document.querySelector('.playlist-icon')
-const userSign = document.querySelector('#user-sign-container')
+
+// Sign-In Container
+const userSignContainer = document.querySelector('#user-sign-container')
+const userSign = document.querySelector('#user-sign')
+const username = document.querySelector('.username')
+
+// Help Modal
+const helpModal = document.querySelector('#help-modal')
 
 /* ESSENTIAL UI FUNCTIONS */
 
@@ -158,9 +165,9 @@ export const onShowRecordSuccess = (record) => {
     recordDiv.innerHTML = `
     <h2 id="show-record-title"><u>Selected Album</u></h2>
     <h3 class="record-title"><b>"${record.albumTitle}"</b></h3>
-    <h5>Artist Name: <b>${record.artistName}</b></h5>
-    <h5>Year Released: <b>${record.yearReleased}</b></h5>
-    <h5>Comments: <b><i>"${record.comments}"</i></b></h5></br>
+    <h4>Artist Name: <b>${record.artistName}</b></h4>
+    <h4>Year Released: <b>${record.yearReleased}</b></h4>
+    <h4>Comments: <b><i>"${record.comments}"</i></b></h4></br>
     
     <div class="record-form-container">
         <button class="btn btn-light" data-bs-toggle="collapse" data-bs-target="#record-form" aria-expanded="false" aria-controls="row" id="edit-record-button">Edit Record Info</button></br></br>
@@ -196,9 +203,9 @@ export const onShowRecordSuccess = (record) => {
         const linerNoteDiv = document.createElement('div')
         linerNoteDiv.innerHTML = `
         <h2 id="show-liner-note"><i><u>Liner Notes</u>:</i></h2>
-        <h5>Album Rating: <b>${record.linerNotes[0].rating}/10</b></h5>
-        <h5>Standout Track: <b>"${record.linerNotes[0].standoutTrack}"</b></h5>
-        <h5>Thoughts: <b><i>"${record.linerNotes[0].thoughts}"</i></b></h5></br>
+        <h4>Album Rating: <b>${record.linerNotes[0].rating}/10</b></h4>
+        <h4>Standout Track: <b>"${record.linerNotes[0].standoutTrack}"</b></h4>
+        <h4>Thoughts: <b><i>"${record.linerNotes[0].thoughts}"</i></b></h4></br>
         
         <button class="btn btn-light" data-bs-toggle="collapse" data-bs-target=".update-liner-note-form" aria-expanded="false" aria-controls="row" id="edit-liner-note-button">Edit Liner Note Info</button></br></br>
         <form class="update-liner-note-form collapse" data-id="${record.linerNotes[0]._id}">
@@ -237,7 +244,7 @@ export const onShowRecordSuccess = (record) => {
         deleteLinerNoteContainer.style.display = "none"
         const linerNoteDiv = document.createElement('div')
         linerNoteDiv.innerHTML = `
-        <h4 id="show-liner-note"><b><i>Finished Listening?</i></b></h4></br>
+        <h3 id="show-liner-note"><b><i>Finished Listening?</i></b></h3></br>
         <button class="btn btn-light" data-bs-toggle="collapse" data-bs-target=".create-liner-note-form" aria-expanded="false" aria-controls="row" id="create-liner-note-button">Create New Liner Note</button></br></br>
         <form class="create-liner-note-form collapse">
         <div class="form-floating">
@@ -265,7 +272,7 @@ export const onShowRecordSuccess = (record) => {
     
 export const onCreateRecordSuccess = () => {
     recordMessageContainer.innerHTML = `
-        <h4 id="record-message"><i>now THAT'S a record!</i></h4>
+        <h3 id="record-message"><i>now THAT'S a record!</i></h3>
     `
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
 }
@@ -273,7 +280,7 @@ export const onCreateRecordSuccess = () => {
 export const onUpdateRecordSuccess = () => {
     refresh()
     recordMessageContainer.innerHTML = `
-        <h4 id="record-message"><i>record successfully updated!</i></h4>
+        <h3 id="record-message"><i>record successfully updated!</i></h3>
     `
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
 }
@@ -281,14 +288,14 @@ export const onUpdateRecordSuccess = () => {
 export const onDeleteRecordSuccess = () => {
     refresh()
     recordMessageContainer.innerHTML = `
-        <h4 id="record-message"><i>record deletion successful!</i></h4>
+        <h3 id="record-message"><i>record deletion successful!</i></h3>
     `
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 1500)
 }
 
 export const onRecordFailure = (error) => {
     recordMessageContainer.innerHTML = `
-        <h4 id="record-message">woah! you've got a record error!</h4>
+        <h3 id="record-message">woah! you've got a record error!</h3>
         <p id="error">${error}</p>
     `
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 2500)
@@ -300,7 +307,7 @@ export const onRecordFailure = (error) => {
 export const onCreateLinerNoteSuccess = () => {
     refresh()
     recordMessageContainer.innerHTML = `
-    <h4 id="record-message"><i>incredible...you've just created a liner note!!</i></h4>
+    <h3 id="record-message"><i>incredible...you've just created a liner note!!</i></h3>
     `
     setTimeout(() => {recordMessageContainer.innerText = ``}, 1500)
 }
@@ -308,7 +315,7 @@ export const onCreateLinerNoteSuccess = () => {
 export const onUpdateLinerNoteSuccess = () => {
     refresh()
     recordMessageContainer.innerHTML = `
-        <h4 id="record-message"><i>amazing...you've just edited a liner note!</i></h4>
+        <h3 id="record-message"><i>amazing...you've just edited a liner note!</i></h3>
     `
     setTimeout(() => {recordMessageContainer.innerText = ``}, 1500)
     
@@ -317,14 +324,14 @@ export const onUpdateLinerNoteSuccess = () => {
 export const onDeleteLinerNoteSuccess = () => {
     refresh()
     recordMessageContainer.innerHTML = `
-        <h4 id="record-message"><i>you've just deleted a liner note! :0</i></h4>
+        <h3 id="record-message"><i>you've just deleted a liner note! :0</i></h3>
     `
     setTimeout(() => {recordMessageContainer.innerText = ``}, 1500)
 }
 
 export const onLinerNoteFailure = (error) => {
     recordMessageContainer.innerHTML = `
-        <h4 id="record-message">woah! you've got a liner note error!</h4>
+        <h3 id="record-message">woah! you've got a liner note error!</h3>
         <p id="error">${error}</p>
     `
     setTimeout(() => {recordMessageContainer.innerHTML = ``}, 2500)
@@ -334,8 +341,8 @@ export const onLinerNoteFailure = (error) => {
 
 export const onSignUpSuccess = () => {
     userMessageContainer.innerHTML = `
-        <h4>you've created a new user!</h4>
-        <h4>sign-in to your new account.</h4>
+        <h3>you've created a new user!</h3>
+        <h3>sign-in to your new account.</h3>
     `
     userSignUpForm.reset()
     setTimeout(() => {userMessageContainer.innerHTML = ``}, 1500)
@@ -346,7 +353,10 @@ export const onSignInSuccess = (userToken) => {
     userSignInForm.reset()
     store.userToken = userToken
     localStorage.setItem('token', userToken)
-    userSign.classList.remove('invisible')
+    // saying hello to the user!
+    userSignContainer.classList.remove('invisible')
+    helpModal.classList.remove('invisible')
+    username.innerText = JSON.parse(atob(userToken.split('.')[1])).username
     authContainer.classList.add('d-none')
     mainContainer.classList.remove('d-none')
     eddieButton.addEventListener('click', navToEddie)
@@ -356,8 +366,8 @@ export const onSignInSuccess = (userToken) => {
 
 export const onUserFailure = () => {
     userMessageContainer.innerHTML = `
-        <h4 id="error">the email and/or password provided is not correct.</h4>
-        <h4 id="error">please sign in again.</h4>
+        <h3 id="error">the email and/or password provided is not correct.</h3>
+        <h3 id="error">please sign in again.</h3>
     `
 setTimeout(() => {userMessageContainer.innerHTML = ``}, 2500)
 }
@@ -366,7 +376,6 @@ export const getToken = () => {
     const token = localStorage.getItem('token')
     if(!token) return null
     const payload = JSON.parse(atob(token.split('.')[1]))
-    console.log(payload)
     if (payload.exp < Date.now() / 1000) {
         localStorage.removeItem('token')
         return null
@@ -376,7 +385,6 @@ export const getToken = () => {
 
 export const getUser = () => {
     const token = getToken()
-    console.log(JSON.parse(atob(token.split('.')[1])).id)
     return token ? JSON.parse(atob(token.split('.')[1])).id : null
 }
 
@@ -385,7 +393,10 @@ export const logOut = () => {
 }
 
 export const onSignOutSuccess = () => {
-    userSign.classList.add('invisible')
+    username.innerHTML = ``
+    refresh()
+    userSignContainer.classList.add('invisible')
+    helpModal.classList.add('invisible')
     mainContainer.classList.add('d-none')
     authContainer.classList.remove('d-none')
     playlistContainer.innerHTML = ``

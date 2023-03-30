@@ -51,6 +51,7 @@ const eddieForm = document.querySelector('#eddie-form')
 
 // SELECTING BY BUTTON 'TYPE'
 const recordCollection = document.querySelector('#record-collection')
+const notedTitle = document.querySelector('#noted-title')
 const reIndexRecordsButton = document.querySelector('#re-index-records-button')
 const logoutButton = document.querySelector('#logout')
 
@@ -74,8 +75,9 @@ export const showIndex = () => {
 			.catch(onRecordFailure)
 }
 
-// refreshable event listener
+// refreshable event listeners
 recordCollection.addEventListener('click', refresh)
+notedTitle.addEventListener('click', refresh)
 
 
 // re-index event listener

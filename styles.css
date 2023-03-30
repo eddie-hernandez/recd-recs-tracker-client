@@ -4,24 +4,78 @@ body {
     background-color: #0033ff;
     margin: 4vh 10vh;
     color: lightcyan;
-    overflow: hidden;
+    overflow-x: hidden;
+}
+
+.modal {
+    top: 15%;
+    --bs-modal-width: 80vh;
+}
+
+.modal-content {
+    background-color: rgb(217, 255, 0);
+    --bs-modal-header-border-color: none;
+    color: black;
 }
 
 label {
+    font-size: 1.5vh;
     color: black;
 }
 
 h1 {
-    font-size: 65px;
+    font-size: 8vh;
     color: yellow;
 }
 
 h2 {
-    font-size: 25px;
+    font-size: 4vh;
 }
 
 h3 {
-    font-size: 20px;
+    font-size: 3vh;
+}
+
+h4 {
+    font-size: 2.5vh;
+}
+
+h5 {
+    font-size: 2vh;
+}
+
+h6 {
+    font-size: 1.75vh;
+}
+
+
+#record-collection {
+    color: lightyellow;
+    text-decoration: underline;
+    margin: 2vh 0vh;
+}
+
+#record-collection:hover {
+    color:rgb(217, 255, 0);
+}
+
+.username {
+    text-decoration: underline;
+    color:rgb(217, 255, 0);
+}
+
+.help {
+    margin-top: 2vh;
+    color:rgb(255, 118, 118);
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    text-decoration: underline;
+    color:rgb(217, 255, 0);
 }
 
 #icon {
@@ -29,13 +83,15 @@ h3 {
     -webkit-appearance: none;
     width: 40px;
     height: 40px;
-    margin-top: 10px;
+    margin-top: 1vh;
 }
 
-#record-collection {
-    color: lightyellow;
-    font-size: 30px;
-    margin: 2vh 0vh;
+#user-sign-container {
+    margin-top: 2vh;
+}
+
+#show-all-container {
+    margin-top: 8vh;
 }
 
 #show-record {
@@ -49,7 +105,6 @@ h3 {
 }
 
 .record-title {
-    font-size: 22px;
     color: rgb(217, 255, 0);
 }
 
@@ -64,9 +119,8 @@ h3 {
 }
 
 #record-message {
-    padding: 10px 0px 10px 0px;
+    padding: 10px 0px;
     margin: 0px 0px 20px 0px;
-    font-size: 25px;
     border-style:dashed;
     color: #25f463;
 }
@@ -84,25 +138,19 @@ h3 {
     color:rgb(255, 118, 118);
 }
 
-#eddie-title {
-    font-size: 30px;
-}
-
 #eddie-label {
-    font-size: 20px;
     color: gold;
     margin: 20px 0px 20px 0px;
 }
 
 #eddie-input {
-    font-size: 30px;
     color: lightcyan;
     border-radius: 2rem;
 }
 
 #add-eddie-rec {
     margin-top: -20px;
-    font-size: 20px;
+    font-size: 2vh;
 }
 
 .rotate-center:hover {
@@ -121,15 +169,13 @@ h3 {
 }
 
 #eddie-rec {
-    max-width: 100%;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
 }
 
 #eddie-description {
     color: lightsalmon;
-}
-
-#playlist-title {
-    font-size: 40px;
 }
 
 #subtitle-container {
@@ -296,15 +342,6 @@ h3 {
   
 @media screen and (max-width: 750px) {
     #eddie-rec {
-        margin-top: 60px;
-    }
-    #eddie-label {
-        font-size: 20px;
-    }
-    #eddie-input {
-        font-size: 20px;
-    }
-    #eddie-rec {
         margin-top: 0px;
         margin-bottom: 20px;
     }
@@ -315,25 +352,9 @@ h3 {
 
 /* RESIZING FOR SMALLER SCREENS */
 @media screen and (max-width: 600px) {
-
-    h1 {
-        font-size: 40px;
+    .modal {
+        top: 5%;
     }
-    h2 {
-        font-size: 25px;
-    }
-    h3 {
-        font-size: 20px;
-    }
-
-    h4 {
-        font-size: 18px;
-    }
-
-    h5 {
-        font-size: 15px;
-    }
-
     .create-liner-note-form {
         font-size: 12px;
     }
@@ -347,45 +368,31 @@ h3 {
         font-size: 12px;
     }
 
-    #eddie-title {
-        font-size: 20px;
-    }
-
     #eddie-subtitle {
-        font-size: 20px;
         margin-top: 20px;
         color: rgb(234, 255, 213);
     }
 
     #eddie-label {
-        font-size: 20px;
         color: gold;
         margin: 10px 0px 10px 0px;
     }
+    #eddie-rec {
+        max-width: 300px;
+    }
     
     #eddie-input {
-        font-size: 15px;
         color: lightcyan;
         margin: -5px;
     }
 
     #add-eddie-rec {
         margin-top: -20px;
-        font-size: 15px;
     }
 
     #record-message {
-        font-size: 20px;
         padding: 10px 0px 10px 0px;
         margin: 0px 50px 20px 50px;
-    }
-
-    #playlist-title {
-        font-size: 30px;
-    }
-
-    #show-song {
-        font-size: 20px;
     }
 
     #userError {
