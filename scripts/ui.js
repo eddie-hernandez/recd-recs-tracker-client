@@ -349,6 +349,7 @@ export const onSignUpSuccess = () => {
 }
 
 export const onSignInSuccess = (userToken) => {
+    indexRecordContainer.innerHTML = ``
     userMessageContainer.innerHTML = ''
     userSignInForm.reset()
     store.userToken = userToken
