@@ -38,7 +38,6 @@ const playlistIcon = document.querySelector('.playlist-icon')
 
 // Sign-In Container
 const userSignContainer = document.querySelector('#user-sign-container')
-const userSign = document.querySelector('#user-sign')
 const username = document.querySelector('.username')
 
 // Help Modal

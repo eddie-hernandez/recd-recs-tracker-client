@@ -77,7 +77,6 @@ export const showIndex = () => {
 
 // refreshable event listeners
 recordCollection.addEventListener('click', refresh)
-notedTitle.addEventListener('click', refresh)
 
 
 // re-index event listener
@@ -90,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	if (localStorage.getItem('token')) {
 		getUser()
 		onSignInSuccess(localStorage.getItem('token'))
+		notedTitle.addEventListener('click', refresh)
 		showIndex()
 	}
 	else {
