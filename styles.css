@@ -96,7 +96,7 @@ h6 {
 }
 
 #show-all-container {
-  margin-top: 8vh;
+  margin-top: 3vh;
 }
 
 #show-record {
@@ -181,6 +181,7 @@ h6 {
 
 #eddie-description {
   color: lightsalmon;
+  margin: 0vh 13vh 2vh 13vh;
 }
 
 #subtitle-container {
@@ -190,7 +191,7 @@ h6 {
 
 #playlist-subtitle {
   color: gold;
-  margin: 20px 0px 40px 0px;
+  margin: 2vh 0vh 4vh 0vh;
 }
 
 #re-index-records-button {
@@ -351,7 +352,7 @@ h6 {
     margin-bottom: 20px;
   }
   #eddie-description {
-    margin-bottom: -20px;
+    margin: 0vh;
   }
 }
 
