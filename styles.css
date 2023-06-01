@@ -346,6 +346,12 @@ h6 {
   }
 }
 
+@media screen and (max-width: 1024px) {
+  body {
+    margin: 2vh 3vh;
+  }
+}
+
 @media screen and (max-width: 750px) {
   #eddie-rec {
     margin-top: 3vh;
