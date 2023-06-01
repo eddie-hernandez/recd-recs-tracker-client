@@ -19,7 +19,6 @@ body {
 }
 
 #user-form-container {
-  margin-top: 10vh;
   border-radius: 1rem;
   width: 50vh;
 }
@@ -128,11 +127,6 @@ h6 {
   margin: 0px 0px 20px 0px;
   border-style: dashed;
   color: #25f463;
-}
-
-#user-message-container {
-  color: gold;
-  margin-top: -25px;
 }
 
 .update-liner-note-form {

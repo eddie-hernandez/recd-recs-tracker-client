@@ -92,6 +92,10 @@ document.addEventListener('DOMContentLoaded', function() {
 		notedTitle.addEventListener('click', refresh)
 		showIndex()
 	}
+	else if (localStorage.getItem('token') === null) {
+		logOut()
+		onSignOutSuccess()
+	}
 	else {
 		logOut()
 		onSignOutSuccess()

@@ -40,8 +40,9 @@ const playlistIcon = document.querySelector('.playlist-icon')
 const userSignContainer = document.querySelector('#user-sign-container')
 const username = document.querySelector('.username')
 
-// Help Modal
+// Modals
 const helpModal = document.querySelector('#help-modal')
+const infoModal = document.querySelector('#new-modal')
 
 /* ESSENTIAL UI FUNCTIONS */
 
@@ -354,8 +355,9 @@ export const onSignInSuccess = (userToken) => {
     store.userToken = userToken
     localStorage.setItem('token', userToken)
     // saying hello to the user!
-    userSignContainer.classList.remove('invisible')
-    helpModal.classList.remove('invisible')
+    userSignContainer.classList.remove('d-none')
+    helpModal.classList.remove('d-none')
+    infoModal.classList.add('d-none')
     username.innerText = JSON.parse(atob(userToken.split('.')[1])).username
     authContainer.classList.add('d-none')
     mainContainer.classList.remove('d-none')
@@ -395,8 +397,9 @@ export const logOut = () => {
 export const onSignOutSuccess = () => {
     username.innerHTML = ``
     refresh()
-    userSignContainer.classList.add('invisible')
-    helpModal.classList.add('invisible')
+    userSignContainer.classList.add('d-none')
+    helpModal.classList.add('d-none')
+    infoModal.classList.remove('d-none')
     mainContainer.classList.add('d-none')
     authContainer.classList.remove('d-none')
     playlistContainer.innerHTML = ``

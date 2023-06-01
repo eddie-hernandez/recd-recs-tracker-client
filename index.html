@@ -24,9 +24,9 @@
 <body>
     <!-- header -->
     <div id="navbar" class="col-sm col-md row d-lg-flex d-xl-flex d-xxl-flex align-items-center justify-content-center">
-        <div class="col invisible" id="help-modal">
-            <h4 class="help clickable" data-bs-toggle="modal" data-bs-target="#modal">?!?!?</h4>
-            <div class="modal fade" id="modal">
+        <div class="col d-none" id="help-modal">
+            <h4 class="help clickable" data-bs-toggle="modal" data-bs-target="#helpModal">?!?!?</h4>
+            <div class="modal fade" id="helpModal">
                 <div class="modal-dialog">
                     <div class="modal-content p-3">
                         <div class="modal-header row">
@@ -64,11 +64,40 @@
             <img src="./images/noted-icon-backup.png" type="button" id="icon" class="playlist-icon heartbeat" />
             <img src="./images/noted-icon-backup2.png" type="button" id="icon" class="eddie-icon wobble-hor-bottom" />
         </div>
-        <div id="user-sign-container" class="col-lg col-xl col-xxl d-flex justify-content-center align-items-center invisible">
+        <div id="user-sign-container" class="col-lg col-xl col-xxl d-flex justify-content-center align-items-center d-none">
                 <h5>hello, </h5>
                 <h5 class="username"></h5>
             <h5>!&nbsp;|&nbsp;</h5>
             <h5 id="logout" class="clickable">logout</h5>
+    </div>
+    <div class="mb-5" id="new-modal">
+        <h2 class="help clickable" data-bs-toggle="modal" data-bs-target="#infoModal"><u>new here? :O</u></h2>
+        <div class="modal fade" id="infoModal">
+            <div class="modal-dialog">
+                <div class="modal-content p-sm-2 p-lg-4">
+                    <div class="modal-header row">
+                        <div class="col-1"></div>
+                        <h2 class="col-10"><u>what is noted fr...</u></h2>
+                        <button class="btn-close col-1" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h4>noted is a minimal record-tracker application developed by <a href="https://eddie.works" rel="noopener" target="_blank">eddie hernandez</a>.</h4>
+                        <h5 class="mb-4">currently, the app allows users to log albums to their record collection, update said albums to include their favorite tracks, etc. here's some steps to get you started on noted:</h5>
+                        <h4>&#9733; step 1: sign up for a noted account (4 new users only)!</h4>
+                        <h6>noted is still in testing, so PLZ use fake credentials when making an account (email/pw combo you DO NOT use reguarly on the web), meaning if you've ever wanted to have the email 'swag@haha.gov' or 'silly@willy.net', now's your chance.</h6>
+                        <h4>&#9733; step 2: login 2 ur account (new + returning users)</h4>
+                        <h6>log albums that your friends may have recommended to you that's all there is to it! as long as you remember your login credentials, you'll
+                            find your records all in one place and can add any others along the way!</h6>
+                        <h4>&#9830;&#9826;&#9830; other noted features &#9830;&#9826;&#9830;</h4>
+                        <h6>&#9733; check out the <i>'standout mix'</i>, where you'll find a playlist of all your
+                            standout tracks! the more standout tracks you log, the more you'll see on your mix :^ )
+                        </h6>
+                        <h6>&#9733; don't miss eddie's <i>record of the month</i>! he claims to be a 'music guy',
+                            idk you can judge him on that</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div id="auth-container" class="show-container gradient-custom">
@@ -128,7 +157,7 @@
                 </div>
             </div>
         </div>
-        <div id="user-message-container"></div>
+        <div id="user-message-container" class="mt-4"></div>
     </div>
 
     <!-- main page container -->
