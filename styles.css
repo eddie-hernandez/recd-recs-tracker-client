@@ -377,9 +377,16 @@ h6 {
   #show-all-container {
     margin-top: 3vh;
   }
+
   .modal {
-    top: 2%;
+    top: 25%;
+    height: 50%;
   }
+
+  #modalHeader {
+    background-color: rgb(217, 255, 0);
+  }
+  
   .create-liner-note-form {
     font-size: 12px;
   }

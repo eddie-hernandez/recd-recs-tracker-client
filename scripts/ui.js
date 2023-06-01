@@ -14,6 +14,7 @@ const userMessageContainer = document.querySelector('#user-message-container')
 const recordMessageContainer = document.querySelector('#record-message-container')
 const showRecordContainer = document.querySelector('#show-record-container')
 const playlistContainer = document.querySelector('#playlist-container')
+const titleHeader = document.querySelector('#title-header')
 
 // selecting by forms & form container
 const createRecordForm = document.querySelector('#create-record-form')
@@ -358,6 +359,7 @@ export const onSignInSuccess = (userToken) => {
     userSignContainer.classList.remove('d-none')
     helpModal.classList.remove('d-none')
     infoModal.classList.add('d-none')
+    titleHeader.classList.remove('mt-4')
     username.innerText = JSON.parse(atob(userToken.split('.')[1])).username
     authContainer.classList.add('d-none')
     mainContainer.classList.remove('d-none')
@@ -400,6 +402,7 @@ export const onSignOutSuccess = () => {
     userSignContainer.classList.add('d-none')
     helpModal.classList.add('d-none')
     infoModal.classList.remove('d-none')
+    titleHeader.classList.add('mt-4')
     mainContainer.classList.add('d-none')
     authContainer.classList.remove('d-none')
     playlistContainer.innerHTML = ``
