@@ -86,13 +86,13 @@
                                 <div class="form-floating">
                                     <input type="email" id="email" class="form-control" placeholder="email" />
                                     <label class="form-label text-black" for="email">Email</label>
-                                </div></br>
+                                </div><br>
                                 <div class="form-floating">
                                     <input type="password" id="password" class="form-control" placeholder="password" />
                                     <label class="form-label text-black" for="password">Password</label>
-                                </div></br>
+                                </div><br>
                                 <button class="btn btn-outline-dark btn-lg px-5" type="submit">Log me in!</button>
-                            </form></br>
+                            </form><br>
                             <div>
                                 <p class="mb-0">Don't have a noted account?</p>
                                 <a href="#" class="new-account btn-light text-black fw-bold">Sign Up!</a>
@@ -108,17 +108,17 @@
                                 <div class="form-floating">
                                     <input type="text" id="username" class="form-control" placeholder="username" />
                                     <label class="form-label text-black" for="username">Username</label>
-                                </div></br>
+                                </div><br>
                                 <div class="form-floating">
                                     <input type="email" id="email" class="form-control" placeholder="email" />
                                     <label class="form-label text-black" for="email">Email</label>
-                                </div></br>
+                                </div><br>
                                 <div class="form-floating">
                                     <input type="password" id="password" class="form-control" placeholder="password" />
                                     <label class="form-label text-black" for="password">Password</label>
-                                </div></br>
+                                </div><br>
                                 <button class="btn btn-outline-light btn-lg px-5" type="submit">Sign me up!</button>
-                            </form></br>
+                            </form><br>
                             <div>
                                 <p class="mb-0">Already have a noted account?</p><a href="#"
                                     class="existing-account btn-light text-white fw-bold">Login here!</a>
@@ -152,13 +152,13 @@
         <div class="d-flex justify-content-center" id="re-index-records-container">
             <button class="d-none btn btn-warning" id="re-index-records-button">Back to Record
                 Collection</button>
-        </div></br>
+        </div><br>
 
 
 
         <div class="create-record-container">
             <button class="btn btn-dark p-3" data-bs-toggle="collapse" data-bs-target="#create-record-form"
-                aria-expanded="false" aria-controls="row" id="add-record-button">Add New Record</button></br></br>
+                aria-expanded="false" aria-controls="row" id="add-record-button">Add New Record</button><br><br>
             <form id="create-record-form" class="col-6 offset-3 collapse">
                 <div class="form-floating">
                     <input type="text" name="albumTitle" id="albumTitle" placeholder="add record title here"
@@ -179,9 +179,9 @@
                     <input type="text" name="comments" id="comments"
                         placeholder="add any comments about the record here" class="user-input form-control" />
                     <label for="comments" class="form-label" class="form-control">Comments (if any)</label>
-                </div></br>
+                </div><br>
                 <button type="submit" class="btn btn-success" value="Add New Record">Add Record to 'My Recommended
-                    Records'</button></br></br>
+                    Records'</button><br><br>
             </form>
         </div>
     </div>
@@ -205,37 +205,48 @@
 
     <div id="eddie-container" class="d-none mt-4 row">
         <h2 id="eddie-title"><u>Eddie's Rec of the Month</u></h2>
-        <h4 id="eddie-subtitle"><u>(May 2023)</i></u></h4>
+        <h4 id="eddie-subtitle"><u>(June 2023)</u></h4>
         <h5 id="eddie-description" class="col pt-4"><i>&#9733; hey! thanks for stopping by, here's an album
-                rec for ya. imo, nara leão is one of the most underrated bossa nova singers. 
-                her voice is angelic and this album in particular is so moody and gorgeous to me, it builds such a fun landscape for listeners. 
-                there's such youthful spirit on nara's debut that makes it the perfect late spring record to listen, sing, and dance to.
-                &hearts;</h5>
+                rec for ya. 
+                this album is a very special one to me, and this deluxe edition specifically, just came out two months ago! 
+                such a beloved band, only released this one album (a 10/10 one at that) under this name. 
+                this new deluxe edition has brand new album art + bonus tracks that bring new life into this release + band lore. 
+                shoegaze, baby.
+                &hearts;</i></h5>
         <div class="row">
-            <div id="eddie-rec-container" class="col-sm-12 col-lg-6 mt-5">
-                <img id="eddie-rec" src="./images/may2023rec.jpg">
+            <div id="eddie-rec-container" class="col-sm-12 col-lg-4 d-flex flex-column justify-content-center align-items-center">
+                <img id="eddie-rec" class="mt-sm-4" src="./images/june2023rec.jpeg">
             </div>
             <form id="eddie-form" class="col-sm-12 col-lg-4">
                 <label for="albumTitle" id="eddie-label" class="form-label">Album Title:</label>
-                <h4 id="eddie-input">Nara</h4>
-                <input type="text" name="albumTitle" id="albumTitle" value="Nara" readonly
+                <h4 id="eddie-input">Glitter (Deluxe Edition)</h4>
+                <input type="text" name="albumTitle" id="albumTitle" value="Glitter (Deluxe Edition)" readonly
                     class="d-none" />
                 <label for="artistName" id="eddie-label" class="form-label">Artist Name:</label>
-                <h4 id="eddie-input">Nara Leão</h4>
-                <input type="text" name="artistName" id="artistName" value="Nara Leão" readonly class="d-none" />
+                <h4 id="eddie-input">Pasteboard</h4>
+                <input type="text" name="artistName" id="artistName" value="Pasteboard" readonly class="d-none" />
                 <label for="yearReleased" id="eddie-label" class="form-label">Year Released:</label>
-                <h4 id="eddie-input">1964</h4>
-                <input type="number" name="yearReleased" id="yearReleased" value=1964 readonly class="d-none" />
+                <h4 id="eddie-input">2023</h4>
+                <input type="number" name="yearReleased" id="yearReleased" value=2023 readonly class="d-none" />
                 <label for="comments" id="eddie-label" class="form-label">Comments:</label>
-                <h4 id="eddie-input">very chic and fun sound, 1960s type hooligan ass girlies uplifiting one another type shit yfm</h4>
-                <input type="text" name="comments" id="comments" value="very chic and fun sound, 1960s type hooligan ass girlies uplifiting one another type shit yfm"
+                <h4 id="eddie-input">released on the great <a style="color:rgb(255, 118, 118)" onmouseover="this.style.color='rgb(217, 255, 0)'" onmouseout="this.style.color='rgb(255, 118, 118)'" href="https://www.7thheaven.earth" rel="noopener" target="_blank" alt="7th heaven label website">[7th heaven]</a> label <3 (u gotta check out their site, it's so sick)</h4>
+                <input type="text" name="comments" id="comments" value="released on the great [7th heaven] label <3"
                     readonly class="d-none" />
                 <button type="submit" id="add-eddie-rec" class="mt-3 btn btn-outline-warning" value="Add New Record">Add
-                    Eddie's Rec to Collection</button></br></br>
+                    Eddie's Rec to Collection</button><br><br>
             </form>
+            <div class="col-sm-12 col-lg-4 d-flex flex-column justify-content-center align-items-center">
+                <iframe
+                src="https://open.spotify.com/embed/album/6ab6g5mpzKmZQ8DKHjqqZd?utm_source=generator" 
+                width="75%" 
+                height="450"
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+            </iframe>
+        </div>
         </div>
     </div>
-
 </body>
-
 </html>
