@@ -346,9 +346,9 @@ h6 {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1440px) {
   body {
-    margin: 1vh 3vh;
+    margin: 2vh 3vh;
   }
 }
 
