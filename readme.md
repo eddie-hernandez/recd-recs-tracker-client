@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./src/assets/readme/noted-header.png">
+<img src="./images/noted-header.png">
 </div>
 
 #
