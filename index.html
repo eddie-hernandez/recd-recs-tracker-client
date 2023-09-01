@@ -1,276 +1,558 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=DotGothic16&family=IM+Fell+English:ital@0;1&family=MedievalSharp&family=Rosarivo&display=swap"
-        rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+      href="https://fonts.googleapis.com/css2?family=DotGothic16&family=IM+Fell+English:ital@0;1&family=MedievalSharp&family=Rosarivo&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./styles.css" type="text/css" />
-    <link rel="icon" type="image/x-icon" href="./images/noted-icon.png">
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="./images/noted-icon.png" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="./scripts/app.js" defer></script>
     <title>noted</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- header -->
-    <div id="navbar" class="col-sm col-md row d-lg-flex d-xl-flex d-xxl-flex align-items-center justify-content-center">
-        <div class="col d-none" id="help-modal">
-            <h4 class="help clickable" data-bs-toggle="modal" data-bs-target="#helpModal">?!?!?</h4>
-            <div class="modal fade" id="helpModal">
-                <div class="modal-dialog">
-                    <div class="modal-content p-3">
-                        <div class="modal-header sticky-top row" id="modalHeader">
-                            <div class="col-1"></div>
-                            <h3 class="col-10"><u>how 2 use noted</u></h3>
-                            <button class="btn-close col-1" data-bs-dismiss="modal" data-bs-target="#modal"></button>
-                        </div>
-                        <div class="modal-body">
-                            <h4><u>phase 1</u>: logging the album</h4>
-                            <h6>log a new record using the "add new record" form (add the "record title", "artist/band
-                                name", "year the album was released", and any "comments" you have (e.g. if your friend
-                                recommended it to you, note it!)</h6>
-                            <h4><u>phase 2</u>: adding a liner note</h4>
-                            <h6>after you've listened to the album you've logged, you can update the album to have a
-                                liner note! on the liner note, you'll add your rating of the album, a "standout track"
-                                (which track stood out the most to you), and any additional thoughts you want to log
-                                about the record.</h6>
-                            <h6>...and that's all there is to it! as long as you remember your login credentials, you'll
-                                find your records all in one place and can add any others along the way!</h6>
-                            <h4>other features:</h4>
-                            <h6>&#9733; check out the <i>'standout mix'</i>, where you'll find a playlist of all your
-                                standout tracks! the more standout tracks you log, the more you'll see on your mix :^ )
-                            </h6>
-                            <h6>&#9733; don't miss eddie's <i>record of the month</i>! he claims to be a 'music guy',
-                                idk you can judge him on that</h6>
-                        </div>
-                    </div>
-                </div>
+    <div
+      id="navbar"
+      class="col-sm col-md row d-lg-flex d-xl-flex d-xxl-flex align-items-center justify-content-center"
+    >
+      <div class="col d-none" id="help-modal">
+        <h4
+          class="help clickable"
+          data-bs-toggle="modal"
+          data-bs-target="#helpModal"
+        >
+          ?!?!?
+        </h4>
+        <div class="modal fade" id="helpModal">
+          <div class="modal-dialog">
+            <div class="modal-content p-3">
+              <div class="modal-header sticky-top row" id="modalHeader">
+                <div class="col-1"></div>
+                <h3 class="col-10"><u>how 2 use noted</u></h3>
+                <button
+                  class="btn-close col-1"
+                  data-bs-dismiss="modal"
+                  data-bs-target="#modal"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <h4><u>phase 1</u>: logging the album</h4>
+                <h6>
+                  log a new record using the "add new record" form (add the
+                  "record title", "artist/band name", "year the album was
+                  released", and any "comments" you have (e.g. if your friend
+                  recommended it to you, note it!)
+                </h6>
+                <h4><u>phase 2</u>: adding a liner note</h4>
+                <h6>
+                  after you've listened to the album you've logged, you can
+                  update the album to have a liner note! on the liner note,
+                  you'll add your rating of the album, a "standout track" (which
+                  track stood out the most to you), and any additional thoughts
+                  you want to log about the record.
+                </h6>
+                <h6>
+                  ...and that's all there is to it! as long as you remember your
+                  login credentials, you'll find your records all in one place
+                  and can add any others along the way!
+                </h6>
+                <h4>other features:</h4>
+                <h6>
+                  &#9733; check out the <i>'standout mix'</i>, where you'll find
+                  a playlist of all your standout tracks! the more standout
+                  tracks you log, the more you'll see on your mix :^ )
+                </h6>
+                <h6>
+                  &#9733; don't miss eddie's <i>record of the month</i>! he
+                  claims to be a 'music guy', idk you can judge him on that
+                </h6>
+              </div>
             </div>
+          </div>
         </div>
-        <div id="title-header"
-            class="mt-4 mt-md-0 col-lg col-xl col-xxl d-flex justify-content-center align-items-center column-gap-3">
-            <h1 id="noted-title" class="clickable">noted</h1>
-            <img src="./images/noted-icon.png" type="button" id="icon" class="main-icon rotate-center" />
-            <img src="./images/noted-icon-backup.png" type="button" id="icon" class="playlist-icon heartbeat" />
-            <img src="./images/noted-icon-backup2.png" type="button" id="icon" class="eddie-icon wobble-hor-bottom" />
-        </div>
-        <div id="user-sign-container" class="col-lg col-xl col-xxl d-flex justify-content-center align-items-center d-none">
-                <h5>hello, </h5>
-                <h5 class="username"></h5>
-            <h5>!&nbsp;|&nbsp;</h5>
-            <h5 id="logout" class="clickable">logout</h5>
-    </div>
-    <div class="mb-3" id="new-modal">
-        <h2 class="clickable" data-bs-toggle="modal" data-bs-target="#infoModal"><u>welcome 2 noted 8)</u></h2>
+      </div>
+      <div
+        id="title-header"
+        class="mt-4 mt-md-0 col-lg col-xl col-xxl d-flex justify-content-center align-items-center column-gap-3"
+      >
+        <h1 id="noted-title" class="clickable">noted</h1>
+        <img
+          src="./images/noted-icon.png"
+          type="button"
+          id="icon"
+          class="main-icon rotate-center"
+        />
+        <img
+          src="./images/noted-icon-backup.png"
+          type="button"
+          id="icon"
+          class="playlist-icon heartbeat"
+        />
+        <img
+          src="./images/noted-icon-backup2.png"
+          type="button"
+          id="icon"
+          class="eddie-icon wobble-hor-bottom"
+        />
+      </div>
+      <div
+        id="user-sign-container"
+        class="col-lg col-xl col-xxl d-flex justify-content-center align-items-center d-none"
+      >
+        <h5>hello,</h5>
+        <h5 class="username"></h5>
+        <h5>!&nbsp;|&nbsp;</h5>
+        <h5 id="logout" class="clickable">logout</h5>
+      </div>
+      <div class="mb-3" id="new-modal">
+        <h2
+          class="clickable"
+          data-bs-toggle="modal"
+          data-bs-target="#infoModal"
+        >
+          <u>welcome 2 noted 8)</u>
+        </h2>
         <div class="modal fade" id="infoModal">
-            <div class="modal-dialog">
-                <div class="modal-content p-sm-2 p-lg-4">
-                    <div class="modal-header row sticky-top" id="modalHeader">
-                        <div class="col-1"></div>
-                        <h2 class="col-10"><u>what is noted fr...</u></h2>
-                        <button class="btn-close col-1" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h4>noted is a minimal record-tracker application developed by <a href="https://eddie.works" rel="noopener" target="_blank">eddie hernandez</a>.</h4>
-                        <h5 class="mb-4">currently, the app allows users to log albums to their record collection, update said albums to include their favorite tracks, etc. here's some steps to get you started on noted:</h5>
-                        <h4>&#9733; step 1: sign up for a noted account (4 new users only)!</h4>
-                        <h6>noted is still in testing, so PLZ use fake credentials when making an account (email/pw combo you DO NOT use reguarly on the web), meaning if you've ever wanted to have the email 'swag@haha.gov' or 'silly@willy.net', now's your chance.</h6>
-                        <h4>&#9733; step 2: login 2 ur account (new + returning users)</h4>
-                        <h6>log albums that your friends may have recommended to you that's all there is to it! as long as you remember your login credentials, you'll
-                            find your records all in one place and can add any others along the way!</h6>
-                        <h4>&#9830;&#9826;&#9830; other noted features &#9830;&#9826;&#9830;</h4>
-                        <h6>&#9733; check out the <i>'standout mix'</i>, where you'll find a playlist of all your
-                            standout tracks! the more standout tracks you log, the more you'll see on your mix :^ )
-                        </h6>
-                        <h6>&#9733; don't miss eddie's <i>record of the month</i>! he claims to be a 'music guy',
-                            idk you can judge him on that</h6>
-                    </div>
-                </div>
+          <div class="modal-dialog">
+            <div class="modal-content p-sm-2 p-lg-4">
+              <div class="modal-header row sticky-top" id="modalHeader">
+                <div class="col-1"></div>
+                <h2 class="col-10"><u>what is noted fr...</u></h2>
+                <button
+                  class="btn-close col-1"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <h4>
+                  noted is a minimal record-tracker application developed by
+                  <a href="https://eddie.works" rel="noopener" target="_blank"
+                    >eddie hernandez</a
+                  >.
+                </h4>
+                <h5 class="mb-4">
+                  currently, the app allows users to log albums to their record
+                  collection, update said albums to include their favorite
+                  tracks, etc. here's some steps to get you started on noted:
+                </h5>
+                <h4>
+                  &#9733; step 1: sign up for a noted account (4 new users
+                  only)!
+                </h4>
+                <h6>
+                  noted is still in testing, so PLZ use fake credentials when
+                  making an account (email/pw combo you DO NOT use reguarly on
+                  the web), meaning if you've ever wanted to have the email
+                  'swag@haha.gov' or 'silly@willy.net', now's your chance.
+                </h6>
+                <h4>
+                  &#9733; step 2: login 2 ur account (new + returning users)
+                </h4>
+                <h6>
+                  log albums that your friends may have recommended to you
+                  that's all there is to it! as long as you remember your login
+                  credentials, you'll find your records all in one place and can
+                  add any others along the way!
+                </h6>
+                <h4>
+                  &#9830;&#9826;&#9830; other noted features
+                  &#9830;&#9826;&#9830;
+                </h4>
+                <h6>
+                  &#9733; check out the <i>'standout mix'</i>, where you'll find
+                  a playlist of all your standout tracks! the more standout
+                  tracks you log, the more you'll see on your mix :^ )
+                </h6>
+                <h6>
+                  &#9733; don't miss eddie's <i>record of the month</i>! he
+                  claims to be a 'music guy', idk you can judge him on that
+                </h6>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div id="auth-container" class="show-container gradient-custom">
+      <div id="auth-container" class="show-container gradient-custom">
         <div class="container">
-            <div class="row d-flex justify-content-center align-items-center">
-                <div id="user-form-container" class="card bg-warning text-black">
-                    <div class="card-body p-sm-4 p-lg-5 text-center">
+          <div class="row d-flex justify-content-center align-items-center">
+            <div id="user-form-container" class="card bg-warning text-black">
+              <div class="card-body p-sm-4 p-lg-5 text-center">
+                <!-- USER LOGIN -->
 
-                        <!-- USER LOGIN -->
-
-                        <div class="sign-in-container">
-                            <h3 class="fw-bold mb-2">* Login *</h3>
-                            <p class="text-black">Please enter your email and password:</p>
-                            <form class="user-login-form">
-                                <div class="form-floating">
-                                    <input type="email" id="email" class="form-control" placeholder="email" />
-                                    <label class="form-label text-black" for="email">Email</label>
-                                </div><br>
-                                <div class="form-floating">
-                                    <input type="password" id="password" class="form-control" placeholder="password" />
-                                    <label class="form-label text-black" for="password">Password</label>
-                                </div><br>
-                                <button class="btn btn-outline-dark btn-lg px-5" type="submit">Log me in!</button>
-                            </form><br>
-                            <div>
-                                <p class="mb-0">Don't have a noted account?</p>
-                                <a href="#" class="new-account btn-light text-black fw-bold">Sign Up!</a>
-                            </div>
-                        </div>
-
-                        <!-- USER SIGN-UP -->
-
-                        <div class="sign-up-container d-none">
-                            <h3 class="fw-bold mb-2">* Sign Up *</h3>
-                            <p class="text-white">Please enter a unique username, your email address, and password:</p>
-                            <form class="user-signup-form">
-                                <div class="form-floating">
-                                    <input type="text" id="username" class="form-control" placeholder="username" />
-                                    <label class="form-label text-black" for="username">Username</label>
-                                </div><br>
-                                <div class="form-floating">
-                                    <input type="email" id="email" class="form-control" placeholder="email" />
-                                    <label class="form-label text-black" for="email">Email</label>
-                                </div><br>
-                                <div class="form-floating">
-                                    <input type="password" id="password" class="form-control" placeholder="password" />
-                                    <label class="form-label text-black" for="password">Password</label>
-                                </div><br>
-                                <button class="btn btn-outline-light btn-lg px-5" type="submit">Sign me up!</button>
-                            </form><br>
-                            <div>
-                                <p class="mb-0">Already have a noted account?</p><a href="#"
-                                    class="existing-account btn-light text-white fw-bold">Login here!</a>
-                            </div>
-                        </div>
+                <div class="sign-in-container">
+                  <h3 class="fw-bold mb-2">* Login *</h3>
+                  <p class="text-black">
+                    Please enter your email and password:
+                  </p>
+                  <form class="user-login-form">
+                    <div class="form-floating">
+                      <input
+                        type="email"
+                        id="email"
+                        class="form-control"
+                        placeholder="email"
+                      />
+                      <label class="form-label text-black" for="email"
+                        >Email</label
+                      >
                     </div>
+                    <br />
+                    <div class="form-floating">
+                      <input
+                        type="password"
+                        id="password"
+                        class="form-control"
+                        placeholder="password"
+                      />
+                      <label class="form-label text-black" for="password"
+                        >Password</label
+                      >
+                    </div>
+                    <br />
+                    <button
+                      class="btn btn-outline-dark btn-lg px-5"
+                      type="submit"
+                    >
+                      Log me in!
+                    </button>
+                  </form>
+                  <br />
+                  <div>
+                    <p class="mb-0">Don't have a noted account?</p>
+                    <a href="#" class="new-account btn-light text-black fw-bold"
+                      >Sign Up!</a
+                    >
+                  </div>
                 </div>
+
+                <!-- USER SIGN-UP -->
+
+                <div class="sign-up-container d-none">
+                  <h3 class="fw-bold mb-2">* Sign Up *</h3>
+                  <p class="text-white">
+                    Please enter a unique username, your email address, and
+                    password:
+                  </p>
+                  <form class="user-signup-form">
+                    <div class="form-floating">
+                      <input
+                        type="text"
+                        id="username"
+                        class="form-control"
+                        placeholder="username"
+                      />
+                      <label class="form-label text-black" for="username"
+                        >Username</label
+                      >
+                    </div>
+                    <br />
+                    <div class="form-floating">
+                      <input
+                        type="email"
+                        id="email"
+                        class="form-control"
+                        placeholder="email"
+                      />
+                      <label class="form-label text-black" for="email"
+                        >Email</label
+                      >
+                    </div>
+                    <br />
+                    <div class="form-floating">
+                      <input
+                        type="password"
+                        id="password"
+                        class="form-control"
+                        placeholder="password"
+                      />
+                      <label class="form-label text-black" for="password"
+                        >Password</label
+                      >
+                    </div>
+                    <br />
+                    <button
+                      class="btn btn-outline-light btn-lg px-5"
+                      type="submit"
+                    >
+                      Sign me up!
+                    </button>
+                  </form>
+                  <br />
+                  <div>
+                    <p class="mb-0">Already have a noted account?</p>
+                    <a
+                      href="#"
+                      class="existing-account btn-light text-white fw-bold"
+                      >Login here!</a
+                    >
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
         <div id="user-message-container" class="mt-4"></div>
-    </div>
+      </div>
 
-    <!-- main page container -->
+      <!-- main page container -->
 
-    <div id="main-container" class="d-none">
+      <div id="main-container" class="d-none">
         <h2 id="record-collection" class="clickable">My Recommended Records</h2>
         <div id="message-container" class="row">
-            <div class="col-sm-5 col-md-4 col-lg-4 col-xl-4 col-xxl-4"></div>
-            <div id="record-message-container" class="col-sm-2 col-md-4 col-lg-4 col-xl-4 col-xxl-4"></div>
-            <div class="col-sm-5 col-md-4 col-lg-4 col-xl-4 col-xxl-4"></div>
+          <div class="col-sm-5 col-md-4 col-lg-4 col-xl-4 col-xxl-4"></div>
+          <div
+            id="record-message-container"
+            class="col-sm-2 col-md-4 col-lg-4 col-xl-4 col-xxl-4"
+          ></div>
+          <div class="col-sm-5 col-md-4 col-lg-4 col-xl-4 col-xxl-4"></div>
         </div>
-        <div id="show-all-container" class="row justify-content-center align-items-center">
-            <div id="show-record-container" class="col-md-3 col-lg-3 col-xl-3 col-xxl-3"></div>
-            <div id="liner-note-container" class="col-md-3 col-lg-3 col-xl-3 col-xxl-3 align-self-sm-start align-self-md-start align-self-lg-start align-self-xl-start align-self-xxl-start">
-                <div id="liner-note-form-container"></div>
-                <div id="delete-liner-note-container"></div>
-            </div>
+        <div
+          id="show-all-container"
+          class="row justify-content-center align-items-center"
+        >
+          <div
+            id="show-record-container"
+            class="col-md-3 col-lg-3 col-xl-3 col-xxl-3"
+          ></div>
+          <div
+            id="liner-note-container"
+            class="col-md-3 col-lg-3 col-xl-3 col-xxl-3 align-self-sm-start align-self-md-start align-self-lg-start align-self-xl-start align-self-xxl-start"
+          >
+            <div id="liner-note-form-container"></div>
+            <div id="delete-liner-note-container"></div>
+          </div>
         </div>
         <div id="index-record-container"></div>
         <div id="empty-library-container"></div>
-        <div class="d-flex justify-content-center" id="re-index-records-container">
-            <button class="d-none btn btn-warning" id="re-index-records-button">Back to Record
-                Collection</button>
-        </div><br>
-
-
+        <div
+          class="d-flex justify-content-center"
+          id="re-index-records-container"
+        >
+          <button class="d-none btn btn-warning" id="re-index-records-button">
+            Back to Record Collection
+          </button>
+        </div>
+        <br />
 
         <div class="create-record-container">
-            <button class="btn btn-dark p-3" data-bs-toggle="collapse" data-bs-target="#create-record-form"
-                aria-expanded="false" aria-controls="row" id="add-record-button">Add New Record</button><br><br>
-            <form id="create-record-form" class="col-6 offset-3 collapse">
-                <div class="form-floating">
-                    <input type="text" name="albumTitle" id="albumTitle" placeholder="add record title here"
-                        class="user-input form-control" />
-                    <label for="albumTitle" class="form-label" class="form-control">Record Title</label>
-                </div>
-                <div class="form-floating">
-                    <input type="text" name="artistName" id="artistName" placeholder="add artist name here"
-                        class="user-input form-control" />
-                    <label for="artistName" class="form-label" class="form-control">Artist Name</label>
-                </div>
-                <div class="form-floating">
-                    <input type="number" name="yearReleased" id="yearReleased" placeholder="year record was released"
-                        class="user-input form-control" />
-                    <label for="yearReleased" class="form-label" class="form-control">Year Released</label>
-                </div>
-                <div class="form-floating">
-                    <input type="text" name="comments" id="comments"
-                        placeholder="add any comments about the record here" class="user-input form-control" />
-                    <label for="comments" class="form-label" class="form-control">Comments (if any)</label>
-                </div><br>
-                <button type="submit" class="btn btn-success" value="Add New Record">Add Record to 'My Recommended
-                    Records'</button><br><br>
-            </form>
-        </div>
-    </div>
-
-    <!-- playlist page-->
-
-    <div id="playlist-page-container" class="d-none mt-4 row">
-
-        <h2 id="playlist-title"><u>&#9834; Standouts Mix &#9834;</u></h2>
-        <div id="subtitle-container" class="row justify-content-center align-items-center">
-            <div>
-                <h4 id="playlist-subtitle"><i>this playlist is comprised of all your standout tracks! don't forget to
-                        create a liner note to add more standout tracks to your standout mix!</i></h4>
+          <button
+            class="btn btn-dark p-3"
+            data-bs-toggle="collapse"
+            data-bs-target="#create-record-form"
+            aria-expanded="false"
+            aria-controls="row"
+            id="add-record-button"
+          >
+            Add New Record</button
+          ><br /><br />
+          <form id="create-record-form" class="col-6 offset-3 collapse">
+            <div class="form-floating">
+              <input
+                type="text"
+                name="albumTitle"
+                id="albumTitle"
+                placeholder="add record title here"
+                class="user-input form-control"
+              />
+              <label for="albumTitle" class="form-label" class="form-control"
+                >Record Title</label
+              >
             </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                name="artistName"
+                id="artistName"
+                placeholder="add artist name here"
+                class="user-input form-control"
+              />
+              <label for="artistName" class="form-label" class="form-control"
+                >Artist Name</label
+              >
+            </div>
+            <div class="form-floating">
+              <input
+                type="number"
+                name="yearReleased"
+                id="yearReleased"
+                placeholder="year record was released"
+                class="user-input form-control"
+              />
+              <label for="yearReleased" class="form-label" class="form-control"
+                >Year Released</label
+              >
+            </div>
+            <div class="form-floating">
+              <input
+                type="text"
+                name="comments"
+                id="comments"
+                placeholder="add any comments about the record here"
+                class="user-input form-control"
+              />
+              <label for="comments" class="form-label" class="form-control"
+                >Comments (if any)</label
+              >
+            </div>
+            <br />
+            <button
+              type="submit"
+              class="btn btn-success"
+              value="Add New Record"
+            >
+              Add Record to 'My Recommended Records'</button
+            ><br /><br />
+          </form>
+        </div>
+      </div>
+
+      <!-- playlist page-->
+
+      <div id="playlist-page-container" class="d-none mt-4 row">
+        <h2 id="playlist-title"><u>&#9834; Standouts Mix &#9834;</u></h2>
+        <div
+          id="subtitle-container"
+          class="row justify-content-center align-items-center"
+        >
+          <div>
+            <h4 id="playlist-subtitle">
+              <i
+                >this playlist is comprised of all your standout tracks! don't
+                forget to create a liner note to add more standout tracks to
+                your standout mix!</i
+              >
+            </h4>
+          </div>
         </div>
         <div id="playlist-container"></div>
-    </div>
+      </div>
 
+      <!-- eddie's page -->
 
-    <!-- eddie's page -->
-
-    <div id="eddie-container" class="d-none mt-4 row">
+      <div id="eddie-container" class="d-none mt-4 row">
         <h2 id="eddie-title"><u>Eddie's Rec of the Month</u></h2>
-        <h4 id="eddie-subtitle"><u>(August 2023)</u></h4>
-        <h5 id="eddie-description" class="col pt-4"><i>&#9733; hey! thanks for stopping by noted, here's an album rec for ya. sonically, i hear this as more of an early spring record, but i felt the rec this month needed a genre switch up. this is an incredibly underrated release, ravyn is exceptional...she was 15 years old when this came out! that's wild to me. hope u enjoy!
-            &#9733;</i></h5>
+        <h4 id="eddie-subtitle"><u>(September 2023)</u></h4>
+        <h5 id="eddie-description" class="col pt-4">
+          <i
+            >&#9733; hey! thanks for stopping by noted, here's an album rec for
+            ya. this month, i present to you the perfect end of summer album. i
+            think very fond memories of driving up pch along the malibu coast
+            when i hear these songs. every song is tinged with warm analog fuzz
+            and the catchiest pop melodies that are truly unmatched. i think
+            sean nicholas savage is a literal genius and 'flamingo', amongst
+            several other sns albums, is one of my favorite albums of all time,
+            without a doubt. enjoy! &#9733;</i
+          >
+        </h5>
         <div class="row">
-            <div id="eddie-rec-container" class="col-sm-12 col-lg-4 d-flex flex-column justify-content-center align-items-center">
-                <img id="eddie-rec" class="mt-sm-4" src="./images/aug2023rec.jpeg">
-            </div>
-            <form id="eddie-form" class="col-sm-12 col-lg-4">
-                <label for="albumTitle" id="eddie-label" class="form-label">Album Title:</label>
-                <h4 id="eddie-input">Moon Shoes EP</h4>
-                <input type="text" name="albumTitle" id="albumTitle" value="Moon Shoes EP" readonly
-                    class="d-none" />
-                <label for="artistName" id="eddie-label" class="form-label">Artist Name:</label>
-                <h4 id="eddie-input">Ravyn Lenae</h4>
-                <input type="text" name="artistName" id="artistName" value="Ravyn Lenae" readonly class="d-none" />
-                <label for="yearReleased" id="eddie-label" class="form-label">Year Released:</label>
-                <h4 id="eddie-input">2015</h4>
-                <input type="number" name="yearReleased" id="yearReleased" value=2015 readonly class="d-none" />
-                <label for="comments" id="eddie-label" class="form-label">Comments:</label>
-                <h4 id="eddie-input">it calls itself an 'EP' but it's literally 10 songs long. it's a damn album, let's be honest...</h4>
-                <input type="text" name="comments" id="comments" value="it calls itself an 'ep' but it's literally 10 songs long. it's a damn album, let's be honest..."
-                    readonly class="d-none" />
-                <button type="submit" id="add-eddie-rec" class="mt-3 btn btn-outline-warning" value="Add New Record">Add
-                    Eddie's Rec to Collection</button><br><br>
-            </form>
-            <div class="col-sm-12 col-lg-4 d-flex flex-column justify-content-center align-items-center">
-                <iframe
-                src="https://open.spotify.com/embed/album/57X0V74PxWKM2fuyf283tE?utm_source=generator" 
-                width="75%" 
-                height="450"
-                frameBorder="0" 
-                allowfullscreen="" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                loading="lazy">
+          <div
+            id="eddie-rec-container"
+            class="col-sm-12 col-lg-4 d-flex flex-column justify-content-center align-items-center"
+          >
+            <img
+              id="eddie-rec"
+              class="mt-sm-4"
+              src="./images/sep2023rec.jpeg"
+            />
+          </div>
+          <form id="eddie-form" class="col-sm-12 col-lg-4">
+            <label for="albumTitle" id="eddie-label" class="form-label"
+              >Album Title:</label
+            >
+            <h4 id="eddie-input">Flamingo</h4>
+            <input
+              type="text"
+              name="albumTitle"
+              id="albumTitle"
+              value="Flamingo"
+              readonly
+              class="d-none"
+            />
+            <label for="artistName" id="eddie-label" class="form-label"
+              >Artist Name:</label
+            >
+            <h4 id="eddie-input">Sean Nicholas Savage</h4>
+            <input
+              type="text"
+              name="artistName"
+              id="artistName"
+              value="Sean Nicholas Savage"
+              readonly
+              class="d-none"
+            />
+            <label for="yearReleased" id="eddie-label" class="form-label"
+              >Year Released:</label
+            >
+            <h4 id="eddie-input">2011</h4>
+            <input
+              type="number"
+              name="yearReleased"
+              id="yearReleased"
+              value="2011"
+              readonly
+              class="d-none"
+            />
+            <label for="comments" id="eddie-label" class="form-label"
+              >Comments:</label
+            >
+            <h4 id="eddie-input">
+              drive along the coast, watch the summer sunset, and bask in the
+              glow from the cotton candy sky
+            </h4>
+            <input
+              type="text"
+              name="comments"
+              id="comments"
+              value="drive along the coast, watch the summer sunset, and bask in the glow from
+              the cotton candy sky"
+              readonly
+              class="d-none"
+            />
+            <button
+              type="submit"
+              id="add-eddie-rec"
+              class="mt-3 btn btn-outline-warning"
+              value="Add New Record"
+            >
+              Add Eddie's Rec to Collection</button
+            ><br /><br />
+          </form>
+          <div
+            class="col-sm-12 col-lg-4 d-flex flex-column justify-content-center align-items-center"
+          >
+            <iframe
+              src="https://open.spotify.com/embed/album/5BnYT7y6HaxH4ctmmkO7My?utm_source=generator"
+              width="75%"
+              height="450"
+              frameborder="0"
+              allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            >
             </iframe>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
